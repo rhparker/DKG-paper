@@ -22,6 +22,35 @@
 \usepackage{makecell}
 \usepackage{array}
 
+\usepackage[capitalize,nameinlink]{cleveref}
+% Per SIAM Style Manual, "section" should be lowercase
+\crefname{section}{section}{sections}
+\crefname{subsection}{subsection}{subsections}
+\Crefname{section}{Section}{Sections}
+\Crefname{subsection}{Subsection}{Subsections}
+
+% Per SIAM Style Manual, "Figure" should be spelled out in references
+\Crefname{figure}{Figure}{Figures}
+
+% Per SIAM Style Manual, don't say equation in front on an equation.
+\crefformat{equation}{\textup{#2(#1)#3}}
+\crefrangeformat{equation}{\textup{#3(#1)#4--#5(#2)#6}}
+\crefmultiformat{equation}{\textup{#2(#1)#3}}{ and \textup{#2(#1)#3}}
+{, \textup{#2(#1)#3}}{, and \textup{#2(#1)#3}}
+\crefrangemultiformat{equation}{\textup{#3(#1)#4--#5(#2)#6}}%
+{ and \textup{#3(#1)#4--#5(#2)#6}}{, \textup{#3(#1)#4--#5(#2)#6}}{, and \textup{#3(#1)#4--#5(#2)#6}}
+
+% But spell it out at the beginning of a sentence.
+\Crefformat{equation}{#2Equation~\textup{(#1)}#3}
+\Crefrangeformat{equation}{Equations~\textup{#3(#1)#4--#5(#2)#6}}
+\Crefmultiformat{equation}{Equations~\textup{#2(#1)#3}}{ and \textup{#2(#1)#3}}
+{, \textup{#2(#1)#3}}{, and \textup{#2(#1)#3}}
+\Crefrangemultiformat{equation}{Equations~\textup{#3(#1)#4--#5(#2)#6}}%
+{ and \textup{#3(#1)#4--#5(#2)#6}}{, \textup{#3(#1)#4--#5(#2)#6}}{, and \textup{#3(#1)#4--#5(#2)#6}}
+
+% Make number non-italic in any environment.
+\crefdefaultlabelformat{#2\textup{#1}#3}
+
 \def\noi{\noindent}
 \def\T{{\mathbb T}}
 \def\R{{\mathbb R}}
@@ -43,81 +72,323 @@
 \newtheorem{corollary}{Corollary}
 \newtheorem{definition}{Definition}
 \newtheorem{proposition}{Proposition}
-\newtheorem{assumption}{Assumption}
 \newtheorem{hypothesis}{Hypothesis}
 
 \newtheorem{notation}{Notation}
 
 \begin{document}
 
-\section{Kink/antikinks in discrete Klein Gordon}
+\section{Kink-antikinks in discrete Klein Gordon}
 
-Reference is Kevrekidis and Weinstein (2000). Discrete Klein-Gordon equation
-\[
+Main references are \cite{KevrekidisWeinstein2000} and \cite{Kapitula2001}. The discrete Klein-Gordon equation (DKG) is given by
+\begin{equation}\label{eq:KG}
 \ddot{u_n} = d (\Delta_2 u)_n - f(u_n)
-\]
-where $\Delta_2$ is the discrete second difference operator. Versions we are interested in are discrete sine-Gordon, where $f(u) = \sin(u)$, and $\phi^4$ variant, where $f(u) = -2(u-u^3)$.
-
-\subsection{Discrete sine-Gordon}
-\[
-\ddot{u_n} = d (\Delta_2 u)_n - \sin(u_n)
-\]
-Equilibrium solutions (standing waves) satisfy 
-\[
-d (\Delta_2 u)_n - \sin(u_n) = 0
-\]
-This has stable steady states $0, 2 \pi$ and unstable steady state $\pi$. Kinks are heteroclinic orbits connecting 0 to $2 \pi$, anti-kinks go the other way. Kinks known to exist (Kevrekidis and Weinstein, 2000), anti-kinks exist by symmetry. For an equilibrium solution $u_n$ (kink, etc.), eigenvalue problem is 
-\[
-d (\Delta_2 v)_n - \cos(u_n)v_n = \lambda^2 v_n
-\]
-Considered as an eigenvalue problem for $\lambda^2$, this is self-adjoint (symmetric, infinite dimensional matrix), so $\lambda^2$ is always real, which means that $\lambda$ must be either real or pure imaginary. 
-
-Two distinctly kinks are possible, defined by what happens at AC limit.
+\end{equation}
+where $\Delta_2$ is the discrete second difference operator and $f(u) = V'(u)$ for a smooth potential function $V(u)$. Versions we are interested in are discrete sine-Gordon, where $f(u) = -\sin(u)$, and $\phi^4$ variant, where $f(u) = -u(1-u^2)$. Importantly, $f(u)$ satisfies the following properties.
 \begin{itemize}
-	\item intersite-centered: $(\dots, 0,0,0,2\pi,2\pi,2\pi,\dots)$
-	\item onsite-centered: $(\dots, 0,0,0,\pi,2\pi,2\pi,\dots)$
+	\item $f(u)$ is an odd function (so $f(0) = 0$) and $f'(0) < 0$
+	\item there is a pair of nonzero equilibria $\pm u^*$ with $f(\pm u^*) = 0$ and $f'(u^*) = f'(-u^*) > 0$
+	\item there are no other equilibria in $[-u^*, u^*]$
 \end{itemize}
-Intersite-centered kink has a symmetric pair of imaginary eigenvalues which are well-separated from continuous spectrum (Goldstone mode) and two imaginary eigenvalues which abut the continuous spectrum (edge modes). Edge modes do not exist for all values of $d$. Goldstone mode eigenvalues approach 0 as $d \rightarrow \infty$, where they ``merge'' to form symmetry eigenvalue of continuum equation. Continuous spectrum is band on imaginary axis separated from origin.
 
-\begin{figure}[H]
-\begin{center}
-\begin{tabular}{c}
-\includegraphics[height=4cm,width=15cm]{intersite.eps} \\
-\end{tabular}
-\end{center}
-\caption{Intersite-centered kink. From left to right, plot of kink, spectrum, eigenfunction corresponding to Goldstone mode, and eigenfunction corresponding to edge mode. Goldstone mode eigenvalues $\lambda_g = \pm 0.5258i$. Edge mode eigenvalues $\lambda = 0.99438i$. Coupling constant $d = 0.55$. Generated from continuation from AC limit.}
-\end{figure}
+Equilibrium solutions (standing waves) satisfy 
+\begin{equation}\label{eq:KGeq}
+d (\Delta_2 u)_n - f(u_n) = 0
+\end{equation}
 
-Onsite-centered incorporates the unsteady steady state in the middle of the kink. Onside-centered kink has a pair of real eigenvalues, so it is unstable. There does not appear to be an edge mode, at least not numerically. 
-\begin{figure}[H]
-\begin{center}
-\begin{tabular}{c}
-\includegraphics[height=4cm,width=15cm]{onsite.eps} \\
-\end{tabular}
-\end{center}
-\caption{Onsite-centered kink. From left to right, plot of kink, spectrum, eigenfunction corresponding to real eigenvalue. Coupling constant $d = 0.40$. Generated from continuation from AC limit.}
-\end{figure}
+Linearization about an solution $u_n$ (kink, etc.) give us the eigenvalue problem
+\[
+d (\Delta_2 v)_n - f'(u_n)v_n = \lambda^2 v_n
+\]
+Considered as an eigenvalue problem for $\lambda^2$, this is self-adjoint (symmetric, infinite dimensional matrix), so $\lambda^2$ is always real, which means that $\lambda$ must be either real or pure imaginary. Taking $\omega = \lambda^2$, we write the eigenvalue problem as
+\begin{equation}\label{eq:evp}
+d (\Delta_2 v)_n - f'(u_n)v_n = \omega v_n,
+\end{equation}
+where the eigenvalues are $\lambda = \pm \sqrt{\omega}$.
 
-For kink-antikink interactions, we can splice together as many kinks and antikinks as we want. Numerically, we do this from parameter continuation from AC limit. We can do this for both intersite-centered and onsite-centered kinks (and can use a combination of both if we like), but here we only do intersite-centered ones (since the original kink is stable in that case). A single kink-antikink is like a double pulse, and each eigenvalue is doubled. We can keep playing this game. A kink-antikink-kink is like a triple pulse, and each eigenvalue is tripled, etc. The duplicated eigenvalues are ``exponentially close'' to those of the original kink.
-\begin{figure}[H]
-\begin{center}
-\begin{tabular}{c}
-\includegraphics[height=4cm,width=10cm]{kinkantikink1.eps} \\
-\includegraphics[height=4cm,width=10cm]{kinkantikinkkink1.eps} \\
-\end{tabular}
-\end{center}
-\caption{Kink-antikink (top) and kink-antikink-kink (bottom) with onsite kinks with spectrum. Coupling constant $d = 0.4$. This shows doubling and tripling of the Goldstone mode. The edge mode also duplicates, but it is too close to the continuous spectrum to see in the plot.}
-\end{figure}
+Using a spatial dynamics approach, let $U(n) = (u(n), \tilde{u}(n)) = (u_n, u_{n-1})$. Then this is equivalent to the lattice dynamical system in $\R^2$
+\begin{equation}\label{eq:dynEq}
+U(n+1) = F(U(n)),
+\end{equation}
+where
+\[
+F\begin{pmatrix}u \\ \tilde{u} \end{pmatrix} =
+\begin{pmatrix}2u - \tilde{u} + \frac{1}{d}f(u) \\
+u
+\end{pmatrix}
+\]
+This map has three fixed points $(0,0)$ and $(\pm u^*, \pm u^*)$. For convenience, let $S^\pm = (\pm u^*, \pm u^*)^T$. Linearizing about the fixed points $S^\pm$, we obtain the matrix 
+\[
+D F(S^\pm)=
+\begin{pmatrix}2 + \frac{1}{d}f'(\pm u^*) & -1 \\ 1 & 0
+\end{pmatrix}
+\]
+Since $f'(\pm u^*) > 0$, this has a pair of eigenvalues $\{ r, 1/r \}$ with $r > 0$, where
+\[
+r = \frac{1}{2d}\left( f'(u^*) + 2d + \sqrt{f'(u^*)(f'(u^*) + 4d)} \right)
+\]
 
-To look at eigenfunctions of kink-antikink, we will make the kink and antikink ``well-separated''. We see that the dupicated eigenfunctions are approximately linear combinations (up-up and up-down) of the original kink eigenfunctions. This occurs for both the Goldstone mode and the edge mode. This suggests that we can construct both the kink-antikinks and these eigenfunctions with Lin's method.
-\begin{figure}[H]
-\includegraphics[width=17cm]{kinkantikink2.eps} \\
-\caption{Kink-antikink and spectrum. Eigenfunctions for doubled Goldstone mode (middle). Eigenfunctions for doubled edge mode (bottom). Coupling constant $d = 0.55$.}
-\end{figure}
+Thus $S^\pm$ are hyperbolic saddle equilibria of the lattice dynamical system \cref{eq:dynEq}. We take the existence of a symmetric kink as a hypothesis. From the spatial dynamics perspective, this is a heteroclinic orbit connecting the saddle at $(-u^*, -u^*)$ to the saddle at $(u^*, -u^*)$.
 
-\subsection{Discrete $\phi^4$}
+\begin{hypothesis}\label{hyp:kinkexists}
+There exists a kink solution $K(n)$ to \cref{eq:dynEq} which connects the unstable manifold $W^u(-u^*, -u^*)$ and the stable manifold $W^s(u^*, u^*)$. These manifolds intersect transversely in $\R^2$. The kink solution has one of the following odd symmetries:
+\begin{itemize}
+	\item $K(-n) = -K(n-1)$ (``intersite'' symmetry)
+	\item $K(-n) = -K(n)$ (``onsite'' symmetry)
+\end{itemize}
+\end{hypothesis}
 
-Exactly the same thing happens, except the initial kink can also have another imaginary eigenmode (shape mode), which also duplicates.
+Since $f(u)$ is an odd function, if $u_n$ is a solution to \cref{eq:KGeq}, so is $-u_n$. Thus for every kink solution $K(n)$ to \cref{eq:dynEq} there is a corresponding antikink solution $\tilde{K}(n) = -K(n)$.
+
+We can now construct multi-kink solutions by joining together kinks and anti-kinks end-to-end. Given the symmetry just discussed, we can always without loss of generality start with a kink solution.
+
+We will characterize a multi-kink in the following way. Let $m > 1$ be the total number of kinks and antikinks. Let $N_i$ ($i = 1, \dots, m-1$) be the distances (in lattice points) between consecutive kinks/anti-kinks. We seek a solution which can be written piecewise in the form 
+\begin{equation}\label{Upiecewise}
+\begin{aligned}
+U_i^-(n) &= c_i K(n) + \tilde{K}_i^-(n) && n \in [-N_{i-1}^-, 0] \\
+U_i^+(n) &= c_i K(n) + \tilde{K}_i^+(n) && n \in [0, N_i^+],
+\end{aligned}
+\end{equation}
+where $c_i = (-1)^{i+1}$, $N_i^+ = \lfloor \frac{N_i}{2} \rfloor$, $N_i^- = N_i - N_i^+$, $N_0^- = N_m^+ = \infty$, and
+\begin{equation}\label{defN}
+N = \frac{1}{2} \min\{ N_i \}.
+\end{equation}
+The individual pieces are joined together end-to-end as in \cite{Sandstede1998}. The functions $\tilde{K}_i^\pm(n)$ are remainder terms, which we expect to be small. We then have the following theorem.
+
+\begin{theorem}\label{th:KaKexists}
+Assume \cref{hyp:kinkexists}. Then there exists a positive integer $N_0$ with the following property. For all $m > 1$ and distances $N_i \geq N_0$, there exists a unique solution $U(n)$ which is composed of $m$ alternating kinks and anti-kinks and can be written piecewise in the form \cref{Upiecewise}. For the remainder terms $\tilde{K}_i^\pm(n)$, we have the estimates
+\begin{equation}\label{eq:Westimates}
+\begin{aligned}
+\|\tilde{K}_i^\pm\| &\leq C r^{-N} \\
+\tilde{K}_i^+(N_i^+) &= c_{i+1} K(-N_i^-) + \mathcal{O}(r^{-2N}) \\
+\tilde{K}_{i+1}^-(-N_i^-) &= c_i K(N_i^+) + \mathcal{O}(r^{-2N}) .
+\end{aligned}
+\end{equation}
+WE WILL ACTUALLY NEED BETTER ESTIMATES BUT I KNOW HOW TO DO IT.
+\end{theorem}
+
+For spectral stability, rewrite the eigenvalue problem \cref{eq:evp} as a lattice dynamical system by taking $V(n) = (v(n), \tilde{v}(n)) = (v_n, v_{n-1})$. Then \cref{eq:evp} is equivalent to the lattice dynamical system in $\R^2$
+\begin{equation}\label{eq:EVPdyneq}
+V(n+1) = D F( U(n) )V(n) + \omega B V(n),
+\end{equation}
+where
+\[
+B = \frac{1}{d}
+\begin{pmatrix}1 & 0 \\ 0 & 0
+\end{pmatrix}
+\] 
+
+\section{Proof of existence results}
+
+THIS WILL NEED TO BE REDONE A BIT SINCE WE WILL NEED BETTER ESTIMATES THAN ARE IN \cite{Parker2020}. SHOULD BE STRAIGHTFORWARD.
+
+First, we rewrite the system as a fixed point problem. Expanding $F(u)$ in a Taylor series about $c_i K(n)$, we get
+\begin{align*}
+F(U_i^\pm(n)) &= F(c_i K(n) + \tilde{K}_i^-(n)) = 
+D F(c_i K(n)) \tilde{K}_i^\pm(n) + G(\tilde{K}_i^\pm(n)),
+\end{align*}
+where $G(\tilde{K}_i^\pm(n)) = \mathcal{O}(|\tilde{K}_i^\pm|^2)$ with $G(0) = 0$ and $DG(0) = 0$. Since $f(u)$ is even, $f'(u)$ is odd, thus $D F(c_i K(n)) = D F(K(n))$, and so this becomes
+\begin{align*}
+F(U_i^\pm(n)) &= 
+D F(K(n)) \tilde{K}_i^\pm(n) + G(\tilde{K}_i^\pm(n)),
+\end{align*}
+Let
+\begin{align}\label{didef}
+d_i &= c_{i+1} K(-N_i^-) - c_i K(N_i^+).
+\end{align}
+Substituting these, we obtain the following system of equations for the remainder functions $\tilde{K}_i^\pm$.
+\begin{align}
+\tilde{K}_i^\pm(n+1) &= D F(K(n)) \tilde{K}_i^\pm(n) + G(\tilde{K}_i^\pm(n)) \label{eq:Wsystem1} \\
+\tilde{K}_i^+(N_i^+) - \tilde{K}_{i+1}^-(-N_i^-) &= d_i \label{eq:Wsystem2} \\
+\tilde{K}_i^+(0) - \tilde{K}_i^-(0) &= 0. \label{eq:Wsystem3}
+\end{align}
+Let $\Phi(m, n)$ be the evolution operators for the linear difference equation 
+\[
+V(n+1) = D F(K(n)) V(n).
+\]
+By the stable manifold theorem, $|K(n) - S^+| \leq C r^{-|n|}$ for $n \geq 0$ and $|K(n) - S^-| \leq C r^{-|n|}$ for $n \leq 0$. Since $S^\pm$ are hyperbolic, we can decompose the evolution operator $\Phi(m, n)$ in exponential dichotomies on $\Z^\pm$. The proof then follows that of \cite[Theorem 3]{Parker2020}. Briefly, we write equation \cref{eq:Wsystem1} in fixed-point form using the discrete variation of constants formula together with projections on the stable and unstable subspaces of the exponential dichotomy. As long as $N$ is sufficiently large, we use the implicit function theorem to solve for the remainder functions $\tilde{K}_i^\pm$ as well as the matching conditions \cref{eq:Wsystem2} and \cref{eq:Wsystem3}. Since $W^u(S^-)$ and $W^s(S^+)$ intersect transversely, we have the decomposition $\R^2 = T_{K(0)}W^u(S^-)\oplus T_{K(0)}W^s(S^+)$. As in the proof of \cite[Theorem 3]{Parker2020}, solving \cref{eq:Wsystem3} does not involve jump conditions.
+
+\section{Proof of stability results}
+
+For the primary kink $K(n) = (k_n, \tilde{k}_n)$, let $v_0(n)$ be an eigenfunction with corresponding eigenvalue $\lambda_0$, let $\omega_0 = \lambda_0^2$, and let $V_0(n) = (v_0(n), \tilde{v}_0(n)) = (v_0(n), v_0(n-1))$ so that $V_0(n)$ solves the equation
+\begin{equation}\label{eq:V0solves}
+V_0(n+1) = D F( K(n) )V_0(n) + \omega_0 B V_0(n)
+\end{equation}
+For the kink-antikink solution $U(n)$, we will take an ansatz which is a piecewise perturbation of $V_0(n)$. Let
+\begin{equation}\label{eq:Viansatz}
+V_i^\pm(n) = d_i c_i V_0(n) + W_i^\pm(n),
+\end{equation}
+where $d_i \in \C$ and $c_i = (-1)^{i+1}$. Substituting this into \cref{eq:EVPdyneq} and simplifying using \cref{eq:V0solves}, the eigenvalue problem becomes
+\begin{equation}\label{eq:Weq1}
+\begin{aligned}
+W_i^\pm(n+1)
+&= DF(c_i K(n)) W_i^\pm(n) + \omega_0 B W_i^\pm(n) \\
+&\qquad + [G_i^\pm(n) + (\omega - \omega_0) B](d_i c_i V_0(n) W_i^\pm(n))
+\end{aligned}
+\end{equation}
+where
+\[
+G_i^\pm(n) = DF(U_i^\pm(n)) - DF(c_i K(n)).
+\]
+Let 
+\[
+A_i(n; \omega_0) = DF(c_i K(n)) + \omega_0 B
+\]
+Then \cref{eq:Weq1} becomes
+\begin{align}\label{eq:Weq2}
+W_i^\pm(n+1)
+&= A_i(n; \omega_0) W_i^\pm(n) + [G_i^\pm(n) + (\omega - \omega_0) B](d_i c_i V_0(n) + W_i^\pm(n)).
+\end{align}
+
+As long as $|\omega_0| < f'(\pm u*)$ (WHICH WE SHOULD BE ABLE TO SHOW OR CAN ASSUME, IN ANY CASE IT IS REASONABLE GIVEN TYPICAL $f)$), $A_i(n)$ is exponentially asymptotic to a constant matrix with an exponential dichotomy, so it has one as well. WE CAN NOW USE ALL THE EXPONENTIAL DICHOTOMY TRICKS WE KNOW.
+
+In addition to solving \cref{eq:Weq2}, the eigenfunction must satisfy matching conditions at $n = \pm N_i$ and $n = 0$. Thus the system of equations we need to solve is
+\begin{equation}\label{eq:eigWsystem1}
+\begin{aligned}
+& W_i^\pm(n+1)
+= A_i(n; \omega_0) W_i^\pm(n) + [G_i^\pm(n) + (\omega - \omega_0) B](d_i c_i V_0(n) + W_i^\pm(n))\\
+& W_i^+(N_i^+) - W_{i+1}^-(-N_i^-) &= D_i d \\
+& W_i^+(0) - W_i^-(0) = 0,
+\end{aligned}
+\end{equation}
+where
+\begin{equation}\label{defDid}
+D_i d = d_{i+1} c_{i+1} V_0(-N_i^-) - d_i c_i V_0(N_i^+)
+\end{equation}
+
+Things to note:
+\begin{itemize}
+\item Equation $V(n+1) = A(n; \lambda_0)$ has unique bounded solution $V_0(n) = (v_0(n), v_0(n-1))$. Let $\Phi(m, n; \lambda_0)$ be the evolution operator for this.
+\item Adjoint equation $Z(n) = A(n; \lambda_0)^* Z(n+1)$ has unique bounded solution $Z_0(n) = (-v_0(n-1), v_0(n))$ which is orthogonal to $Z_0(n)$. (This uses the fact that $\lambda_0$ is real or pure imaginary when we take the adjoint).
+\item $A(n; \lambda_0)$ is exponentially asymptotic (on both ends) to a hyperbolic matrix $A_0$ with 1-dimensional stable and unstable eigenspaces $E^s$ and $E^u$ with corresponding projections $P_0^s$ and $P_0^u$.
+\item Because of this, $V(n+1) = A(n; \lambda_0)$ induces an exponential dichotomy on $\Z^\pm$.
+\end{itemize}
+
+Since $\R^2 = \spn\{ V_0(0), Z_0(0) \}$, we can rewrite our system as 
+
+\begin{equation}\label{eq:eigWsystem2}
+\begin{aligned}
+&W_i^\pm(n+1)
+= A_i(n; \omega_0) W_i^\pm(n) + [G_i^\pm(n) + (\omega - \omega_0) B](d_i c_i V_0(n) + W_i^\pm(n))\\
+&W_i^+(N_i^+) - W_{i+1}^-(-N_i^-) = D_i d \\
+&W_i^+(0) - W_i^-(0) \in \C Z_0(n),
+\end{aligned}
+\end{equation}
+with jump conditions
+\begin{equation}
+\langle Z_0(n), W_i^+(0) - W_i^-(0) \rangle = 0
+\end{equation}
+
+As in \cite{Sandstede1998}, we write equation \cref{eq:Weq1} as a fixed point problem using the discrete variation of constants formula together with projections on the stable and unstable subspaces of the exponential dichotomy. Let $\delta > 0$ be small, and choose $N$ sufficiently large so that $r^{-N} < \delta$. Define the spaces
+\begin{align*}
+V_W &= \ell^\infty([-N_{i-1}, 0]) \oplus \ell^\infty([0, N_i])  \\
+V_a &= \bigoplus_{i=0}^{n-1} E^u \oplus E^s \\
+V_b &= \bigoplus_{i=0}^{n-1} \ran P_-^u(0) \oplus \ran P_+^s(0)\\
+V_\lambda &= B_\delta(\lambda_0) \subset \C \\
+V_d &= \C^d.
+\end{align*}
+Then for
+\begin{align*}
+W = (W_i^-, W_i^+) &\in V_W \\
+a = (a_i^-, a_i^+) &\in V_a \\
+b = (b_i^-, b_i^+) &\in V_b \\
+\lambda &\in V_\lambda,
+\end{align*}
+the fixed point equations for the eigenvalue problem are
+\begin{equation}\label{fpeig}
+\begin{aligned}
+W_i^-(n) &= 
+\Phi_s^-(n, -N_{i-1}^-) a_{i-1}^- + \sum_{j = -N_{i-1}^-}^{n-1} \Phi_s^-(n, j+1)
+[G_i^-(j) + (\omega - \omega_0) B](d_i c_i V_0(j) + W_i^-(j))
+ \\
+&+ \Phi_u^-(n, 0) b_i^- - \sum_{j = n}^{-1} \Phi_u^-(n, j+1) 
+[G_i^-(j) + (\omega - \omega_0) B](d_i c_i V_0(j) + W_i^-(j))\\
+W_i^+(n) &= \Phi_s^+(n, 0; \theta_i) b_i^+ + \sum_{j = 0}^{n-1} \Phi_s^+(n, j+1) 
+[G_i^+(j) + (\omega - \omega_0) B](d_i c_i V_0(j) + W_i^+(j))\\
+&+ \Phi_u^+(n, N_i^+) a_i^+ - \sum_{j = n}^{N_i^+-1} \Phi_u^+(n, j+1) 
+[G_i^+(j) + (\omega - \omega_0) B](d_i c_i V_0(j) + W_i^+(j)),
+\end{aligned}
+\end{equation}
+where $a_0^- = a_m^+ = 0$ and the sums are defined to be $0$ if the upper index is smaller than the lower index.
+
+We now follow the procedure and invert the system \cref{eq:eigWsystem2} in the following steps.
+
+\begin{enumerate}
+\item Solve for the remainder functions $W_i^\pm(n)$
+\item Use the second equation in \cref{eq:eigWsystem2} to solve for the $a_i^\pm$
+\item Use the third equation in \cref{eq:eigWsystem2} to solve for the $b_i^\pm$
+\item Evaluate the jump conditions
+\end{enumerate}
+
+At the end of the day, we should have
+\begin{align*}
+a_i^+ &= P_0^u D_i d + \text{``h.o.t.''} \\
+a_i^- &= -P_0^s D_i d + \text{``h.o.t.''}
+\end{align*}
+When we compute the jump conditions, the only terms that should contribute are the ones with $a_i^\pm$ (tail interactions) and the sum involving $(\omega - \omega_0) B (d_i c_i V_0(j)$ (Melnikov-type sum). Putting all of this together, the jump conditions should be, to leading order, 
+\begin{equation}\label{eq:xieq}
+\begin{aligned}
+\xi_i = \langle &Z_0(N_i^+), P_0^u D_i d \rangle 
++ \langle Z_0(-N_{i-1}^-), P_0^s D_{i-1} d \rangle 
+- (\omega - \omega_0) d_i c_i \sum_{j = -\infty}^{\infty} \langle Z_0(j+1), B V_0(j)\rangle
+\end{aligned}
+\end{equation}
+For the terms in the Melnikov sum,
+\[
+\langle Z_0(j+1), B V_0(j)\rangle = \frac{1}{d} \langle (-v_0(j), v_0(j-1))^T, (v_0(j), 0) \rangle
+= -\frac{1}{d}v_0(j)^2,
+\]
+which means the Melnikov sum will be given by
+\begin{equation}\label{eq:M}
+M = \sum_{j = -\infty}^{\infty} v_0(j)^2 = \| v_0 \|_{\ell^2},
+\end{equation}
+which is always positive. For the other terms, we note that
+\begin{align*}
+P_0^u D_i d &= d_{i+1} c_{i+1} V_0(-N_i^-) + \text{``h.o.t.''} \\
+P_0^s D_i d &= -d_i c_i V_0(N_i^+) + \text{``h.o.t.''}
+\end{align*}
+Putting all of this together, we have, to leading order,
+\begin{align*}
+\xi_i = \langle Z_0(N_i^+), V_0(-N_i^-) \rangle d_{i+1} c_{i+1}
+- \langle Z_0(-N_{i-1}^-), V_0(N_{i-1}^+) \rangle d_{i-1} c_{i-1}
++ \dfrac{1}{d} (\omega - \omega_0) d_i c_i M
+\end{align*}
+Since $c_i$ and $c_{i+1}$ have opposite signs, this simplifies to 
+\begin{align*}
+\xi_i = \langle Z_0(N_i^+), V_0(-N_i^-) \rangle d_{i+1}
+- \langle Z_0(-N_{i-1}^-), V_0(N_{i-1}^+) \rangle d_{i-1}
+- \dfrac{1}{d} (\omega - \omega_0) d_i M
+\end{align*}
+Let
+\begin{align*}
+a_i &= \langle Z_0(N_i^+), V_0(-N_i^-) \rangle 
+= v_0(N_i^+)v_0(-N_i^- - 1) - v_0(N_i^+ - 1)v_0(-N_i^-)\\
+\tilde{a}_i &= \langle Z_0(-N_i^-), V_0(N_i^+) \rangle 
+= v_0(N_i^+ - 1)v_0(-N_i^-) - v_0(N_i^+)v_0(-N_i^- - 1)
+\end{align*}
+These can be simplified based on symmetries of the eigenfunction $v_0(n)$. For even eigenfunctions, we have $v_0(-n) = v_0(n-1)$, (the Goldstone mode, appears to be even), these become
+\begin{align*}
+a_i &= \langle Z_0(N_i^+), V_0(-N_i^-) \rangle 
+= v_0(N_i^+)v_0(-N_i^- - 1) - v_0(N_i^+ - 1)v_0(-N_i^-)\\
+\tilde{a}_i &= \langle Z_0(-N_i^-), V_0(N_i^+) \rangle 
+= v_0(N_i^+ - 1)v_0(-N_i^-) - v_0(N_i^+)v_0(-N_i^- - 1)
+\end{align*}
+
+So then we have
+\begin{align*}
+\xi_i = a_i d_{i+1}
+- \tilde{a}_{i-1} d_{i-1}
+- \dfrac{1}{d} (\lambda^2 - \lambda_0^2) d_i M
+\end{align*}
+
+
+
+
+
+\bibliographystyle{amsplain}
+\bibliography{DKG.bib}
+
+
 
 
 \end{document}
