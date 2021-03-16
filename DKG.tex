@@ -78,35 +78,39 @@
 
 \begin{document}
 
-\section{Kink-antikinks in discrete Klein Gordon}
+\section{Mathematical background}
 
-Main references are \cite{KevrekidisWeinstein2000} and \cite{Kapitula2001}. The discrete Klein-Gordon equation (DKG) is given by
+The discrete Klein-Gordon equation (DKG) is given by
 \begin{equation}\label{eq:KG}
-\ddot{u_n} = d (\Delta_2 u)_n - f(u_n)
+\partial_t^2 u_n = d (\Delta_2 u)_n - f(u_n)
 \end{equation}
-where $\Delta_2$ is the discrete second difference operator and $f(u) = V'(u)$ for a smooth potential function $V(u)$. Versions we are interested in are discrete sine-Gordon, where $f(u) = -\sin(u)$, and $\phi^4$ variant, where $f(u) = -u(1-u^2)$. Importantly, $f(u)$ satisfies the following properties.
-\begin{itemize}
+where $\Delta_2$ is the discrete second difference operator and $f(u) = V'(u)$ for a smooth potential function $V(u)$. Important versions include the discrete sine-Gordon equation, where $f(u) = -\sin(u)$, and $\phi^4$ variant, where $f(u) = -u(1-u^2)$. The nonlinearity $f(u)$ satisfies the following three properties:
+\begin{enumerate}[(i)]
 	\item $f(u)$ is an odd function (so $f(0) = 0$) and $f'(0) < 0$
-	\item there is a pair of nonzero equilibria $\pm u^*$ with $f(\pm u^*) = 0$ and $f'(u^*) = f'(-u^*) > 0$
-	\item there are no other equilibria in $[-u^*, u^*]$
-\end{itemize}
-
-Equilibrium solutions (standing waves) satisfy 
-\begin{equation}\label{eq:KGeq}
-d (\Delta_2 u)_n - f(u_n) = 0
+	\item There is a pair of nonzero equilibria $\pm u^*$ with $f(\pm u^*) = 0$ and $f'(u^*) = f'(-u^*) > 0$.
+	\item There are no other equilibria in $[-u^*, u^*]$.
+\end{enumerate}
+We note that the discrete sine-Gordon equation is often written using $f(u) = \sin u$, in which case the pair of equilibria in (ii) are at 0 and $2 \pi$. Equation \cref{eq:KG} is Hamiltonian, with energy given by \cite{KevrekidisWeinstein2000}
+\begin{equation}
+	\mathcal{H}(u) = \sum_{n=-\infty}^\infty 
+	\left( \frac{1}{2} (\partial_t u_n)^2 + \frac{d}{2} (u_{n+1} - u_n)^2 + V(u_n) \right).
 \end{equation}
 
-Linearization about an solution $u_n$ (kink, etc.) give us the eigenvalue problem
-\[
-d (\Delta_2 v)_n - f'(u_n)v_n = \lambda^2 v_n
-\]
-Considered as an eigenvalue problem for $\lambda^2$, this is self-adjoint (symmetric, infinite dimensional matrix), so $\lambda^2$ is always real, which means that $\lambda$ must be either real or pure imaginary. Taking $\omega = \lambda^2$, we write the eigenvalue problem as
+Equilibrium solutions are standing waves which satisfy 
+\begin{equation}\label{eq:KGeq}
+d (\Delta_2 u)_n - f(u_n) = 0.
+\end{equation}
+Linearization about such an equilibrium solution $u_n$ yields the eigenvalue problem
+\begin{equation}\label{eq:KGevp1}
+d (\Delta_2 v)_n - f'(u_n)v_n = \lambda^2 v_n.
+\end{equation}
+Considered as an eigenvalue problem for $\lambda^2$, the LHS of \cref{eq:KGevp1} is a self-adjont operator, since it can be represented as a symmetric, infinite dimensional matrix. This implies that $\lambda^2$ is real, which means that $\lambda$ must be either real or pure imaginary. Taking $\omega = \lambda^2$, we re write the eigenvalue problem as
 \begin{equation}\label{eq:evp}
 d (\Delta_2 v)_n - f'(u_n)v_n = \omega v_n,
 \end{equation}
 where the eigenvalues are $\lambda = \pm \sqrt{\omega}$.
 
-Using a spatial dynamics approach, let $U(n) = (u(n), \tilde{u}(n)) = (u_n, u_{n-1})$. Then this is equivalent to the lattice dynamical system in $\R^2$
+Using a spatial dynamics approach as in \cite{Parker2020}, let $u_n$ be an equilibrium solution to \cref{eq:KGeq}, and let $U(n) = (u(n), \tilde{u}(n)) = (u_n, u_{n-1})$. Then equation \cref{eq:KGeq} is equivalent to the lattice dynamical system in $\R^2$
 \begin{equation}\label{eq:dynEq}
 U(n+1) = F(U(n)),
 \end{equation}
@@ -115,9 +119,9 @@ where
 F\begin{pmatrix}u \\ \tilde{u} \end{pmatrix} =
 \begin{pmatrix}2u - \tilde{u} + \frac{1}{d}f(u) \\
 u
-\end{pmatrix}
+\end{pmatrix}.
 \]
-This map has three fixed points $(0,0)$ and $(\pm u^*, \pm u^*)$. For convenience, let $S^\pm = (\pm u^*, \pm u^*)^T$. Linearizing about the fixed points $S^\pm$, we obtain the matrix 
+This map has three fixed points of interest at $(0,0)$ and $(\pm u^*, \pm u^*)$ (it may in fact have more, depending on the specific form of $f(u)$). For convenience, let $S^\pm = (\pm u^*, \pm u^*)^T$. Linearizing about the fixed points $S^\pm$, we obtain the matrix 
 \[
 D F(S^\pm)=
 \begin{pmatrix}2 + \frac{1}{d}f'(\pm u^*) & -1 \\ 1 & 0
@@ -125,20 +129,31 @@ D F(S^\pm)=
 \]
 Since $f'(\pm u^*) > 0$, this has a pair of eigenvalues $\{ r, 1/r \}$ with $r > 0$, where
 \[
-r = \frac{1}{2d}\left( f'(u^*) + 2d + \sqrt{f'(u^*)(f'(u^*) + 4d)} \right)
+r = \frac{1}{2d}\left( f'(u^*) + 2d + \sqrt{f'(u^*)(f'(u^*) + 4d)} \right).
 \]
-
-Thus $S^\pm$ are hyperbolic saddle equilibria of the lattice dynamical system \cref{eq:dynEq}. We take the existence of a symmetric kink as a hypothesis. From the spatial dynamics perspective, this is a heteroclinic orbit connecting the saddle at $(-u^*, -u^*)$ to the saddle at $(u^*, -u^*)$.
+Thus $S^\pm$ are hyperbolic saddle equilibria of the lattice dynamical system \cref{eq:dynEq}. We take the existence of a stable, symmetric kink (stationary front) as a hypothesis. From the spatial dynamics perspective, this kink solution a heteroclinic orbit connecting the saddle at $S^-$ to the saddle at $S^+$.
 
 \begin{hypothesis}\label{hyp:kinkexists}
-There exists a kink solution $K(n)$ to \cref{eq:dynEq} which connects the unstable manifold $W^u(-u^*, -u^*)$ and the stable manifold $W^s(u^*, u^*)$. These manifolds intersect transversely in $\R^2$. The kink solution has one of the following odd symmetries:
+There exists a kink solution $K(n) = (k(n),\tilde{k}(n))$ to \cref{eq:dynEq} which connects the unstable manifold $W^u(-u^*, -u^*)$ and the stable manifold $W^s(u^*, u^*)$. These manifolds intersect transversely in $\R^2$. The kink solution has one of the following odd symmetries:
 \begin{itemize}
-	\item $K(-n) = -K(n-1)$ (``intersite'' symmetry)
-	\item $K(-n) = -K(n)$ (``onsite'' symmetry)
+	\item $k(-n) = -k(n-1)$ (``intersite'' symmetry)
+	\item $k(-n) = -k(n)$ (``onsite'' symmetry)
 \end{itemize}
+Finally, $K(n)$ a ground state kink, i.e. $k(n)$ is a minimizer of the $t$-independent energy functional
+\begin{equation}
+h[u] = \sum_{n=-\infty}^\infty 
+\left( \frac{d}{2} (u_{n+1} - u_n)^2 + V(u_n) \right).
+\end{equation}
 \end{hypothesis}
+Since $K(n)$ is a ground state kink by assumption, it follows that it is spectrally stable \cite{KevrekidisWeinstein2000}. Since the system is Hamiltonian, this implies that the spectrum of the ground state kink lies on the imaginary axis. For specific nonlinearities $f(u)$, including those associated with the discrete sine-Gordon equation and the $\phi^4$ variant, the existence of a ground state kink is known (see \cite{KevrekidisWeinstein2000} and references therein). Since $f(u)$ is an odd function, if $u_n$ is a solution to \cref{eq:KGeq}, so is $-u_n$. Thus for every kink solution $K(n)$ to \cref{eq:dynEq} there is a corresponding antikink solution $\tilde{K}(n) = -K(n)$.
 
-Since $f(u)$ is an odd function, if $u_n$ is a solution to \cref{eq:KGeq}, so is $-u_n$. Thus for every kink solution $K(n)$ to \cref{eq:dynEq} there is a corresponding antikink solution $\tilde{K}(n) = -K(n)$.
+The spectrum of the primary kink solution $K(n) = (k(n),\tilde{k}(n))$ can be decomposed into two disjoint sets: the point spectrum consists of isolated eigenvalues for which the corresponding eigenfunction is in $\ell^2(\Z)$, and continuous spectrum is the remaining elements of the spectrum, which consists of bounded, oscillatory modes.Following \cite{KevrekidisWeinstein2000}, the continuous spectrum depends only on the background state of the system and consists of two symmetric intervals on the imaginary axis
+\begin{equation}\label{eq:contspec}
+	\sigma_{\text{cont}} = \pm i \left[\sqrt{V''(S^+)}, \sqrt{V''(S^+) + 4d}\right].
+\end{equation}
+In particular, the continuous spectrum lies outside the interval $i\left(-\sqrt{V''(S^+)},\sqrt{V''(S^+)}\right)$.
+
+\section{Multi-kinks}
 
 We can now construct multi-kink solutions by joining together kinks and anti-kinks end-to-end. Given the symmetry just discussed, we can always without loss of generality start with a kink solution.
 
@@ -381,15 +396,7 @@ a_i = v_0(N_i^+)v_0(N_i^-) - v_0(N_i^+ - 1)v_0(N_i^- -1)
 \end{align}
 
 
-
-
-
-
-
 \bibliographystyle{amsplain}
 \bibliography{DKG.bib}
-
-
-
 
 \end{document}
