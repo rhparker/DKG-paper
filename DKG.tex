@@ -104,7 +104,7 @@ Linearization about such an equilibrium solution $u_n$ yields the eigenvalue pro
 \begin{equation}\label{eq:KGevp1}
 d (\Delta_2 v)_n - f'(u_n)v_n = \lambda^2 v_n.
 \end{equation}
-Considered as an eigenvalue problem for $\lambda^2$, the LHS of \cref{eq:KGevp1} is a self-adjont operator, since it can be represented as a symmetric, infinite dimensional matrix. This implies that $\lambda^2$ is real, which means that $\lambda$ must be either real or pure imaginary. Taking $\omega = \lambda^2$, we re write the eigenvalue problem as
+Considered as an eigenvalue problem for $\lambda^2$, the LHS of \cref{eq:KGevp1} is a self-adjoint operator, since it can be represented as a symmetric, infinite dimensional matrix. This implies that $\lambda^2$ is real, which means that $\lambda$ must be either real or pure imaginary. Taking $\omega = \lambda^2$, we re write the eigenvalue problem as
 \begin{equation}\label{eq:evp}
 d (\Delta_2 v)_n - f'(u_n)v_n = \omega v_n,
 \end{equation}
@@ -136,8 +136,8 @@ Thus $S^\pm$ are hyperbolic saddle equilibria of the lattice dynamical system \c
 \begin{hypothesis}\label{hyp:kinkexists}
 There exists a kink solution $K(n) = (k(n),\tilde{k}(n))$ to \cref{eq:dynEq} which connects the unstable manifold $W^u(-u^*, -u^*)$ and the stable manifold $W^s(u^*, u^*)$. These manifolds intersect transversely in $\R^2$. The kink solution has one of the following odd symmetries:
 \begin{itemize}
-	\item $k(-n) = -k(n-1)$ (``intersite'' symmetry)
-	\item $k(-n) = -k(n)$ (``onsite'' symmetry)
+	\item $k(-n) = -k(n-1)$ (intersite symmetry)
+	\item $k(-n) = -k(n)$ (on-site symmetry)
 \end{itemize}
 Finally, $K(n)$ a ground state kink, i.e. $k(n)$ is a minimizer of the $t$-independent energy functional
 \begin{equation}
@@ -145,44 +145,45 @@ h[u] = \sum_{n=-\infty}^\infty
 \left( \frac{d}{2} (u_{n+1} - u_n)^2 + V(u_n) \right).
 \end{equation}
 \end{hypothesis}
-Since $K(n)$ is a ground state kink by assumption, it follows that it is spectrally stable \cite{KevrekidisWeinstein2000}. Since the system is Hamiltonian, this implies that the spectrum of the ground state kink lies on the imaginary axis. For specific nonlinearities $f(u)$, including those associated with the discrete sine-Gordon equation and the $\phi^4$ variant, the existence of a ground state kink is known (see \cite{KevrekidisWeinstein2000} and references therein). Since $f(u)$ is an odd function, if $u_n$ is a solution to \cref{eq:KGeq}, so is $-u_n$. Thus for every kink solution $K(n)$ to \cref{eq:dynEq} there is a corresponding antikink solution $\tilde{K}(n) = -K(n)$.
+Since $K(n)$ is a ground state kink by assumption, it follows that it is spectrally stable \cite{KevrekidisWeinstein2000}. Since the system is Hamiltonian, this implies that the spectrum of the ground state kink lies on the imaginary axis. For specific nonlinearities $f(u)$, including those associated with the discrete sine-Gordon equation and the $\phi^4$ variant, the existence of a symmetric ground state kink is known (see \cite{KevrekidisWeinstein2000} and references therein). For the discrete sine-Gordon equation and the $\phi^4$ variant in particular, the ground state kink has inter-site symmetry. Since $f(u)$ is an odd function, if $u_n$ is a solution to \cref{eq:KGeq}, so is $-u_n$. Thus for every kink solution $K(n)$ to \cref{eq:dynEq} there is a corresponding antikink solution $\tilde{K}(n) = -K(n)$.
 
-The spectrum of the primary kink solution $K(n) = (k(n),\tilde{k}(n))$ can be decomposed into two disjoint sets: the point spectrum consists of isolated eigenvalues for which the corresponding eigenfunction is in $\ell^2(\Z)$, and continuous spectrum is the remaining elements of the spectrum, which consists of bounded, oscillatory modes.Following \cite{KevrekidisWeinstein2000}, the continuous spectrum depends only on the background state of the system and consists of two symmetric intervals on the imaginary axis
+The spectrum of the primary kink solution $K(n) = (k(n),\tilde{k}(n))$ can be decomposed into two disjoint sets: the point spectrum consists of isolated eigenvalues for which the corresponding eigenfunction is in $\ell^2(\Z)$, and continuous spectrum is the remaining elements of the spectrum, which consists of bounded, oscillatory modes.Following \cite{KevrekidisWeinstein2000}, the continuous spectrum depends only on the background state of the system and consists of the two symmetric intervals on the imaginary axis
 \begin{equation}\label{eq:contspec}
 	\sigma_{\text{cont}} = \pm i \left[\sqrt{V''(S^+)}, \sqrt{V''(S^+) + 4d}\right].
 \end{equation}
-In particular, the continuous spectrum lies outside the interval $i\left(-\sqrt{V''(S^+)},\sqrt{V''(S^+)}\right)$.
+In particular, there is a gap in the continuous spectrum $i\left(-\sqrt{V''(S^+)},\sqrt{V''(S^+)}\right)$ which contain the origin.
+
+Since the discrete Klein-Gordon equation does not possess any continuous symmetries (by contrast with thr continnuum equation, which is translation invariant), there will be no eigenvalues at the origin. Instead, there will be a symmetric pair of eigenvalues, often termed Goldstone modes, which is either real or purely imaginary. For the ground state kink, this pair will be imaginary. For specific nonlinearities $f(u)$, there may be additional eigenvalues, known as internal modes, which lie in the gap in the continuous spectrum. For the ground state kink, these will also be purely imaginary. (See \cite{KevrekidisWeinstein2000}, in particular Figures 2 and 4, for a graphical illustration of the spectrum of the kink solution, including the internal modes, for the discrete sine-Gordon equation and the $\phi^4$ variant).
 
 \section{Multi-kinks}
 
-We can now construct multi-kink solutions by joining together kinks and anti-kinks end-to-end. Given the symmetry just discussed, we can always without loss of generality start with a kink solution.
-
-We will characterize a multi-kink in the following way. Let $m > 1$ be the total number of kinks and antikinks. Let $N_i$ ($i = 1, \dots, m-1$) be the distances (in lattice points) between consecutive kinks/anti-kinks. We seek a solution which can be written piecewise in the form 
-\begin{equation}\label{Upiecewise}
+We can construct multi-kink solutions by joining together an alternating sequence of kinks and anti-kinks in an end-to-end fashion. By the symmetry of $f(u)$, $u_n$ is an equilibrium solution if and only if $-u_n$ is, thus we can always without loss of generality begin with a kink solution. We will characterize a multi-kink in the following way. Let $m > 1$ be the total number of kinks and antikinks. Let $N_i$ ($i = 1, \dots, m-1$) be the distances (in lattice points) between consecutive kinks/anti-kinks. We seek a solution which can be written piecewise in the form 
+\begin{equation}\label{eq:Upiecewise}
 \begin{aligned}
-U_i^-(n) &= c_i K(n) + \tilde{K}_i^-(n) && n \in [-N_{i-1}^-, 0] \\
-U_i^+(n) &= c_i K(n) + \tilde{K}_i^+(n) && n \in [0, N_i^+],
+U_i^-(n) &= c_i K(n) + \tilde{U}_i^-(n) && n \in [-N_{i-1}^-, 0] \\
+U_i^+(n) &= c_i K(n) + \tilde{U}_i^+(n) && n \in [0, N_i^+],
 \end{aligned}
 \end{equation}
 where $c_i = (-1)^{i+1}$, $N_i^+ = \lfloor \frac{N_i}{2} \rfloor$, $N_i^- = N_i - N_i^+$, $N_0^- = N_m^+ = \infty$, and
 \begin{equation}\label{defN}
 N = \frac{1}{2} \min\{ N_i \}.
 \end{equation}
-The individual pieces are joined together end-to-end as in \cite{Sandstede1998}. The functions $\tilde{K}_i^\pm(n)$ are remainder terms, which we expect to be small. We then have the following theorem.
+The individual pieces are joined together end-to-end as in \cites{Sandstede1998,Parker2020}. The functions $\tilde{K}_i^\pm(n)$ are remainder terms, which we expect to be small. We then have the following theorem.
 
 \begin{theorem}\label{th:KaKexists}
-Assume \cref{hyp:kinkexists}. Then there exists a positive integer $N_0$ with the following property. For all $m > 1$ and distances $N_i \geq N_0$, there exists a unique solution $U(n)$ which is composed of $m$ alternating kinks and anti-kinks and can be written piecewise in the form \cref{Upiecewise}. For the remainder terms $\tilde{K}_i^\pm(n)$, we have the estimates
+Assume \cref{hyp:kinkexists}. Then there exists a positive integer $N_0$ with the following property. For all $m > 1$ and distances $N_i \geq N_0$, there exists a unique solution $U(n)$ which is composed of $m$ alternating kinks and anti-kinks and can be written piecewise in the form \cref{eq:Upiecewise}. For the remainder terms $\tilde{K}_i^\pm(n)$, we have the estimates
 \begin{equation}\label{eq:Westimates}
 \begin{aligned}
-\|\tilde{K}_i^\pm\| &\leq C r^{-N} \\
-\tilde{K}_i^+(N_i^+) &= c_{i+1} K(-N_i^-) + \mathcal{O}(r^{-2N}) \\
-\tilde{K}_{i+1}^-(-N_i^-) &= c_i K(N_i^+) + \mathcal{O}(r^{-2N}) .
+\|\tilde{U}_i^\pm\| &\leq C r^{-N} \\
+| \tilde{U}_i^-(n) | &\leq C r^{-N_{i-1}^-} r^{-(N_{i-1}^- + n)} \\
+|\tilde{U}_+^-(n)| &\leq C r^{-N_i^+} r^{-(N_i^+ - n)}
+% \tilde{U}_i^+(N_i^+) &= c_{i+1} K(-N_i^-) + \mathcal{O}(r^{-2N}) \\
+% \tilde{U}_{i+1}^-(-N_i^-) &= c_i K(N_i^+) + \mathcal{O}(r^{-2N}).
 \end{aligned}
 \end{equation}
-WE WILL ACTUALLY NEED BETTER ESTIMATES BUT I KNOW HOW TO DO IT.
 \end{theorem}
 
-For spectral stability, rewrite the eigenvalue problem \cref{eq:evp} as a lattice dynamical system by taking $V(n) = (v(n), \tilde{v}(n)) = (v_n, v_{n-1})$. Then \cref{eq:evp} is equivalent to the lattice dynamical system in $\R^2$
+For spectral stability, we rewrite the eigenvalue problem \cref{eq:evp} as a lattice dynamical system by taking $V(n) = (v(n), \tilde{v}(n)) = (v_n, v_{n-1})$. Then \cref{eq:evp} is equivalent to the lattice dynamical system in $\R^2$
 \begin{equation}\label{eq:EVPdyneq}
 V(n+1) = D F( U(n) )V(n) + \omega B V(n),
 \end{equation}
@@ -195,33 +196,37 @@ B = \frac{1}{d}
 
 \section{Proof of existence results}
 
-THIS WILL NEED TO BE REDONE A BIT SINCE WE WILL NEED BETTER ESTIMATES THAN ARE IN \cite{Parker2020}. SHOULD BE STRAIGHTFORWARD.
-
-First, we rewrite the system as a fixed point problem. Expanding $F(u)$ in a Taylor series about $c_i K(n)$, we get
-\begin{align*}
-F(U_i^\pm(n)) &= F(c_i K(n) + \tilde{K}_i^-(n)) = 
-D F(c_i K(n)) \tilde{K}_i^\pm(n) + G(\tilde{K}_i^\pm(n)),
-\end{align*}
-where $G(\tilde{K}_i^\pm(n)) = \mathcal{O}(|\tilde{K}_i^\pm|^2)$ with $G(0) = 0$ and $DG(0) = 0$. Since $f(u)$ is even, $f'(u)$ is odd, thus $D F(c_i K(n)) = D F(K(n))$, and so this becomes
-\begin{align*}
-F(U_i^\pm(n)) &= 
-D F(K(n)) \tilde{K}_i^\pm(n) + G(\tilde{K}_i^\pm(n)),
-\end{align*}
-Let
-\begin{align}\label{didef}
-d_i &= c_{i+1} K(-N_i^-) - c_i K(N_i^+).
+The proof is an adaptation of the proofs of Theorems 1 and 3 in \cite{Parker2020}, with one important modification made to gain an improved estimate on the remainder terms $\tilde{U}_i^\pm$. First, we rewrite the system as a fixed point problem. Expanding $F(u)$ in a Taylor series about $c_i K(n)$, we get
+\begin{align}\label{eq:Feq1}
+F(U_i^\pm(n)) &= F(c_i K(n) + \tilde{U}_i^-(n)) = 
+D F(c_i K(n)) \tilde{U}_i^\pm(n) + G(\tilde{U}_i^\pm(n)),
 \end{align}
-Substituting these, we obtain the following system of equations for the remainder functions $\tilde{K}_i^\pm$.
+where $G(\tilde{U}_i^\pm(n)) = \mathcal{O}(|\tilde{U}_i^\pm|^2)$ with $G(0) = 0$ and $DG(0) = 0$. Since $f(u)$ is odd, $f'(u)$ is even, thus $D F(c_i K(n)) = D F(K(n))$, and equation \cref{eq:Feq1} becomes
+\begin{align}\label{eq:Feq1}
+F(U_i^\pm(n)) &= 
+D F(K(n)) \tilde{U}_i^\pm(n) + G(\tilde{U}_i^\pm(n).
+\end{align}
+Since the pieces $U_i^\pm$ in the ansatz \cref{eq:Upiecewise} must match at their endpoints, we obtain the following system of equations for the remainder functions $\tilde{U}_i^\pm$
 \begin{align}
-\tilde{K}_i^\pm(n+1) &= D F(K(n)) \tilde{K}_i^\pm(n) + G(\tilde{K}_i^\pm(n)) \label{eq:Wsystem1} \\
-\tilde{K}_i^+(N_i^+) - \tilde{K}_{i+1}^-(-N_i^-) &= d_i \label{eq:Wsystem2} \\
-\tilde{K}_i^+(0) - \tilde{K}_i^-(0) &= 0. \label{eq:Wsystem3}
+\tilde{U}_i^\pm(n+1) &= D F(K(n)) \tilde{U}_i^\pm(n) + G(\tilde{K}_i^\pm(n)) \label{eq:Wsystem1} \\
+\tilde{U}_i^+(N_i^+) - \tilde{U}_{i+1}^-(-N_i^-) &= d_i \label{eq:Wsystem2} \\
+\tilde{U}_i^+(0) - \tilde{U}_i^-(0) &= 0. \label{eq:Wsystem3}
+\end{align}
+where
+\begin{align}\label{didef}
+	d_i &= c_{i+1} K(-N_i^-) - c_i K(N_i^+).
 \end{align}
 Let $\Phi(m, n)$ be the evolution operators for the linear difference equation 
 \[
 V(n+1) = D F(K(n)) V(n).
 \]
-By the stable manifold theorem, $|K(n) - S^+| \leq C r^{-|n|}$ for $n \geq 0$ and $|K(n) - S^-| \leq C r^{-|n|}$ for $n \leq 0$. Since $S^\pm$ are hyperbolic, we can decompose the evolution operator $\Phi(m, n)$ in exponential dichotomies on $\Z^\pm$. The proof then follows that of \cite[Theorem 3]{Parker2020}. Briefly, we write equation \cref{eq:Wsystem1} in fixed-point form using the discrete variation of constants formula together with projections on the stable and unstable subspaces of the exponential dichotomy. As long as $N$ is sufficiently large, we use the implicit function theorem to solve for the remainder functions $\tilde{K}_i^\pm$ as well as the matching conditions \cref{eq:Wsystem2} and \cref{eq:Wsystem3}. Since $W^u(S^-)$ and $W^s(S^+)$ intersect transversely, we have the decomposition $\R^2 = T_{K(0)}W^u(S^-)\oplus T_{K(0)}W^s(S^+)$. As in the proof of \cite[Theorem 3]{Parker2020}, solving \cref{eq:Wsystem3} does not involve jump conditions.
+By the stable manifold theorem, $|K(n) - S^+| \leq C r^{-|n|}$ for $n \geq 0$ and $|K(n) - S^-| \leq C r^{-|n|}$ for $n \leq 0$. Since $S^\pm$ are hyperbolic fixed points, we can decompose the evolution operator $\Phi(m, n)$ in exponential dichotomies on $\Z^\pm$ by \cite{Parker2020}*{Lemma 2}. The proof then follows that of \cite{Parker2020}*{Theorems 1 and 3}. Briefly, we write equation \cref{eq:Wsystem1} in fixed-point form using the discrete variation of constants formula together with projections on the stable and unstable subspaces of the exponential dichotomy. The only modification is that we will solve the fixed point equations in function spaces with weighted norms (see \cites{Sandstede1997,ParkerPeriodic} for an example of the same technique in the continuous case). In particular, the remainder functions $\tilde{U}_i^-(n)$ and $\tilde{U}_i^+(n)$ are chosen to be elements of the Banach spaces 
+$V^-_{N_{i-1}^-}$ and $V^+_{N_i^+}$, which are defined by
+\begin{align*}
+	V^-_L &= \left\{ U \in \ell^\infty([-L, 0]) : \| r^{L+n} U(n) \|_{\ell^\infty([-L, 0])} < \infty \right\}\\
+	V^+_L &= \left\{ U \in \ell^\infty([0, L]) : \| r^{L-n} U(n) \|_{\ell^\infty([0, L])} < \infty \right\}.
+\end{align*}
+Aas in \cites{Sandstede1997,ParkerPeriodic}, the fixed point equations are smooth mappings from these weighted function spaces to themselves. As long as $N$ is sufficiently large, we use the implicit function theorem to solve for the remainder functions $\tilde{U}_i^\pm$ as well as the matching conditions \cref{eq:Wsystem2} and \cref{eq:Wsystem3}. Since $W^u(S^-)$ and $W^s(S^+)$ intersect transversely, we have the decomposition $\R^2 = T_{K(0)}W^u(S^-)\oplus T_{K(0)}W^s(S^+)$, thus as in the proof of \cite{Parker2020}*{Theorem 3}, solving \cref{eq:Wsystem3} does not involve jump conditions. The second and third estimates in \cref{eq:Westimates} hold since the estimates on the remainder terms $\tilde{U}_i^\pm$ were obtained in the appropriate weighted space.
 
 \section{Proof of stability results}
 
