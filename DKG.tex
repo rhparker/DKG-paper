@@ -362,24 +362,25 @@ Since $c_i$ and $c_{i+1}$ have opposite signs, this simplifies to
 Let
 \begin{align*}
 a_i &= \langle Z_0(N_i^+), V_0(-N_i^-) \rangle 
-= v_0(N_i^+)v_0(-N_i^- - 1) - v_0(N_i^+ - 1)v_0(-N_i^-)\\
-\tilde{a}_i &= \langle Z_0(-N_i^-), V_0(N_i^+) \rangle 
-= v_0(N_i^+ - 1)v_0(-N_i^-) - v_0(N_i^+)v_0(-N_i^- - 1)
+= v_0(N_i^+)v_0(-N_i^- - 1) - v_0(N_i^+ - 1)v_0(-N_i^-)
 \end{align*}
-These can be simplified based on symmetries of the eigenfunction $v_0(n)$. For even eigenfunctions, we have $v_0(-n) = v_0(n-1)$, (the Goldstone mode, appears to be even), these become
-\begin{align*}
-a_i &= \langle Z_0(N_i^+), V_0(-N_i^-) \rangle 
-= v_0(N_i^+)v_0(-N_i^- - 1) - v_0(N_i^+ - 1)v_0(-N_i^-)\\
-\tilde{a}_i &= \langle Z_0(-N_i^-), V_0(N_i^+) \rangle 
-= v_0(N_i^+ - 1)v_0(-N_i^-) - v_0(N_i^+)v_0(-N_i^- - 1)
-\end{align*}
-
-So then we have
+Then
+\[
+\langle Z_0(-N_i^-), V_0(N_i^+) \rangle 
+= v_0(N_i^+ - 1)v_0(-N_i^-) - v_0(N_i^+)v_0(-N_i^- - 1) = -a_i
+\]
+Thus we have
 \begin{align*}
 \xi_i = a_i d_{i+1}
-- \tilde{a}_{i-1} d_{i-1}
-- \dfrac{1}{d} (\lambda^2 - \lambda_0^2) d_i M
++ a_{i-1} d_{i-1}
+- \dfrac{1}{d} (\omega - \omega_0) d_i M
 \end{align*}
+The $a_i$ can be simplified based on symmetries of the eigenfunction $v_0(n)$. For even eigenfunctions, we have $v_0(-n) = v_0(n-1)$, (the Goldstone mode, appears to be even), so we have
+\begin{align}\label{eq:ai}
+a_i = v_0(N_i^+)v_0(N_i^-) - v_0(N_i^+ - 1)v_0(N_i^- -1)
+\end{align}
+
+
 
 
 
