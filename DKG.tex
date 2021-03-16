@@ -194,6 +194,31 @@ B = \frac{1}{d}
 \end{pmatrix}
 \] 
 
+STATE STABILITY THEOREMS HERE
+
+\section{Numerical results}
+
+The results we present here are from the discrete sine-Gordon equation
+\begin{equation}\label{eq:dSG}
+	\partial_t^2 u_n = d (\Delta_2 u)_n + sin(u_n).
+\end{equation}
+We start by constructing the primary, intersite kink solution $k_n$ by using Matlab for numerical parameter continuation from the anti-continuum (AC) limit ($d = 0$), starting with the solution $(\dots, -\pi, -\pi, \pi, \pi, \dots)$ at the AC limit (\cref{fig:kink}, top left). We then compute the spectrum of the linearization about the primary kink $k_n$ using Matlab's \texttt{eig} function (\cref{fig:kink}, top right).
+
+\begin{figure}[H]
+\begin{center}
+\begin{tabular}{cc}
+\includegraphics[width=7cm]{1kink.eps}	&
+\includegraphics[width=7cm]{1kinkspectrum.eps} \\
+\includegraphics[width=7cm]{1kinkgoldstonemode.eps} &
+\includegraphics[width=7cm]{1kinkedgemode.eps}
+\end{tabular}
+\end{center}
+\caption{Primary inter-site kink (top left), spectrum of primary kink (top right), Goldstone mode eigenfunction ($\lambda = \pm 0.7789 i$, bottom left), edge mode eigenfunction ($\lambda = \pm 0.9993 i$, bottom left). $d = 0.30$.}
+\label{fig:kink}
+\end{figure}
+
+The continuous spectrum lies within the interval given by \cref{eq:contspec}, and the pair of Goldstone mode eigenvalues is clearly visible in the continuous spectrum gap. For approximately $d > 0.265$, there is an additional internal mode eigenvalue, known as an edge mode since it arises from the continuous spectrum (see \cite{KevrekidisWeinstein2000}*{Section 2.2}, noting that we are using $d$ in place of $d^2$ in that paper.) The eigenfunctions corresponding to the Goldstone mode and the edge mode are shown in the bottom of \cref{fig:kink}.
+
 \section{Proof of existence results}
 
 The proof is an adaptation of the proofs of Theorems 1 and 3 in \cite{Parker2020}, with one important modification made to gain an improved estimate on the remainder terms $\tilde{U}_i^\pm$. First, we rewrite the system as a fixed point problem. Expanding $F(u)$ in a Taylor series about $c_i K(n)$, we get
