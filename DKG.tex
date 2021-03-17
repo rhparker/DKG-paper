@@ -207,10 +207,10 @@ We start by constructing the primary, intersite kink solution $k_n$ by using Mat
 \begin{figure}[H]
 \begin{center}
 \begin{tabular}{cc}
-\includegraphics[width=7cm]{1kink.eps}	&
-\includegraphics[width=7cm]{1kinkspectrum.eps} \\
-\includegraphics[width=7cm]{1kinkgoldstonemode.eps} &
-\includegraphics[width=7cm]{1kinkedgemode.eps}
+\includegraphics[width=5cm]{1kink.eps}	&
+\includegraphics[width=5cm]{1kinkspectrum.eps} \\
+\includegraphics[width=5cm]{1kinkgoldstonemode.eps} &
+\includegraphics[width=5cm]{1kinkedgemode.eps}
 \end{tabular}
 \end{center}
 \caption{Primary inter-site kink (top left), spectrum of primary kink (top right), Goldstone mode eigenfunction ($\lambda = \pm 0.7789 i$, bottom left), edge mode eigenfunction ($\lambda = \pm 0.9993 i$, bottom left). $d = 0.30$.}
@@ -232,6 +232,21 @@ We construct a kink-antikink (\cref{fig:kak}, middle panel) by parameter continu
 	\caption{Left panel shows $\ell^2$ norm of solution vs. coupling parameter $d$ for parameter continuation with AUTO of kink-antikink with $N_1 = 8$. Center panel shows kink-antikink solution with $N_1 = 8$ for $d = 0.25$. Right panel shows turning point $d_0$ vs $N$ for kink-antikink together with least squares linear regression line.}
 	\label{fig:kak}
 \end{figure}
+
+The spectrum of the kink-antikink is similarly computed ({fig:kakspec}, left panel). As predicted by the theory, each element of the point spectrum splits into two eigenvalues. The eigenfunctions corresponding to the split Goldstone modes resemble two copies of the Goldstone eigenfunction of the primary kink, spliced together both in-phase and out-of-phase ({fig:kakspec}, center panel). A similar phenomenon occurs with the split edge mode eigenfunctions ({fig:kakspec}, right panel).
+
+\begin{figure}[H]
+	\begin{center}
+	\begin{tabular}{ccc}
+	\includegraphics[width=5cm]{kak50_8spec.eps}	&
+	\includegraphics[width=5cm]{kak50_8goldstone.eps} &
+	\includegraphics[width=5cm]{kak50_8edge.eps}
+	\end{tabular}
+	\end{center}
+	\caption{Left panel shows spectrum of kink-antikink, with inset showing splitting of Goldstone mode. Edge mode is also split (not shown). Center panel shows eigenfunctions corresponding to split Goldstone modes. Right panel shows eigenfunctions corresponding to split edge modes. $d = 0.5$, $N = 4$.}
+	\label{fig:kakspec}
+\end{figure}
+
 
 \section{Proof of existence results}
 
