@@ -202,7 +202,7 @@ The results we present here are from the discrete sine-Gordon equation
 \begin{equation}\label{eq:dSG}
 	\partial_t^2 u_n = d (\Delta_2 u)_n + sin(u_n).
 \end{equation}
-We start by constructing the primary, intersite kink solution $k_n$ by using Matlab for numerical parameter continuation from the anti-continuum (AC) limit ($d = 0$), starting with the solution $(\dots, -\pi, -\pi, \pi, \pi, \dots)$ at the AC limit (\cref{fig:kink}, top left). We then compute the spectrum of the linearization about the primary kink $k_n$ using Matlab's \texttt{eig} function (\cref{fig:kink}, top right).
+We start by constructing the primary, intersite kink solution $k_n$ by using Matlab for numerical parameter continuation from the anti-continuum (AC) limit ($d = 0$) in the coupling parameter $d$, starting with the solution $(\dots, -\pi, -\pi, \pi, \pi, \dots)$ at the AC limit (\cref{fig:kink}, top left). We then compute the spectrum of the linearization about the primary kink $k_n$ using Matlab's \texttt{eig} function (\cref{fig:kink}, top right).
 
 \begin{figure}[H]
 \begin{center}
@@ -218,6 +218,20 @@ We start by constructing the primary, intersite kink solution $k_n$ by using Mat
 \end{figure}
 
 The continuous spectrum lies within the interval given by \cref{eq:contspec}, and the pair of Goldstone mode eigenvalues is clearly visible in the continuous spectrum gap. For approximately $d > 0.265$, there is an additional internal mode eigenvalue, known as an edge mode since it arises from the continuous spectrum (see \cite{KevrekidisWeinstein2000}*{Section 2.2}, noting that we are using $d$ in place of $d^2$ in that paper.) The eigenfunctions corresponding to the Goldstone mode and the edge mode are shown in the bottom of \cref{fig:kink}.
+
+We construct a kink-antikink (\cref{fig:kak}, middle panel) by parameter continuation in the coupling parameter $d$ from the AC limit with AUTO. Notably, there is a turning point at a critical value $d_0$ in the parameter continuation, where the kink-antikink does not exist for $d > d_0$ (\cref{fig:kak}, left panel). The top branch of the bifurcation diagram in \cref{fig:kak} is a kink-antikink comprising two intersite kinks, and the bottom branch is a kink-antikink comprising two on-site kinks. Parameter continuation suggests a linear relationship between the critical value $d_0$ and the separation distance $N$ (\cref{fig:kak}, right panel).
+
+\begin{figure}[H]
+	\begin{center}
+	\begin{tabular}{ccc}
+	\includegraphics[width=5cm]{kak8.eps}	&
+	\includegraphics[width=5cm]{kak8_025.eps} &
+	\includegraphics[width=5cm]{kakd0vsN.eps}
+	\end{tabular}
+	\end{center}
+	\caption{Left panel shows $\ell^2$ norm of solution vs. coupling parameter $d$ for parameter continuation with AUTO of kink-antikink with $N_1 = 8$. Center panel shows kink-antikink solution with $N_1 = 8$ for $d = 0.25$. Right panel shows turning point $d_0$ vs $N$ for kink-antikink together with least squares linear regression line.}
+	\label{fig:kak}
+\end{figure}
 
 \section{Proof of existence results}
 
