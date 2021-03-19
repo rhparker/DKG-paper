@@ -128,9 +128,9 @@ D F(S^\pm)=
 \end{pmatrix}
 \]
 Since $f'(\pm u^*) > 0$, this has a pair of eigenvalues $\{ r, 1/r \}$ with $r > 0$, where
-\[
+\begin{equation}\label{eq:r}
 r = \frac{1}{2d}\left( f'(u^*) + 2d + \sqrt{f'(u^*)(f'(u^*) + 4d)} \right).
-\]
+\end{equation}
 Thus $S^\pm$ are hyperbolic saddle equilibria of the lattice dynamical system \cref{eq:dynEq}. We take the existence of a stable, symmetric kink (stationary front) as a hypothesis. From the spatial dynamics perspective, this kink solution a heteroclinic orbit connecting the saddle at $S^-$ to the saddle at $S^+$.
 
 \begin{hypothesis}\label{hyp:kinkexists}
@@ -145,15 +145,16 @@ h[u] = \sum_{n=-\infty}^\infty
 \left( \frac{d}{2} (u_{n+1} - u_n)^2 + V(u_n) \right).
 \end{equation}
 \end{hypothesis}
+
 Since $K(n)$ is a ground state kink by assumption, it follows that it is spectrally stable \cite{KevrekidisWeinstein2000}. Since the system is Hamiltonian, this implies that the spectrum of the ground state kink lies on the imaginary axis. For specific nonlinearities $f(u)$, including those associated with the discrete sine-Gordon equation and the $\phi^4$ variant, the existence of a symmetric ground state kink is known (see \cite{KevrekidisWeinstein2000} and references therein). For the discrete sine-Gordon equation and the $\phi^4$ variant in particular, the ground state kink has inter-site symmetry. Since $f(u)$ is an odd function, if $u_n$ is a solution to \cref{eq:KGeq}, so is $-u_n$. Thus for every kink solution $K(n)$ to \cref{eq:dynEq} there is a corresponding antikink solution $\tilde{K}(n) = -K(n)$.
 
-The spectrum of the primary kink solution $K(n) = (k(n),\tilde{k}(n))$ can be decomposed into two disjoint sets: the point spectrum consists of isolated eigenvalues for which the corresponding eigenfunction is in $\ell^2(\Z)$, and continuous spectrum is the remaining elements of the spectrum, which consists of bounded, oscillatory modes.Following \cite{KevrekidisWeinstein2000}, the continuous spectrum depends only on the background state of the system and consists of the two symmetric intervals on the imaginary axis
+The spectrum of the primary kink solution $K(n) = (k(n),\tilde{k}(n))$ can be decomposed into two disjoint sets: the point spectrum consists of isolated eigenvalues for which the corresponding eigenfunction is in $\ell^2(\Z)$, and continuous spectrum is the remaining elements of the spectrum, which consists of bounded, oscillatory modes. Following \cite{KevrekidisWeinstein2000}, the continuous spectrum depends only on the background state of the system and consists of the two symmetric intervals on the imaginary axis
 \begin{equation}\label{eq:contspec}
 	\sigma_{\text{cont}} = \pm i \left[\sqrt{V''(S^+)}, \sqrt{V''(S^+) + 4d}\right].
 \end{equation}
-In particular, there is a gap in the continuous spectrum $i\left(-\sqrt{V''(S^+)},\sqrt{V''(S^+)}\right)$ which contain the origin.
+In particular, there is a gap in the continuous spectrum $i\left(-\sqrt{V''(S^+)},\sqrt{V''(S^+)}\right)$ which contain the origin. The continuous spectrum will be the same for the linearization about any equilibrium solution. 
 
-Since the discrete Klein-Gordon equation does not possess any continuous symmetries (by contrast with thr continnuum equation, which is translation invariant), there will be no eigenvalues at the origin. Instead, there will be a symmetric pair of eigenvalues, often termed Goldstone modes, which is either real or purely imaginary. For the ground state kink, this pair will be imaginary. For specific nonlinearities $f(u)$, there may be additional eigenvalues, known as internal modes, which lie in the gap in the continuous spectrum. For the ground state kink, these will also be purely imaginary. (See \cite{KevrekidisWeinstein2000}, in particular Figures 2 and 4, for a graphical illustration of the spectrum of the kink solution, including the internal modes, for the discrete sine-Gordon equation and the $\phi^4$ variant).
+Since the discrete Klein-Gordon equation does not possess any continuous symmetries (by contrast with thr continnuum equation, which is translation invariant), there will be no eigenvalues at the origin. Instead, there will be a symmetric pair of eigenvalues, often termed Goldstone modes, which is either real or purely imaginary. For the ground state kink, this pair will be imaginary. For specific nonlinearities $f(u)$, there may be additional eigenvalues, known as internal modes, which lie in the gap in the continuous spectrum. For the ground state kink, these will also be purely imaginary. (See \cite{KevrekidisWeinstein2000}, in particular Figures 2 and 4, for a graphical illustration of the spectrum of the kink solution, including the internal modes, for the discrete sine-Gordon equation and the $\phi^4$ variant). Motivated by these specific examples, we make the additional assumption that all point spectrum for the primary kink $K(n)$ lies in the continuous spectrum gap, i.e. all eigenvalues satisfy the inequality $|\lambda| < \sqrt{V''(S^+)}$. 
 
 \section{Multi-kinks}
 
@@ -168,17 +169,17 @@ where $c_i = (-1)^{i+1}$, $N_i^+ = \lfloor \frac{N_i}{2} \rfloor$, $N_i^- = N_i 
 \begin{equation}\label{defN}
 N = \frac{1}{2} \min\{ N_i \}.
 \end{equation}
-The individual pieces are joined together end-to-end as in \cites{Sandstede1998,Parker2020}. The functions $\tilde{K}_i^\pm(n)$ are remainder terms, which we expect to be small. We then have the following theorem.
+The individual pieces are joined together end-to-end as in \cites{Sandstede1998,Parker2020}. The functions $\tilde{K}_i^\pm(n)$ are remainder terms, which will be small. We then have the following theorem.
 
 \begin{theorem}\label{th:KaKexists}
-Assume \cref{hyp:kinkexists}. Then there exists a positive integer $N_0$ with the following property. For all $m > 1$ and distances $N_i \geq N_0$, there exists a unique solution $U(n)$ which is composed of $m$ alternating kinks and anti-kinks and can be written piecewise in the form \cref{eq:Upiecewise}. For the remainder terms $\tilde{K}_i^\pm(n)$, we have the estimates
-\begin{equation}\label{eq:Westimates}
+Assume \cref{hyp:kinkexists}. Then there exists a positive integer $N_0$ with the following property. For all $m > 1$ and distances $N_i \geq N_0$, there exists a unique solution $U(n)$ which is composed of $m$ alternating kinks and anti-kinks and can be written piecewise in the form \cref{eq:Upiecewise}. For the remainder terms $\tilde{U}_i^\pm(n)$, we have the estimates
+\begin{equation}\label{eq:Uestimates}
 \begin{aligned}
 \|\tilde{U}_i^\pm\| &\leq C r^{-N} \\
-| \tilde{U}_i^-(n) | &\leq C r^{-N_{i-1}^-} r^{-(N_{i-1}^- + n)} \\
-|\tilde{U}_+^-(n)| &\leq C r^{-N_i^+} r^{-(N_i^+ - n)}
-% \tilde{U}_i^+(N_i^+) &= c_{i+1} K(-N_i^-) + \mathcal{O}(r^{-2N}) \\
-% \tilde{U}_{i+1}^-(-N_i^-) &= c_i K(N_i^+) + \mathcal{O}(r^{-2N}).
+| \tilde{U}_i^-(n) | &\leq C r^{-N_{i-1}^-} r^{-(N_{i-1}^- + n)} && \qquad n = 2, \dots, m\\
+|\tilde{U}_i^+(n)| &\leq C r^{-N_i^+} r^{-(N_i^+ - n)} && \qquad n = 1, \dots, m-1 \\
+| \tilde{U}_1^-(n) | &\leq C r^{-2N} r^{n} \\
+|\tilde{U}_m^+(n)| &\leq C r^{-2N} r^{-n}
 \end{aligned}
 \end{equation}
 \end{theorem}
@@ -262,7 +263,7 @@ We can compare the eigenvalues obtained from numerical computation with those pr
 
 \section{Proof of existence results}
 
-The proof is an adaptation of the proofs of Theorems 1 and 3 in \cite{Parker2020}, with one important modification made to gain an improved estimate on the remainder terms $\tilde{U}_i^\pm$. First, we rewrite the system as a fixed point problem. Expanding $F(u)$ in a Taylor series about $c_i K(n)$, we get
+The proof is an adaptation of the proofs of Theorems 1 and 3 in \cite{Parker2020}. First, we rewrite the system as a fixed point problem. Expanding $F(u)$ in a Taylor series about $c_i K(n)$, we get
 \begin{align}\label{eq:Feq1}
 F(U_i^\pm(n)) &= F(c_i K(n) + \tilde{U}_i^-(n)) = 
 D F(c_i K(n)) \tilde{U}_i^\pm(n) + G(\tilde{U}_i^\pm(n)),
@@ -286,13 +287,7 @@ Let $\Phi(m, n)$ be the evolution operators for the linear difference equation
 \[
 V(n+1) = D F(K(n)) V(n).
 \]
-By the stable manifold theorem, $|K(n) - S^+| \leq C r^{-|n|}$ for $n \geq 0$ and $|K(n) - S^-| \leq C r^{-|n|}$ for $n \leq 0$. Since $S^\pm$ are hyperbolic fixed points, we can decompose the evolution operator $\Phi(m, n)$ in exponential dichotomies on $\Z^\pm$ by \cite{Parker2020}*{Lemma 2}. The proof then follows that of \cite{Parker2020}*{Theorems 1 and 3}. Briefly, we write equation \cref{eq:Wsystem1} in fixed-point form using the discrete variation of constants formula together with projections on the stable and unstable subspaces of the exponential dichotomy. The only modification is that we will solve the fixed point equations in function spaces with weighted norms (see \cites{Sandstede1997,ParkerPeriodic} for an example of the same technique in the continuous case). In particular, the remainder functions $\tilde{U}_i^-(n)$ and $\tilde{U}_i^+(n)$ are chosen to be elements of the Banach spaces 
-$V^-_{N_{i-1}^-}$ and $V^+_{N_i^+}$, which are defined by
-\begin{align*}
-	V^-_L &= \left\{ U \in \ell^\infty([-L, 0]) : \| r^{L+n} U(n) \|_{\ell^\infty([-L, 0])} < \infty \right\}\\
-	V^+_L &= \left\{ U \in \ell^\infty([0, L]) : \| r^{L-n} U(n) \|_{\ell^\infty([0, L])} < \infty \right\}.
-\end{align*}
-Aas in \cites{Sandstede1997,ParkerPeriodic}, the fixed point equations are smooth mappings from these weighted function spaces to themselves. As long as $N$ is sufficiently large, we use the implicit function theorem to solve for the remainder functions $\tilde{U}_i^\pm$ as well as the matching conditions \cref{eq:Wsystem2} and \cref{eq:Wsystem3}. Since $W^u(S^-)$ and $W^s(S^+)$ intersect transversely, we have the decomposition $\R^2 = T_{K(0)}W^u(S^-)\oplus T_{K(0)}W^s(S^+)$, thus as in the proof of \cite{Parker2020}*{Theorem 3}, solving \cref{eq:Wsystem3} does not involve jump conditions. The second and third estimates in \cref{eq:Westimates} hold since the estimates on the remainder terms $\tilde{U}_i^\pm$ were obtained in the appropriate weighted space.
+By the stable manifold theorem, $|K(n) - S^+| \leq C r^{-|n|}$ for $n \geq 0$ and $|K(n) - S^-| \leq C r^{-|n|}$ for $n \leq 0$, thus $| DF(K(n)) - DF(S^\pm)| \leq C r^{-|n|}$. Since $S^\pm$ are hyperbolic fixed points, we can decompose the evolution operator $\Phi(m, n)$ in exponential dichotomies on $\Z^\pm$ by \cite{Parker2020}*{Lemma 2}. The proof then follows that of \cite{Parker2020}*{Theorems 1 and 3}. Briefly, we write equation \cref{eq:Wsystem1} in fixed-point form using the discrete variation of constants formula together with projections on the stable and unstable subspaces of the exponential dichotomy. As long as $N$ is sufficiently large, we use the implicit function theorem to solve for the remainder functions $\tilde{U}_i^\pm$ as well as the matching conditions \cref{eq:Wsystem2} and \cref{eq:Wsystem3}. Since $W^u(S^-)$ and $W^s(S^+)$ intersect transversely, we have the decomposition $\R^2 = T_{K(0)}W^u(S^-)\oplus T_{K(0)}W^s(S^+)$, thus as in the proof of \cite{Parker2020}*{Theorem 3}, solving \cref{eq:Wsystem3} does not involve jump conditions. The estimates \cref{eq:Uestimates} follow from the proof \cite{Parker2020}*{Theorem 3} (see in particular Lemma 4).
 
 \section{Proof of stability results}
 
@@ -300,7 +295,7 @@ For the primary kink $K(n) = (k_n, \tilde{k}_n)$, let $v_0(n)$ be an eigenfuncti
 \begin{equation}\label{eq:V0solves}
 V_0(n+1) = D F( K(n) )V_0(n) + \omega_0 B V_0(n)
 \end{equation}
-For the kink-antikink solution $U(n)$, we will take an ansatz which is a piecewise perturbation of $V_0(n)$. Let
+We note that since $\lambda_0$ is on the imaginary axis, $\omega_0 < 0$, and since we are assuming that $\lambda_0$ lies in the continuous spectrum gap, $|\omega_0| < V''(S^+)$. For the kink-antikink solution $U(n)$, we will take an ansatz which is a piecewise perturbation of $V_0(n)$. Let
 \begin{equation}\label{eq:Viansatz}
 V_i^\pm(n) = d_i c_i V_0(n) + W_i^\pm(n),
 \end{equation}
@@ -308,32 +303,30 @@ where $d_i \in \C$ and $c_i = (-1)^{i+1}$. Substituting this into \cref{eq:EVPdy
 \begin{equation}\label{eq:Weq1}
 \begin{aligned}
 W_i^\pm(n+1)
-&= DF(c_i K(n)) W_i^\pm(n) + \omega_0 B W_i^\pm(n) \\
+&= DF(K(n)) W_i^\pm(n) + \omega_0 B W_i^\pm(n) \\
 &\qquad + [G_i^\pm(n) + (\omega - \omega_0) B](d_i c_i V_0(n) W_i^\pm(n))
 \end{aligned}
 \end{equation}
 where
 \[
-G_i^\pm(n) = DF(U_i^\pm(n)) - DF(c_i K(n)).
+G_i^\pm(n) = DF(U_i^\pm(n)) - DF(K(n)),
 \]
-Let 
+and we used the fact that $DF(c_i K(n)) = DF(K(n))$ from the previous section. Let 
 \[
-A_i(n; \omega_0) = DF(c_i K(n)) + \omega_0 B
+A(n; \omega_0) = DF(K(n)) + \omega_0 B
 \]
 Then \cref{eq:Weq1} becomes
 \begin{align}\label{eq:Weq2}
 W_i^\pm(n+1)
-&= A_i(n; \omega_0) W_i^\pm(n) + [G_i^\pm(n) + (\omega - \omega_0) B](d_i c_i V_0(n) + W_i^\pm(n)).
+&= A(n; \omega_0) W_i^\pm(n) + [G_i^\pm(n) + (\omega - \omega_0) B](d_i c_i V_0(n) + W_i^\pm(n)).
 \end{align}
-
-As long as $|\omega_0| < f'(\pm u*)$ (WHICH WE SHOULD BE ABLE TO SHOW OR CAN ASSUME, IN ANY CASE IT IS REASONABLE GIVEN TYPICAL $f)$), $A_i(n)$ is exponentially asymptotic to a constant matrix with an exponential dichotomy, so it has one as well. WE CAN NOW USE ALL THE EXPONENTIAL DICHOTOMY TRICKS WE KNOW.
 
 In addition to solving \cref{eq:Weq2}, the eigenfunction must satisfy matching conditions at $n = \pm N_i$ and $n = 0$. Thus the system of equations we need to solve is
 \begin{equation}\label{eq:eigWsystem1}
 \begin{aligned}
 & W_i^\pm(n+1)
-= A_i(n; \omega_0) W_i^\pm(n) + [G_i^\pm(n) + (\omega - \omega_0) B](d_i c_i V_0(n) + W_i^\pm(n))\\
-& W_i^+(N_i^+) - W_{i+1}^-(-N_i^-) &= D_i d \\
+= A(n; \omega_0) W_i^\pm(n) + [G_i^\pm(n) + (\omega - \omega_0) B](d_i c_i V_0(n) + W_i^\pm(n))\\
+& W_i^+(N_i^+) - W_{i+1}^-(-N_i^-) = D_i d \\
 & W_i^+(0) - W_i^-(0) = 0,
 \end{aligned}
 \end{equation}
@@ -342,35 +335,85 @@ where
 D_i d = d_{i+1} c_{i+1} V_0(-N_i^-) - d_i c_i V_0(N_i^+)
 \end{equation}
 
-Things to note:
-\begin{itemize}
-\item Equation $V(n+1) = A(n; \lambda_0)$ has unique bounded solution $V_0(n) = (v_0(n), v_0(n-1))$. Let $\Phi(m, n; \lambda_0)$ be the evolution operator for this.
-\item Adjoint equation $Z(n) = A(n; \lambda_0)^* Z(n+1)$ has unique bounded solution $Z_0(n) = (-v_0(n-1), v_0(n))$ which is orthogonal to $Z_0(n)$. (This uses the fact that $\lambda_0$ is real or pure imaginary when we take the adjoint).
-\item $A(n; \lambda_0)$ is exponentially asymptotic (on both ends) to a hyperbolic matrix $A_0$ with 1-dimensional stable and unstable eigenspaces $E^s$ and $E^u$ with corresponding projections $P_0^s$ and $P_0^u$.
-\item Because of this, $V(n+1) = A(n; \lambda_0)$ induces an exponential dichotomy on $\Z^\pm$.
-\end{itemize}
-
-Since $\R^2 = \spn\{ V_0(0), Z_0(0) \}$, we can rewrite our system as 
-
-\begin{equation}\label{eq:eigWsystem2}
+By the stable manifold theorem, 
+\begin{equation}\label{eq:A0decay}
+	|A(n; \omega_0) - A_0| \leq C r^{-|n|},
+\end{equation}
+where $A_0$ is the constant matrix
+\begin{equation}
+	A_0 = DF(S^+) + \omega_0 B
+\end{equation}
+$A_0$ is the same matrix as $DF(S^+)$ with $f'(u^*)$ replaced by $f'(u^*) + \omega_0$, and $f'(u^*) + \omega_0 > 0$. Thus $A_0$ is hyperbolic with a pair of eigenvalues $\{ r_0, 1/r_0 \}$ with $r_0 > 0$, where
+\begin{equation}\label{eq:r}
+r_0 = \frac{1}{2d}\left( f'(u^*) + \omega_0 + 2d + \sqrt{(f'(u^*)+ \omega_0)(f'(u^*) + \omega_0 + 4d)} \right),
+\end{equation}
+where $1 < r_0 < r$. Let $\Phi(m, n)$ be the evolution operator for the variational equation 
+\begin{equation}\label{eq:vareq1}
+	V(n+1) = A(n; \omega_0) V(n).
+\end{equation}
+By \cite{Parker2020}*{Lemma 2}, we can decompose the evolution operator $\Phi(m, n)$ in exponential dichotomies on $\Z^\pm$. In particular, we have the estimates 
+\begin{equation}\label{eq:dichotomyest}
 \begin{aligned}
-&W_i^\pm(n+1)
-= A_i(n; \omega_0) W_i^\pm(n) + [G_i^\pm(n) + (\omega - \omega_0) B](d_i c_i V_0(n) + W_i^\pm(n))\\
-&W_i^+(N_i^+) - W_{i+1}^-(-N_i^-) = D_i d \\
-&W_i^+(0) - W_i^-(0) \in \C Z_0(n),
+&|\Phi_+^s(m, n)| \leq C r_0^{m - n} && 0 \leq n \leq m \\
+&|\Phi_+^u(m, n)| \leq C r_0^{n - m} && 0 \leq m \leq n \\
+&|\Phi_-^s(m, n)| \leq C r_0^{m - n} && n \leq m \leq 0 \\
+&|\Phi_-^u(m, n)| \leq C r_0^{n - m} && m \leq n \leq 0 \:,
 \end{aligned}
 \end{equation}
-with jump conditions
-\begin{equation}
-\langle Z_0(n), W_i^+(0) - W_i^-(0) \rangle = 0
+for the evolution operator on the stable and unstable subspaces of the exponential dichotomy. Furthermore, letting $E^{s/u}$ be the stable and unstable eigenspaces of $A_0$ and $P_0^{s/u}$ the corresponding eigenprojections, we have the decay rates
+\begin{equation}\label{eq:eigendecay}
+	|P_\pm^{s/u}(n) - P_0^{s/u}| \leq C r^{-|n|},
+\end{equation}
+where $P_\pm^{s/u}(n) = \Phi_\pm^{s/u}(n, n)$ are the stable and unstable projections for the exponential dichotomy. We note that the decay rates in \cref{eq:dichotomyest} involve the eigenvalues for the matrix $A_0$, whereas those from \cref{eq:eigendecay} come from \cref{eq:A0decay}. 
+
+The variational equation \cref{eq:vareq1} has a bounded solution $V_0(n) = (v_0(n), v_0(n-1))$, and the adjoint variational equation 
+\begin{equation}\label{eq:adjvareq1}
+	Z(n) = A(n; \omega_0)^* Z(n+1)
+\end{equation}
+has a bounded solution $Z_0(n) = (-v_0(n-1), v_0(n))$ which is orthogonal to $Z_0(n)$. By the stable manifold theorem,
+\begin{equation}\label{eq:VZ0estimates}
+	\begin{aligned}
+		V_0(n) &\leq C r_0^{-|n|} \\
+		Z_0(n) &\leq C r_0^{-|n|}
+	\end{aligned}
 \end{equation}
 
-As in \cite{Sandstede1998}, we write equation \cref{eq:Weq1} as a fixed point problem using the discrete variation of constants formula together with projections on the stable and unstable subspaces of the exponential dichotomy. Let $\delta > 0$ be small, and choose $N$ sufficiently large so that $r^{-N} < \delta$. Define the spaces
+As in \cites{Parker2020,Sandstede1998}, we will not in general be able to solve the system \cref{eq:eigWsystem1}. Instead, since $\R^2 = \spn\{ V_0(0), Z_0(0) \}$, we relax the third equation in \cref{eq:eigWsystem1} to obtain the system of equations
+\begin{equation}\label{eq:eigWsystem2}
+	\begin{aligned}
+	& W_i^\pm(n+1)
+	= A(n; \omega_0) W_i^\pm(n) + [G_i^\pm(n) + (\omega - \omega_0) B](d_i c_i V_0(n) + W_i^\pm(n))\\
+	& W_i^+(N_i^+) - W_{i+1}^-(-N_i^-) = D_i d \\
+	&W_i^+(0) - W_i^-(0) \in \C Z_0(n),
+	\end{aligned}
+\end{equation}
+Using Lin's method, we will be able to find a unique solution to this system, but this solution will generically have $m$ jumps at $n = 0$ in the direction of the adjoint solution $Z_0(0)$. A solution to \cref{eq:eigWsystem2} is therefore an eigenfunction if and only if the $m$ jump conditions
+\begin{equation}
+	\xi_i = \langle Z_0(0), W_i^+(0) - W_i^-(0) \rangle = 0
+\end{equation}
+
+are satisfied. Since $G_i^\pm(n) = \mathcal{O}(\tilde{U}_i^\pm(n))$, we have the same estimates for $G_i^\pm(n)$ as we do for $\tilde{U}_i^\pm$ in \cref{eq:Uestimates}. The terms in \cref{eq:eigWsystem2} are the same as in \cite{Parker2020} with the addition of a term of the form $G_i^\pm(n) V_0(n)$. To estimate that term, we combine the estimates \cref{eq:Uestimates} and \cref{eq:VZ0estimates}. For the interior pieces, we have
+\begin{align*}
+| G_i^-(n) V_0(n) | &\leq C r^{-N_{i-1}^-} r^{-(N_{i-1}^- + n)} r_0^n \\
+&\leq C r^{-2 N_{i-1}^-} \left(\frac{r}{r_0}\right)^{-n} \\
+&\leq C \left(\frac{r}{r_0}\right)^{\max\{N_1, \dots, N_m\}} r^{-2 N} \\
+&\leq C r^{-2 N} 
+\end{align*}
+
+where in the last step we used the fact that $r_0$ is fixed (it depends only on $\omega_0$), as are the distances $N_i$. The constant will be larger as $r_0$ decreases, which occurs as the eigenvalue $\lambda_0$ gets closer to the continuous spectrum boundary. The estimate for $G_i^+(n) V_0(n)$ is similar, and the estimates for the two exterior pieces are stronger. Thus we have the two uniform estimates
+\begin{equation}\label{eq:unifest}
+	\begin{aligned}
+		\|G_i^\pm\| \leq C r^{-N} \\
+		\|G_i^\pm V_0(n) \| \leq C r^{-2 N} 
+	\end{aligned}
+\end{equation}
+
+The proof then follows as in \cites{Parker2020,Sandstede1998}. First, we write equation \cref{eq:Weq1} as a fixed point problem using the discrete variation of constants formula together with projections on the stable and unstable subspaces of the exponential dichotomy. Let $\delta > 0$ be small, and choose $N$ sufficiently large so that $r^{-N} < \delta$. Define the spaces
 \begin{align*}
 V_W &= \ell^\infty([-N_{i-1}, 0]) \oplus \ell^\infty([0, N_i])  \\
 V_a &= \bigoplus_{i=0}^{n-1} E^u \oplus E^s \\
 V_b &= \bigoplus_{i=0}^{n-1} \ran P_-^u(0) \oplus \ran P_+^s(0)\\
-V_\lambda &= B_\delta(\lambda_0) \subset \C \\
+V_\lambda &= B_\delta(\omega_0) \subset \C \\
 V_d &= \C^d.
 \end{align*}
 Then for
@@ -395,36 +438,29 @@ W_i^+(n) &= \Phi_s^+(n, 0; \theta_i) b_i^+ + \sum_{j = 0}^{n-1} \Phi_s^+(n, j+1)
 [G_i^+(j) + (\omega - \omega_0) B](d_i c_i V_0(j) + W_i^+(j)),
 \end{aligned}
 \end{equation}
-where $a_0^- = a_m^+ = 0$ and the sums are defined to be $0$ if the upper index is smaller than the lower index.
 
-We now follow the procedure and invert the system \cref{eq:eigWsystem2} in the following steps.
-
-\begin{enumerate}
-\item Solve for the remainder functions $W_i^\pm(n)$
-\item Use the second equation in \cref{eq:eigWsystem2} to solve for the $a_i^\pm$
-\item Use the third equation in \cref{eq:eigWsystem2} to solve for the $b_i^\pm$
-\item Evaluate the jump conditions
-\end{enumerate}
-
-At the end of the day, we should have
-\begin{align*}
-a_i^+ &= P_0^u D_i d + \text{``h.o.t.''} \\
-a_i^- &= -P_0^s D_i d + \text{``h.o.t.''}
-\end{align*}
-When we compute the jump conditions, the only terms that should contribute are the ones with $a_i^\pm$ (tail interactions) and the sum involving $(\omega - \omega_0) B (d_i c_i V_0(j)$ (Melnikov-type sum). Putting all of this together, the jump conditions should be, to leading order, 
+where $a_0^- = a_m^+ = 0$ and the sums are defined to be $0$ if the upper index is smaller than the lower index. We now follow the procedure in the proof of \cite{Parker2020}*{Theorem 2} and invert the system \cref{eq:eigWsystem2} in the following steps. First, we solve for the remainder functions $W_i^\pm(n)$ in the fixed point equations. Then we use the second equation in \cref{eq:eigWsystem2} to solve for the  the initials conditions $a_i^\pm$. Finally, we use the third equation in \cref{eq:eigWsystem2} to solve for the $b_i^\pm$. The procedure is identical to the proof of \cite{Parker2020}*{Theorem 2} with $\lambda^2$ replaced by $\omega - \omega_0$, $\tilde{H}_i^\pm(n)$ replaced by $c_i V_0(n)$, and additional terms of the form $G_i^\pm(n) V_0(n)$, which will be small using the second estimate in \cref{eq:unifest} and will thus be incorporated into the remainder term. Thus we obtain a unique solution to \cref{eq:Wsystem3} generically has $n$ jumps in the direction of $Z_0(0)$ which are given by 
 \begin{equation}\label{eq:xieq}
 \begin{aligned}
-\xi_i = \langle &Z_0(N_i^+), P_0^u D_i d \rangle 
-+ \langle Z_0(-N_{i-1}^-), P_0^s D_{i-1} d \rangle 
-- (\omega - \omega_0) d_i c_i \sum_{j = -\infty}^{\infty} \langle Z_0(j+1), B V_0(j)\rangle
+\xi_i &= \langle Z_0(N_i^+), P_0^u D_i d \rangle 
++ \langle Z_0(-N_{i-1}^-), P_0^s D_{i-1} d \rangle - (\omega - \omega_0) d_i c_i M + R(\omega - \omega_0)_i(d),
 \end{aligned}
 \end{equation}
+where $M$ is the Melnikov sum
+\[
+M = \sum_{j = -\infty}^{\infty} \langle Z_0(j+1), B V_0(j)\rangle
+\]
+and the remainder term has uniform bound
+GO THROUGH PROOF OF PARKER2020 and TRACK ALL r TERMS TO GET r and $r_0$ CORRECT.
+\[
+\| R(\omega - \omega_0)_i(d) \| ... PUT HERE
+\]
 For the terms in the Melnikov sum,
 \[
 \langle Z_0(j+1), B V_0(j)\rangle = \frac{1}{d} \langle (-v_0(j), v_0(j-1))^T, (v_0(j), 0) \rangle
 = -\frac{1}{d}v_0(j)^2,
 \]
-which means the Melnikov sum will be given by
+thus it follows that
 \begin{equation}\label{eq:M}
 M = \sum_{j = -\infty}^{\infty} v_0(j)^2 = \| v_0 \|_{\ell^2},
 \end{equation}
