@@ -209,16 +209,26 @@ We start by constructing the primary, intersite kink solution $k_n$ by using Mat
 \begin{center}
 \begin{tabular}{cc}
 \includegraphics[width=5cm]{1kink.eps}	&
-\includegraphics[width=5cm]{1kinkspectrum.eps} \\
-\includegraphics[width=5cm]{1kinkgoldstonemode.eps} &
-\includegraphics[width=5cm]{1kinkedgemode.eps}
+\includegraphics[width=5cm]{1kinkspectrum.eps} 
 \end{tabular}
 \end{center}
-\caption{Primary inter-site kink (top left), spectrum of primary kink (top right), Goldstone mode eigenfunction ($\lambda = \pm 0.7789 i$, bottom left), edge mode eigenfunction ($\lambda = \pm 0.9993 i$, bottom left). $d = 0.30$.}
+\caption{Primary inter-site kink (left), spectrum of primary kink (right). $d = 0.30$.}
 \label{fig:kink}
 \end{figure}
 
-The continuous spectrum lies within the interval given by \cref{eq:contspec}, and the pair of Goldstone mode eigenvalues is clearly visible in the continuous spectrum gap. For approximately $d > 0.265$, there is an additional internal mode eigenvalue, known as an edge mode since it arises from the continuous spectrum (see \cite{KevrekidisWeinstein2000}*{Section 2.2}, noting that we are using $d$ in place of $d^2$ in that paper.) The eigenfunctions corresponding to the Goldstone mode and the edge mode are shown in the bottom of \cref{fig:kink}.
+The continuous spectrum lies within the interval given by \cref{eq:contspec}, and the pair of Goldstone mode eigenvalues is clearly visible in the continuous spectrum gap. For approximately $d > 0.265$, there is an additional internal mode eigenvalue, known as an edge mode since it arises from the continuous spectrum (see \cite{KevrekidisWeinstein2000}*{Section 2.2}, noting that we are using $d$ in place of $d^2$ in that paper.) The eigenfunctions corresponding to the Goldstone mode and the edge mode are shown in the left and center panels of of \cref{fig:kinkeig}. The semilog plot in the right panel shows the exponential decay of the primary kink to $\pi$ and the eigenfunctions to 0 as the lattice site index $n$ increases. These decay rates are predicted to be $r^{-|n|}$ for the primary kink, and $r_0^{-|n|}$ for the eigenfuncions, where $r$ is given by \cref{eq:r} and $r_0$ (which depends on the eigenvalue) is given by \cref{eq:r0}. The decay rates computed from the least squares linear regression lines have a relative error of order $1e-4$ for the kink and the Goldstone mode and a relative error of $1e-2$ for the edge mode.
+
+\begin{figure}[H]
+	\begin{center}
+	\begin{tabular}{ccc}
+	\includegraphics[width=5cm]{1kinkgoldstonemode.eps} &
+	\includegraphics[width=5cm]{1kinkedgemode.eps} &
+	\includegraphics[width=5cm]{decayplot.eps}
+	\end{tabular}
+	\end{center}
+	\caption{Goldstone mode eigenfunction ($\lambda = \pm 0.7789 i$, left) and edge mode eigenfunction ($\lambda = \pm 0.9993 i$, center) for $d = 0.30$. Semilog plot of decay of primary kink to $\pi$ and decay of Goldstone and edge modes to 0 (right) for $d = 0.50$. Lines are least-squares linear regressions.}
+	\label{fig:kinkeig}
+\end{figure}
 
 We construct a kink-antikink (\cref{fig:kak}, middle panel) by parameter continuation in the coupling parameter $d$ from the AC limit with AUTO. Notably, there is a turning point at a critical value $d_0$ in the parameter continuation, where the kink-antikink does not exist for $d > d_0$ (\cref{fig:kak}, left panel). The top branch of the bifurcation diagram in \cref{fig:kak} is a kink-antikink comprising two intersite kinks, and the bottom branch is a kink-antikink comprising two on-site kinks. Parameter continuation suggests a linear relationship between the critical value $d_0$ and the separation distance $N$ (\cref{fig:kak}, right panel).
 
@@ -344,7 +354,7 @@ where $A_0$ is the constant matrix
 	A_0 = DF(S^+) + \omega_0 B
 \end{equation}
 $A_0$ is the same matrix as $DF(S^+)$ with $f'(u^*)$ replaced by $f'(u^*) + \omega_0$, and $f'(u^*) + \omega_0 > 0$. Thus $A_0$ is hyperbolic with a pair of eigenvalues $\{ r_0, 1/r_0 \}$ with $r_0 > 0$, where
-\begin{equation}\label{eq:r}
+\begin{equation}\label{eq:r0}
 r_0 = \frac{1}{2d}\left( f'(u^*) + \omega_0 + 2d + \sqrt{(f'(u^*)+ \omega_0)(f'(u^*) + \omega_0 + 4d)} \right),
 \end{equation}
 where $1 < r_0 < r$. Let $\Phi(m, n)$ be the evolution operator for the variational equation 
