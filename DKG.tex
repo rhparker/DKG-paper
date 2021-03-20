@@ -238,56 +238,6 @@ For $m = 3$,
 	\omega_3 &= \lambda_0^2 - \frac{d}{M}\sqrt{a_1^2 + a_2^2} + \mathcal{O}(r_0^{-3N}).
 \end{align*}
 \end{corollary}
-% Let $q_m(n)$ be an $m-$pulse solution to \cref{DNLSequilib} with pulse distances $N_i = 2N$ and phase differences $\Delta\theta_i$. Then the $\lambda_j$ are as follows.
-% \begin{enumerate}[(i)]
-% \item For $m = 2$, we have
-% \begin{align}\label{2pulseeigs}
-% \lambda_1 &= 
-% \begin{cases}
-% \sqrt{2}\nu  + \mathcal{O}(r^{-2N}) & \Delta\theta_1 = 0 \\
-% \sqrt{2}\nu i + \mathcal{O}(r^{-2N}) & \Delta\theta_1 = \pi
-% \end{cases} \:.
-% \end{align}
-% \item For $m = 3$, we have
-% \begin{align}\label{3pulseequaleigs}
-% \lambda_{1, 2} &= \begin{cases}
-% \nu, \sqrt{3} \nu + \mathcal{O}(r^{-2N}) & (\Delta\theta_1, \Delta\theta_2) = (0, 0) \\
-% 3^{1/4}\nu, 3^{1/4}\nu i + \mathcal{O}(r^{-2N}) & (\Delta\theta_1, \Delta\theta_2) = (0, \pi) \\
-% \nu i, \sqrt{3} \nu i + \mathcal{O}(r^{-2N}) & (\Delta\theta_1, \Delta\theta_2) = (\pi, \pi)
-% \end{cases}\:.
-% \end{align}
-% \item For $m > 3$, if $\Delta\theta_i = \Delta\theta$ for all $i$,
-% \begin{align*}
-% \lambda_j = \begin{cases}
-% \sqrt{2\left( \cos\frac{\pi j}{m} - 1 \right)}\nu + \mathcal{O}(r^{-2N}) & \Delta\theta = 0 \\
-% \sqrt{2\left( \cos\frac{\pi j}{m} - 1 \right)}\nu i + \mathcal{O}(r^{-2N}) & \Delta\theta = \pi
-% \end{cases}
-% \end{align*}
-% for $j = 1, \dots, m-1$.
-% \end{enumerate}
-% where $\nu = \sqrt{\frac{|b|d}{M}} = \mathcal{O}(r^{-N})$, and $b$ is given by equation \cref{bieq}.
-% \end{corollary}
-
-% \revised{ The case of equal pulse distances in DNLS resembles the multi-site breathers considered in \cite[Lemma 2]{Pelinovsky2012}.} In the second corollary, we give a general formula for the eigenvalues for a 3-pulse.
-
-% \begin{corollary}\label{DNLSeigcorr2}
-% Let $q_3(n)$ be an $3-$pulse solution to \cref{DNLSequilib} with pulse distances $N_1, N_2$ and phase differences $\Delta \theta_1, \Delta \theta_2$. Then $\lambda_1, \lambda_2$ are given by
-% \begin{equation}\label{3pulseeigs}
-% \begin{aligned}
-% \lambda_{1,2} = \sqrt{\frac{d}{M}}
-% &\Big( -b_1\cos\Delta\theta_1 - b_2\cos\Delta\theta_2  \\
-% &\pm \sqrt{b_1^2 + b_2^2 - b_1 b_2\cos\Delta\theta_1 \cos\Delta\theta_2} \Big)^{1/2} + \mathcal{O}(r^{-2N}).
-% \end{aligned}
-% \end{equation}
-% If $N_1 < N_2 < 2 N_1$, then, to leading order, these have magnitude
-% \begin{equation}\label{3pulsemag}
-% \begin{aligned}
-% |\lambda_1| &= \sqrt{\frac{2 |b_1| d}{M}} = \mathcal{O}(r^{-N_1/2}) \\
-% |\lambda_2| &= \sqrt{\frac{3 |b_2| d}{2 M}} = \mathcal{O}(r^{-N_2/2}) \:,
-% \end{aligned}
-% \end{equation}
-% where $b_1$ and $b_2$ are given by equation \cref{bieq}.
-% \end{corollary}
 
 \section{Numerical results}
 
@@ -308,7 +258,7 @@ We start by constructing the primary, intersite kink solution $k_n$ by using Mat
 \label{fig:kink}
 \end{figure}
 
-The continuous spectrum lies within the interval given by \cref{eq:contspec}, and the pair of Goldstone mode eigenvalues is clearly visible in the continuous spectrum gap. For approximately $d > 0.265$, there is an additional internal mode eigenvalue, known as an edge mode since it arises from the continuous spectrum (see \cite{KevrekidisWeinstein2000}*{Section 2.2}, noting that we are using $d$ in place of $d^2$ in that paper.) The eigenfunctions corresponding to the Goldstone mode and the edge mode are shown in the left and center panels of of \cref{fig:kinkeig}. The semilog plot in the right panel shows the exponential decay of the primary kink to $\pi$ and the eigenfunctions to 0 as the lattice site index $n$ increases. These decay rates are predicted to be $r^{-|n|}$ for the primary kink, and $r_0^{-|n|}$ for the eigenfuncions, where $r$ is given by \cref{eq:r} and $r_0$ (which depends on the eigenvalue) is given by \cref{eq:r0}. The decay rates computed from the least squares linear regression lines have a relative error of order $1e-4$ for the kink and the Goldstone mode and a relative error of $1e-2$ for the edge mode.
+The continuous spectrum lies within the interval given by \cref{eq:contspec}, and the pair of Goldstone mode eigenvalues is clearly visible in the continuous spectrum gap. For approximately $d > 0.265$, there is an additional internal mode eigenvalue, known as an edge mode since it arises from the continuous spectrum (see \cite{KevrekidisWeinstein2000}*{Section 2.2}, noting that we are using $d$ in place of $d^2$ in that paper.) The eigenfunctions corresponding to the Goldstone mode and the edge mode are shown in the left and center panels of of \cref{fig:kinkeig}. The semilog plot in the right panel shows the exponential decay of the primary kink to $\pi$ and the eigenfunctions to 0 as the lattice site index $n$ increases. These decay rates are predicted to be $r^{-|n|}$ for the primary kink, and $r_0^{-|n|}$ for the eigenfuncions, where $r$ is given by \cref{eq:r} and $r_0$ (which depends on the eigenvalue) is given by \cref{eq:r0}. The decay rates computed from the least squares linear regression lines have a relative error of order $10^{-4}$ for the kink and the Goldstone mode and a relative error of $10^{-2}$ for the edge mode.
 
 \begin{figure}[H]
 	\begin{center}
@@ -328,7 +278,7 @@ We construct a kink-antikink (\cref{fig:kak}, middle panel) by parameter continu
 	\begin{center}
 	\begin{tabular}{ccc}
 	\includegraphics[width=5cm]{kak8.eps}	&
-	\includegraphics[width=5cm]{kak8_025.eps} &
+	\includegraphics[width=5cm]{2kink.eps} &
 	\includegraphics[width=5cm]{kakd0vsN.eps}
 	\end{tabular}
 	\end{center}
@@ -336,7 +286,7 @@ We construct a kink-antikink (\cref{fig:kak}, middle panel) by parameter continu
 	\label{fig:kak}
 \end{figure}
 
-The spectrum of the kink-antikink is similarly computed (\cref{fig:kakspec}, left panel). As predicted by the theory, each element of the point spectrum splits into two eigenvalues. The eigenfunctions corresponding to the split Goldstone modes resemble two copies of the Goldstone eigenfunction of the primary kink, spliced together both in-phase and out-of-phase (\cref{fig:kakspec}, center panel). A similar phenomenon occurs with the split edge mode eigenfunctions (\cref{fig:kakspec}, right panel).
+The spectrum of the kink-antikink is similarly computed (\cref{fig:kakspec}, left panel). As predicted by \cref{th:stability}, each element of the point spectrum splits into two eigenvalues. The eigenfunctions corresponding to the split Goldstone modes resemble two copies of the Goldstone eigenfunction of the primary kink, spliced together both in-phase and out-of-phase (\cref{fig:kakspec}, center panel). A similar phenomenon occurs with the split edge mode eigenfunctions (\cref{fig:kakspec}, right panel).
 
 \begin{figure}[H]
 	\begin{center}
@@ -350,11 +300,11 @@ The spectrum of the kink-antikink is similarly computed (\cref{fig:kakspec}, lef
 	\label{fig:kakspec}
 \end{figure}
 
-We can compare the eigenvalues obtained from numerical computation with those predicted by the theory. The left panel of \cref{fig:kakeigerror} plots the log of the relative error of the two Goldstone eigenvalues vs. the separation distance $N$. The slope of the least square linear regression line suggests that this error is order $\mathcal{O}(r^{-2N})$. The right panel of \cref{fig:kakeigerror} plots the log of the relative error of the two Goldstone eigenvalues vs. the coupling parameter $d$. For intermediate values of d, the relative error is less than $10^{-3}$. The error is a minimum for approximately $d = 0.2$, and increases with increasing $d$. (See \cite{Parker2020}*{Figure 4} for a similar error plot for eigenvalues associated with double pulses in the DNLS equation.) Since the results of the theory are not uniform in $d$, i.e. they hold for sufficiently large $N$ once $d$ has been chosen, we do not expect to have a nice relationship between the relative error and $d$.
+We can compare the eigenvalues obtained from numerical computation with those predicted by the \cref{corr:m23}. The left panel of \cref{fig:kakeigerror} plots the log of the relative error of the two Goldstone eigenvalues vs. the separation distance $N$. The slope of the least square linear regression line suggests that this error is order $\mathcal{O}(r^{-2N})$. The right panel of \cref{fig:kakeigerror} plots the log of the relative error of the two Goldstone eigenvalues vs. the coupling parameter $d$. For intermediate values of d, the relative error is less than $10^{-3}$. The error is a minimum for approximately $d = 0.2$, and increases with increasing $d$. (See \cite{Parker2020}*{Figure 4} for a similar error plot for eigenvalues associated with double pulses in the DNLS equation.) Since the results of the \cref{th:stability} are not uniform in $d$, i.e. they hold for sufficiently large $N$ once $d$ has been chosen, we do not expect to have a nice relationship between the relative error and $d$.
 
 \begin{figure}[H]
 	\begin{center}
-	\begin{tabular}{ccc}
+	\begin{tabular}{cc}
 	\includegraphics[width=5cm]{goldstoned025relerror.eps} &
 	\includegraphics[width=5cm]{goldstoneN4relativeerror.eps}
 	\end{tabular}
@@ -362,6 +312,20 @@ We can compare the eigenvalues obtained from numerical computation with those pr
 	\caption{Left panel shows log of relative error in eigenvalue computation vs. $N$ for the two Goldstone eigenvalues for kink-antikink with $d = 0.25$. Lines are least square linear regression lines. Right panel shows $log_{10}$ of relative error in eigenvalue computation vs. $d$ for the two Goldstone eigenvalues for kink-antikink with $N = 4$.} 
 	\label{fig:kakeigerror}
 \end{figure}
+
+We can obtain similar results for higher order multi-kinks. An example of a 3-component multi-kink is shown in the left panel of \cref{fig:3p}. We can again compare the eigenvalue obtained from numerical computation with those predicted by \cref{corr:m23}. The right panel of \cref{fig:3p} shows the relative error of the eigenvalues computations for the three Goldstone eigenvalues.
+
+\begin{figure}[H]
+	\begin{center}
+	\begin{tabular}{cc}
+	\includegraphics[width=5cm]{3kink.eps} &
+	\includegraphics[width=5cm]{goldstone3prelerror.eps}
+	\end{tabular}
+	\end{center}
+	\caption{Left panel shows 3-component multi-kink (kink-antikink-kink) with $N_1 = N_2 = 8$ and $d = 0.25$. Right panel shows log of relative error in eigenvalue computation vs. $N$ for the three Goldstone eigenvalues for 3-component multi-kink with $N_1 = N_2 = 2N$ and $d = 0.25$. Lines are least square linear regression lines.} 
+	\label{fig:3p}
+\end{figure}
+
 
 \section{Proof of existence results}
 
@@ -525,7 +489,7 @@ Then for
 &\lambda \in V_\lambda  &&b = (b_i^-, b_i^+) \in V_b,
 \end{align*}
 the fixed point equations for the eigenvalue problem are
-\begin{equation}\label{fpeig}
+\begin{equation*}\label{fpeig}
 \begin{aligned}
 W_i^-(n) &= 
 \Phi_s^-(n, -N_{i-1}^-) a_{i-1}^- + \sum_{j = -N_{i-1}^-}^{n-1} \Phi_s^-(n, j+1)
@@ -538,7 +502,7 @@ W_i^+(n) &= \Phi_s^+(n, 0; \theta_i) b_i^+ + \sum_{j = 0}^{n-1} \Phi_s^+(n, j+1)
 &+ \Phi_u^+(n, N_i^+) a_i^+ - \sum_{j = n}^{N_i^+-1} \Phi_u^+(n, j+1) 
 [G_i^+(j) + (\omega - \omega_0) B](d_i c_i V_0(j) + W_i^+(j)),
 \end{aligned}
-\end{equation}
+\end{equation*}
 where $a_0^- = a_m^+ = 0$ and the sums are defined to be $0$ if the upper index is smaller than the lower index. We now follow the procedure in the proof of \cite{Parker2020}*{Theorem 2} and invert the system \cref{eq:eigWsystem2} in the following steps. First, we solve for the remainder functions $W_i^\pm(n)$ in the fixed point equations. Then we use the second equation in \cref{eq:eigWsystem2} to solve for the  the initials conditions $a_i^\pm$. Finally, we use the third equation in \cref{eq:eigWsystem2} to solve for the $b_i^\pm$. The procedure is identical to the proof of \cite{Parker2020}*{Theorem 2} with both $\lambda$ and $\lambda^2$ replaced by $\omega - \omega_0$, $\tilde{H}_i^\pm(n)$ replaced by $c_i V_0(n)$, and additional terms of the form $G_i^\pm(n) V_0(n)$, which will be small using the second estimate in \cref{eq:unifest} and will thus be incorporated into the remainder term. Thus we obtain a unique solution to \cref{eq:Wsystem3} generically has $n$ jumps in the direction of $Z_0(0)$ which are given by 
 \begin{equation}\label{eq:xieq}
 \begin{aligned}
