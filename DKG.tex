@@ -104,11 +104,11 @@ Linearization about such an equilibrium solution $u_n$ yields the eigenvalue pro
 \begin{equation}\label{eq:KGevp1}
 d (\Delta_2 v)_n - f'(u_n)v_n = \lambda^2 v_n.
 \end{equation}
-Considered as an eigenvalue problem for $\lambda^2$, the LHS of \cref{eq:KGevp1} is a self-adjoint operator, since it can be represented as a symmetric, infinite dimensional matrix. This implies that $\lambda^2$ is real, which means that $\lambda$ must be either real or pure imaginary. Taking $\omega = \lambda^2$, we re write the eigenvalue problem as
+Considered as an eigenvalue problem for $ \lambda^2$, the LHS of \cref{eq:KGevp1} is a self-adjoint operator, since it can be represented as a symmetric, infinite dimensional matrix. This implies that $\lambda^2$ is real, which means that $\lambda$ must be either real or pure imaginary. Taking $\omega = \lambda^2$, we rewrite the eigenvalue problem as
 \begin{equation}\label{eq:evp}
 d (\Delta_2 v)_n - f'(u_n)v_n = \omega v_n,
 \end{equation}
-where the eigenvalues are $\lambda = \pm \sqrt{\omega}$.
+where $\omega$ is real, and the eigenvalues are given by $\lambda = \pm \sqrt{\omega}$.
 
 Using a spatial dynamics approach as in \cite{Parker2020}, let $u_n$ be an equilibrium solution to \cref{eq:KGeq}, and let $U(n) = (u(n), \tilde{u}(n)) = (u_n, u_{n-1})$. Then equation \cref{eq:KGeq} is equivalent to the lattice dynamical system in $\R^2$
 \begin{equation}\label{eq:dynEq}
@@ -125,7 +125,7 @@ This map has three fixed points of interest at $(0,0)$ and $(\pm u^*, \pm u^*)$ 
 \[
 D F(S^\pm)=
 \begin{pmatrix}2 + \frac{1}{d}f'(\pm u^*) & -1 \\ 1 & 0
-\end{pmatrix}
+\end{pmatrix}.
 \]
 Since $f'(\pm u^*) > 0$, this has a pair of eigenvalues $\{ r, 1/r \}$ with $r > 0$, where
 \begin{equation}\label{eq:r}
@@ -179,7 +179,7 @@ Assume \cref{hyp:kinkexists}. Then there exists a positive integer $N_0$ with th
 | \tilde{U}_i^-(n) | &\leq C r^{-N_{i-1}^-} r^{-(N_{i-1}^- + n)} && \qquad n = 2, \dots, m\\
 |\tilde{U}_i^+(n)| &\leq C r^{-N_i^+} r^{-(N_i^+ - n)} && \qquad n = 1, \dots, m-1 \\
 | \tilde{U}_1^-(n) | &\leq C r^{-2N} r^{n} \\
-|\tilde{U}_m^+(n)| &\leq C r^{-2N} r^{-n}
+|\tilde{U}_m^+(n)| &\leq C r^{-2N} r^{-n} .
 \end{aligned}
 \end{equation}
 \end{theorem}
@@ -191,11 +191,103 @@ V(n+1) = D F( U(n) )V(n) + \omega B V(n),
 where
 \[
 B = \frac{1}{d}
-\begin{pmatrix}1 & 0 \\ 0 & 0
+\begin{pmatrix}1 & 0 \\ 0 & 0.
 \end{pmatrix}
 \] 
+For a multi-kink composed of $m$ components, each eigenvalue of the primary kink $K(n)$ will split into $m$ eigenvalues. The following theorem locates these eigenvalues for the multi-kink $U(n)$.
 
-STATE STABILITY THEOREMS HERE
+\begin{theorem}\label{th:stability}
+Let $U(n)$ be an $m-$component multi-kink constructed as in \cref{th:KaKexists} with distances $N_i$, and let $N = \frac{1}{2} \min\{ N_1, \dots, N_{m-1}\}$. Let $\pm \lambda_0$ be a pair of purely imaginary eigenvalues for the primary kink with corresponding eigenfunction $V_0(n)$, and let $\omega_0 = \lambda_0^2$. Then for $N$ sufficiently large, the multi-kink $U(n)$ has $m$ pairs of imaginary eigenvalues $\{\pm \lambda_0^1, \dots, \pm \lambda_0^m \}$ which are close to $\pm \lambda_0$ and are given by
+\begin{align}\label{eq:lambdaj}
+	\lambda_0^j = \sqrt{\omega_j}, \qquad
+	\omega_j = \lambda_0^2 + \frac{d \mu_j}{M} + \mathcal{O}(r_0^{-3N}) && j = 1, \dots, m,
+\end{align}
+where $\{ \mu_1, \dots, \mu_m \}$ are the real, distinct eigenvalues of the symmetric, tridiagonal matrix
+\begin{equation}\label{eq:matrixA}
+	A = \begin{pmatrix}
+	0 & a_1 & & & \\
+	a_1 & 0 & a_2 \\
+	& a_2 & 0 & a_3 \\
+	& & \ddots & \ddots & \\
+	& & & & a_{m-1}  \\
+	& & & a_{m-1} & 0  \\
+	\end{pmatrix},
+\end{equation}
+with 
+\begin{equation}\label{eq:ai}
+	a_i = v_0(N_i^+)v_0(-N_i^- - 1) - v_0(N_i^+ - 1)v_0(-N_i^-),
+\end{equation}
+and $M$ is the Melnikov sum
+\begin{equation}\label{eq:Minth}
+	M = \sum_{n = -\infty}^{\infty} v_0(n)^2 = \| v_0 \|_{\ell^2}.
+	\end{equation}
+\end{theorem}
+
+\noindent For $m = 2$ and $m = 3$, we can compute the eigenvalues of $A$ exactly.
+
+\begin{corollary}\label{corr:m23}
+For $m = 2$, 
+\begin{align*}
+	\omega_1 &= \lambda_0^2 + \frac{d}{M}a_1 + \mathcal{O}(r_0^{-3N}) \\
+	\omega_2 &= \lambda_0^2 - \frac{d}{M}a_1 + \mathcal{O}(r_0^{-3N}).
+\end{align*}
+For $m = 3$,
+\begin{align*}
+	\omega_1 &= \lambda_0^2 + \mathcal{O}(r_0^{-3N}) \\
+	\omega_2 &= \lambda_0^2 + \frac{d}{M}\sqrt{a_1^2 + a_2^2} + \mathcal{O}(r_0^{-3N}) \\
+	\omega_3 &= \lambda_0^2 - \frac{d}{M}\sqrt{a_1^2 + a_2^2} + \mathcal{O}(r_0^{-3N}).
+\end{align*}
+\end{corollary}
+% Let $q_m(n)$ be an $m-$pulse solution to \cref{DNLSequilib} with pulse distances $N_i = 2N$ and phase differences $\Delta\theta_i$. Then the $\lambda_j$ are as follows.
+% \begin{enumerate}[(i)]
+% \item For $m = 2$, we have
+% \begin{align}\label{2pulseeigs}
+% \lambda_1 &= 
+% \begin{cases}
+% \sqrt{2}\nu  + \mathcal{O}(r^{-2N}) & \Delta\theta_1 = 0 \\
+% \sqrt{2}\nu i + \mathcal{O}(r^{-2N}) & \Delta\theta_1 = \pi
+% \end{cases} \:.
+% \end{align}
+% \item For $m = 3$, we have
+% \begin{align}\label{3pulseequaleigs}
+% \lambda_{1, 2} &= \begin{cases}
+% \nu, \sqrt{3} \nu + \mathcal{O}(r^{-2N}) & (\Delta\theta_1, \Delta\theta_2) = (0, 0) \\
+% 3^{1/4}\nu, 3^{1/4}\nu i + \mathcal{O}(r^{-2N}) & (\Delta\theta_1, \Delta\theta_2) = (0, \pi) \\
+% \nu i, \sqrt{3} \nu i + \mathcal{O}(r^{-2N}) & (\Delta\theta_1, \Delta\theta_2) = (\pi, \pi)
+% \end{cases}\:.
+% \end{align}
+% \item For $m > 3$, if $\Delta\theta_i = \Delta\theta$ for all $i$,
+% \begin{align*}
+% \lambda_j = \begin{cases}
+% \sqrt{2\left( \cos\frac{\pi j}{m} - 1 \right)}\nu + \mathcal{O}(r^{-2N}) & \Delta\theta = 0 \\
+% \sqrt{2\left( \cos\frac{\pi j}{m} - 1 \right)}\nu i + \mathcal{O}(r^{-2N}) & \Delta\theta = \pi
+% \end{cases}
+% \end{align*}
+% for $j = 1, \dots, m-1$.
+% \end{enumerate}
+% where $\nu = \sqrt{\frac{|b|d}{M}} = \mathcal{O}(r^{-N})$, and $b$ is given by equation \cref{bieq}.
+% \end{corollary}
+
+% \revised{ The case of equal pulse distances in DNLS resembles the multi-site breathers considered in \cite[Lemma 2]{Pelinovsky2012}.} In the second corollary, we give a general formula for the eigenvalues for a 3-pulse.
+
+% \begin{corollary}\label{DNLSeigcorr2}
+% Let $q_3(n)$ be an $3-$pulse solution to \cref{DNLSequilib} with pulse distances $N_1, N_2$ and phase differences $\Delta \theta_1, \Delta \theta_2$. Then $\lambda_1, \lambda_2$ are given by
+% \begin{equation}\label{3pulseeigs}
+% \begin{aligned}
+% \lambda_{1,2} = \sqrt{\frac{d}{M}}
+% &\Big( -b_1\cos\Delta\theta_1 - b_2\cos\Delta\theta_2  \\
+% &\pm \sqrt{b_1^2 + b_2^2 - b_1 b_2\cos\Delta\theta_1 \cos\Delta\theta_2} \Big)^{1/2} + \mathcal{O}(r^{-2N}).
+% \end{aligned}
+% \end{equation}
+% If $N_1 < N_2 < 2 N_1$, then, to leading order, these have magnitude
+% \begin{equation}\label{3pulsemag}
+% \begin{aligned}
+% |\lambda_1| &= \sqrt{\frac{2 |b_1| d}{M}} = \mathcal{O}(r^{-N_1/2}) \\
+% |\lambda_2| &= \sqrt{\frac{3 |b_2| d}{2 M}} = \mathcal{O}(r^{-N_2/2}) \:,
+% \end{aligned}
+% \end{equation}
+% where $b_1$ and $b_2$ are given by equation \cref{bieq}.
+% \end{corollary}
 
 \section{Numerical results}
 
@@ -303,7 +395,7 @@ By the stable manifold theorem, $|K(n) - S^+| \leq C r^{-|n|}$ for $n \geq 0$ an
 
 For the primary kink $K(n) = (k_n, \tilde{k}_n)$, let $v_0(n)$ be an eigenfunction with corresponding eigenvalue $\lambda_0$, let $\omega_0 = \lambda_0^2$, and let $V_0(n) = (v_0(n), \tilde{v}_0(n)) = (v_0(n), v_0(n-1))$ so that $V_0(n)$ solves the equation
 \begin{equation}\label{eq:V0solves}
-V_0(n+1) = D F( K(n) )V_0(n) + \omega_0 B V_0(n)
+V_0(n+1) = D F( K(n) )V_0(n) + \omega_0 B V_0(n).
 \end{equation}
 We note that since $\lambda_0$ is on the imaginary axis, $\omega_0 < 0$, and since we are assuming that $\lambda_0$ lies in the continuous spectrum gap, $|\omega_0| < V''(S^+)$. For the kink-antikink solution $U(n)$, we will take an ansatz which is a piecewise perturbation of $V_0(n)$. Let
 \begin{equation}\label{eq:Viansatz}
@@ -314,7 +406,7 @@ where $d_i \in \C$ and $c_i = (-1)^{i+1}$. Substituting this into \cref{eq:EVPdy
 \begin{aligned}
 W_i^\pm(n+1)
 &= DF(K(n)) W_i^\pm(n) + \omega_0 B W_i^\pm(n) \\
-&\qquad + [G_i^\pm(n) + (\omega - \omega_0) B](d_i c_i V_0(n) W_i^\pm(n))
+&\qquad + [G_i^\pm(n) + (\omega - \omega_0) B](d_i c_i V_0(n) W_i^\pm(n)),
 \end{aligned}
 \end{equation}
 where
@@ -323,7 +415,7 @@ G_i^\pm(n) = DF(U_i^\pm(n)) - DF(K(n)),
 \]
 and we used the fact that $DF(c_i K(n)) = DF(K(n))$ from the previous section. Let 
 \[
-A(n; \omega_0) = DF(K(n)) + \omega_0 B
+A(n; \omega_0) = DF(K(n)) + \omega_0 B.
 \]
 Then \cref{eq:Weq1} becomes
 \begin{align}\label{eq:Weq2}
@@ -344,14 +436,13 @@ where
 \begin{equation}\label{defDid}
 D_i d = d_{i+1} c_{i+1} V_0(-N_i^-) - d_i c_i V_0(N_i^+)
 \end{equation}
-
 By the stable manifold theorem, 
 \begin{equation}\label{eq:A0decay}
 	|A(n; \omega_0) - A_0| \leq C r^{-|n|},
 \end{equation}
 where $A_0$ is the constant matrix
 \begin{equation}
-	A_0 = DF(S^+) + \omega_0 B
+	A_0 = DF(S^+) + \omega_0 B.
 \end{equation}
 $A_0$ is the same matrix as $DF(S^+)$ with $f'(u^*)$ replaced by $f'(u^*) + \omega_0$, and $f'(u^*) + \omega_0 > 0$. Thus $A_0$ is hyperbolic with a pair of eigenvalues $\{ r_0, 1/r_0 \}$ with $r_0 > 0$, where
 \begin{equation}\label{eq:r0}
@@ -380,11 +471,15 @@ The variational equation \cref{eq:vareq1} has a bounded solution $V_0(n) = (v_0(
 \begin{equation}\label{eq:adjvareq1}
 	Z(n) = A(n; \omega_0)^* Z(n+1)
 \end{equation}
-has a bounded solution $Z_0(n) = (-v_0(n-1), v_0(n))$ which is orthogonal to $Z_0(n)$. By the stable manifold theorem,
+has a bounded solution 
+\begin{equation}\label{eq:Z0}
+	Z_0(n) = (-v_0(n-1), v_0(n)),
+\end{equation}
+which is orthogonal to $Z_0(n)$. By the stable manifold theorem,
 \begin{equation}\label{eq:VZ0estimates}
 	\begin{aligned}
 		V_0(n) &\leq C r_0^{-|n|} \\
-		Z_0(n) &\leq C r_0^{-|n|}
+		Z_0(n) &\leq C r_0^{-|n|}.
 	\end{aligned}
 \end{equation}
 
@@ -401,20 +496,18 @@ Using Lin's method, we will be able to find a unique solution to this system, bu
 \begin{equation}
 	\xi_i = \langle Z_0(0), W_i^+(0) - W_i^-(0) \rangle = 0
 \end{equation}
-
 are satisfied. Since $G_i^\pm(n) = \mathcal{O}(\tilde{U}_i^\pm(n))$, we have the same estimates for $G_i^\pm(n)$ as we do for $\tilde{U}_i^\pm$ in \cref{eq:Uestimates}. The terms in \cref{eq:eigWsystem2} are the same as in \cite{Parker2020} with the addition of a term of the form $G_i^\pm(n) V_0(n)$. To estimate that term, we combine the estimates \cref{eq:Uestimates} and \cref{eq:VZ0estimates}. For the interior pieces, we have
 \begin{align*}
 | G_i^-(n) V_0(n) | &\leq C r^{-N_{i-1}^-} r^{-(N_{i-1}^- + n)} r_0^n \\
 &\leq C r^{-2 N_{i-1}^-} \left(\frac{r}{r_0}\right)^{-n} \\
 &\leq C \left(\frac{r}{r_0}\right)^{\max\{N_1, \dots, N_m\}} r^{-2 N} \\
-&\leq C r^{-2 N} 
+&\leq C r^{-2 N} ,
 \end{align*}
-
 where in the last step we used the fact that $r_0$ is fixed (it depends only on $\omega_0$), as are the distances $N_i$. The constant will be larger as $r_0$ decreases, which occurs as the eigenvalue $\lambda_0$ gets closer to the continuous spectrum boundary. The estimate for $G_i^+(n) V_0(n)$ is similar, and the estimates for the two exterior pieces are stronger. Thus we have the two uniform estimates
 \begin{equation}\label{eq:unifest}
 	\begin{aligned}
 		\|G_i^\pm\| \leq C r^{-N} \\
-		\|G_i^\pm V_0(n) \| \leq C r^{-2 N} 
+		\|G_i^\pm V_0(n) \| \leq C r^{-2 N}.
 	\end{aligned}
 \end{equation}
 
@@ -428,10 +521,8 @@ V_d &= \C^d.
 \end{align*}
 Then for
 \begin{align*}
-W = (W_i^-, W_i^+) &\in V_W \\
-a = (a_i^-, a_i^+) &\in V_a \\
-b = (b_i^-, b_i^+) &\in V_b \\
-\lambda &\in V_\lambda,
+&W = (W_i^-, W_i^+) \in V_W  && a = (a_i^-, a_i^+) \in V_a \\
+&\lambda \in V_\lambda  &&b = (b_i^-, b_i^+) \in V_b,
 \end{align*}
 the fixed point equations for the eigenvalue problem are
 \begin{equation}\label{fpeig}
@@ -448,8 +539,7 @@ W_i^+(n) &= \Phi_s^+(n, 0; \theta_i) b_i^+ + \sum_{j = 0}^{n-1} \Phi_s^+(n, j+1)
 [G_i^+(j) + (\omega - \omega_0) B](d_i c_i V_0(j) + W_i^+(j)),
 \end{aligned}
 \end{equation}
-
-where $a_0^- = a_m^+ = 0$ and the sums are defined to be $0$ if the upper index is smaller than the lower index. We now follow the procedure in the proof of \cite{Parker2020}*{Theorem 2} and invert the system \cref{eq:eigWsystem2} in the following steps. First, we solve for the remainder functions $W_i^\pm(n)$ in the fixed point equations. Then we use the second equation in \cref{eq:eigWsystem2} to solve for the  the initials conditions $a_i^\pm$. Finally, we use the third equation in \cref{eq:eigWsystem2} to solve for the $b_i^\pm$. The procedure is identical to the proof of \cite{Parker2020}*{Theorem 2} with $\lambda^2$ replaced by $\omega - \omega_0$, $\tilde{H}_i^\pm(n)$ replaced by $c_i V_0(n)$, and additional terms of the form $G_i^\pm(n) V_0(n)$, which will be small using the second estimate in \cref{eq:unifest} and will thus be incorporated into the remainder term. Thus we obtain a unique solution to \cref{eq:Wsystem3} generically has $n$ jumps in the direction of $Z_0(0)$ which are given by 
+where $a_0^- = a_m^+ = 0$ and the sums are defined to be $0$ if the upper index is smaller than the lower index. We now follow the procedure in the proof of \cite{Parker2020}*{Theorem 2} and invert the system \cref{eq:eigWsystem2} in the following steps. First, we solve for the remainder functions $W_i^\pm(n)$ in the fixed point equations. Then we use the second equation in \cref{eq:eigWsystem2} to solve for the  the initials conditions $a_i^\pm$. Finally, we use the third equation in \cref{eq:eigWsystem2} to solve for the $b_i^\pm$. The procedure is identical to the proof of \cite{Parker2020}*{Theorem 2} with both $\lambda$ and $\lambda^2$ replaced by $\omega - \omega_0$, $\tilde{H}_i^\pm(n)$ replaced by $c_i V_0(n)$, and additional terms of the form $G_i^\pm(n) V_0(n)$, which will be small using the second estimate in \cref{eq:unifest} and will thus be incorporated into the remainder term. Thus we obtain a unique solution to \cref{eq:Wsystem3} generically has $n$ jumps in the direction of $Z_0(0)$ which are given by 
 \begin{equation}\label{eq:xieq}
 \begin{aligned}
 \xi_i &= \langle Z_0(N_i^+), P_0^u D_i d \rangle 
@@ -458,13 +548,13 @@ where $a_0^- = a_m^+ = 0$ and the sums are defined to be $0$ if the upper index 
 \end{equation}
 where $M$ is the Melnikov sum
 \[
-M = \sum_{j = -\infty}^{\infty} \langle Z_0(j+1), B V_0(j)\rangle
+M = \sum_{j = -\infty}^{\infty} \langle Z_0(j+1), B V_0(j)\rangle,
 \]
 and the remainder term has uniform bound
-GO THROUGH PROOF OF PARKER2020 and TRACK ALL r TERMS TO GET r and $r_0$ CORRECT.
-\[
-\| R(\omega - \omega_0)_i(d) \| ... PUT HERE
-\]
+\begin{equation}\label{eq:Rbound}
+R(\omega - \omega_0)_i(d) \leq
+C \left( r^{-N} r_0^{-2N} + |\omega - \omega_0|)(r_0^{-N} + |\omega - \omega_0| )\right).
+\end{equation}
 For the terms in the Melnikov sum,
 \[
 \langle Z_0(j+1), B V_0(j)\rangle = \frac{1}{d} \langle (-v_0(j), v_0(j-1))^T, (v_0(j), 0) \rangle
@@ -474,44 +564,76 @@ thus it follows that
 \begin{equation}\label{eq:M}
 M = \sum_{j = -\infty}^{\infty} v_0(j)^2 = \| v_0 \|_{\ell^2},
 \end{equation}
-which is always positive. For the other terms, we note that
+which is always positive. It follows from 
+\cref{eq:eigendecay} that
 \begin{align*}
-P_0^u D_i d &= d_{i+1} c_{i+1} V_0(-N_i^-) + \text{``h.o.t.''} \\
-P_0^s D_i d &= -d_i c_i V_0(N_i^+) + \text{``h.o.t.''}
+P_0^u D_i d &= d_{i+1} c_{i+1} V_0(-N_i^-) + \mathcal{O}\left( r^{-N}r_0^{-N}\right) \\
+P_0^s D_i d &= -d_i c_i V_0(N_i^+) + \mathcal{O}\left( r^{-N}r_0^{-N}\right).
 \end{align*}
-Putting all of this together, we have, to leading order,
-\begin{align*}
-\xi_i = \langle Z_0(N_i^+), V_0(-N_i^-) \rangle d_{i+1} c_{i+1}
-- \langle Z_0(-N_{i-1}^-), V_0(N_{i-1}^+) \rangle d_{i-1} c_{i-1}
-+ \dfrac{1}{d} (\omega - \omega_0) d_i c_i M
-\end{align*}
-Since $c_i$ and $c_{i+1}$ have opposite signs, this simplifies to 
+Substituting these into \cref{eq:xieq}, we have
+\begin{equation*}
+\begin{aligned}
+\xi_i = \langle Z_0(N_i^+), &V_0(-N_i^-) \rangle d_{i+1} c_{i+1}
+- \langle Z_0(-N_{i-1}^-), V_0(N_{i-1}^+) \rangle d_{i-1} c_{i-1} \\
+&+ \dfrac{1}{d} (\omega - \omega_0) d_i c_i M+ R(\omega - \omega_0)_i(d),
+\end{aligned}
+\end{equation*}
+where the bound on the remainder term is unchanged. Since $c_i$ and $c_{i+1}$ have opposite signs, this simplifies to 
 \begin{align*}
 \xi_i = \langle Z_0(N_i^+), V_0(-N_i^-) \rangle d_{i+1}
 - \langle Z_0(-N_{i-1}^-), V_0(N_{i-1}^+) \rangle d_{i-1}
 - \dfrac{1}{d} (\omega - \omega_0) d_i M
++ R(\omega - \omega_0)_i(d).
 \end{align*}
 Let
 \begin{align*}
 a_i &= \langle Z_0(N_i^+), V_0(-N_i^-) \rangle 
-= v_0(N_i^+)v_0(-N_i^- - 1) - v_0(N_i^+ - 1)v_0(-N_i^-)
+= v_0(N_i^+)v_0(-N_i^- - 1) - v_0(N_i^+ - 1)v_0(-N_i^-).
 \end{align*}
-Then
+Using equation \cref{eq:Z0},
 \[
 \langle Z_0(-N_i^-), V_0(N_i^+) \rangle 
-= v_0(N_i^+ - 1)v_0(-N_i^-) - v_0(N_i^+)v_0(-N_i^- - 1) = -a_i
+= v_0(N_i^+ - 1)v_0(-N_i^-) - v_0(N_i^+)v_0(-N_i^- - 1) = -a_i,
 \]
-Thus we have
-\begin{align*}
+which we substitute above to obtain
+\begin{align}\label{eq:xifinal}
 \xi_i = a_i d_{i+1}
 + a_{i-1} d_{i-1}
-- \dfrac{1}{d} (\omega - \omega_0) d_i M
-\end{align*}
-The $a_i$ can be simplified based on symmetries of the eigenfunction $v_0(n)$. For even eigenfunctions, we have $v_0(-n) = v_0(n-1)$, (the Goldstone mode, appears to be even), so we have
-\begin{align}\label{eq:ai}
-a_i = v_0(N_i^+)v_0(N_i^-) - v_0(N_i^+ - 1)v_0(N_i^- -1)
+- \dfrac{1}{d} (\omega - \omega_0) d_i M 
++ R(\omega - \omega_0)_i(d).
 \end{align}
+The $a_i$ can be simplified further based on symmetries of the eigenfunction $v_0(n)$. For even, intersite eigenfunctions, $v_0(-n) = v_0(n-1)$, thus we have
+\begin{align}\label{eq:aievenintersite}
+a_i = v_0(N_i^+)v_0(N_i^-) - v_0(N_i^+ - 1)v_0(N_i^- -1).
+\end{align}
+For odd, intersite eigenfunctions, $v_0(-n) = -v_0(n-1)$, and so
+\begin{align}\label{eq:aioddintersite}
+	a_i = v_0(N_i^+ - 1)v_0(N_i^- -1) - v_0(N_i^+)v_0(N_i^-).
+\end{align}
+This can be written as the matrix equation
+\begin{equation}\label{eq:matrixAeq}
+	\left( A - \frac{1}{d}(\omega - \omega_0)MI + R(\omega-\omega_0)\right)d = 0,
+\end{equation}
+where $A$ is defined by \cref{eq:matrixA}, which has a nontrivial solution if and only if
+\begin{equation}\label{eq:matrixdeteq}
+	E(\omega - \omega_0) = 
+	\det \left( A - \frac{1}{d}(\omega - \omega_0)MI + R(\omega-\omega_0)\right)d = 0.
+\end{equation}
+Let $\{ \mu_1, \dots, \mu_{m} \}$ be the eigenvalues of $A$, which are real since $A$ is symmetric. They are also distinct by \cite{Jirari1995}*{Corollary 2.2.7}, since the eigenvalue problem $(A - \mu I) v = 0$ is equivalent to the Sturm-Liouville difference equation with Dirichlet boundary conditions
+\begin{equation*}
+\begin{aligned}
+\nabla( p_j \Delta d_j ) + q_j &= \mu d_j && \qquad j = 1, \dots, m \\
+d_0 &= 0 \\
+d_{m+1} &= 0,
+\end{aligned}
+\end{equation*}
+where $p_j = a_j$, $q_j = a_j + a_{j-1}$, $\Delta$ is the forward difference operator $(\Delta f)_j = f_{j+1} - f_j$ and $\nabla$ is the backward difference operator $(\nabla f)_j = f_j - f_{j-1}$. 
 
+Following the proof of \cite{Parker2020}*{Theorem 5}, we can use the implicit function theorem to solve for $\omega - \omega_0$ to get the $m$ solutions
+\begin{align*}
+	\omega_j &= \omega_0 + \frac{d \mu_j}{M} + \mathcal{O}(r_0^{-3N}) && j = 1, \dots, m.
+\end{align*}
+Since $\mu_j = \mathcal{O}(r_0^{-2N})$, $\omega_0 < 0$, and $\omega$ must be real, $\omega_j < 0$ for sufficiently small $N$. The corresponding eigenvalues are $\lambda_j = \pm \sqrt{\omega_j}$, which are on the imaginary axis.
 
 \bibliographystyle{amsplain}
 \bibliography{DKG.bib}
