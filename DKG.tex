@@ -100,7 +100,7 @@ Equilibrium solutions are standing waves which satisfy
 \begin{equation}\label{eq:KGeq}
 d (\Delta_2 u)_n - f(u_n) = 0.
 \end{equation}
-Linearization about such an equilibrium solution $u_n$ yields the eigenvalue problem
+Linearization about an equilibrium solution $u_n$ yields the eigenvalue problem
 \begin{equation}\label{eq:KGevp1}
 d (\Delta_2 v)_n - f'(u_n)v_n = \lambda^2 v_n.
 \end{equation}
@@ -324,6 +324,20 @@ We can obtain similar results for higher order multi-kinks. An example of a 3-co
 	\end{center}
 	\caption{Left panel shows 3-component multi-kink (kink-antikink-kink) with $N_1 = N_2 = 8$ and $d = 0.25$. Right panel shows log of relative error in eigenvalue computation vs. $N$ for the three Goldstone eigenvalues for 3-component multi-kink with $N_1 = N_2 = 2N$ and $d = 0.25$. Lines are least square linear regression lines.} 
 	\label{fig:3p}
+\end{figure}
+
+Finally, we perform timestepping simulations on perturbations of the primary kink. Since the eigenvalues are imaginary, we expect to see oscillatory behavior whose form is determined by the shape of the corresponding eigenfunction. For a kink or multi-kink, we will refer to the two nodes which are closest to (and symmetric about) 0 as the central nodes (these are nodes -1 and 0 in \cref{fig:kink}). The left and central panels of \cref{fig:kinktimestep} shows the oscillatory behavior that results when the central nodes of the kink are perturbed in the same direction by 0.1. This perturbation follows the shape of the Goldstone eigenfunction, and the frequency of oscillations is given by the Goldstone eigenvalue, with a relative error of less than $0.01$. The right panel of \cref{fig:kinktimestep} shows the oscillatory behavior that results when the central nodes of the kink are perturbed in the opposite direction by 0.1. This perturbation follows the shape of the edge mode eigenfunction, and the frequency of oscillations is given by the edge mode eigenvalue, with a relative error of less than $0.01$.
+
+\begin{figure}[H]
+	\begin{center}
+	\begin{tabular}{ccc}
+	\includegraphics[width=5cm]{kinkwaterfall1.eps} &
+	\includegraphics[width=5cm]{kinkoscgoldstone.eps} &
+	\includegraphics[width=5cm]{kinkoscedge.eps}
+	\end{tabular}
+	\end{center}
+	\caption{Left panel shows timestepping of perturbation primary kink solution, where two central nodes of kink are perturbed by 0.1 in same direction. Center and right panels shows difference between perturbed solution and kink for the two central nodes for perturbation of central nodes in same direction (center) and opposite direction (right) by 0.1. $d = 0.5$, timestepping using 4th order Runge-Kutta method, step size 0.04.} 
+	\label{fig:kinktimestep}
 \end{figure}
 
 
