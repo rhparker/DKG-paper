@@ -1,26 +1,18 @@
-\documentclass[12pt]{article}
+\documentclass[12pt,reqno]{amsart}
 \usepackage[pdfborder={0 0 0.5 [3 2]}, plainpages=false]{hyperref}%
 \usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}%
 \usepackage[shortalphabetic]{amsrefs}%
 \usepackage{amsmath}
 \usepackage{enumerate}
-% \usepackage{enumitem}
 \usepackage{amssymb}                
-\usepackage{amsmath}                
 \usepackage{amsfonts}
 \usepackage{amsthm}
 \usepackage{bbm}
 \usepackage[table,xcdraw]{xcolor}
-\usepackage{tikz}
 \usepackage{float}
-\usepackage{booktabs}
-\usepackage{svg}
 \usepackage{mathtools}
 \usepackage{cool}
-\usepackage{url}
 \usepackage{graphicx,epsfig}
-\usepackage{makecell}
-\usepackage{array}
 
 \usepackage[capitalize,nameinlink]{cleveref}
 % Per SIAM Style Manual, "section" should be lowercase
@@ -75,8 +67,6 @@
 \newtheorem{hypothesis}{Hypothesis}
 \newtheorem{remark}{Remark}
 
-\newtheorem{notation}{Notation}
-
 \begin{document}
 
 \title{Multi-kinks in the discrete Klein-Gordon Equation}
@@ -109,11 +99,6 @@ Linearization about an equilibrium solution $u_n$ yields the eigenvalue problem
 \begin{equation}\label{eq:KGevp1}
 d (\Delta_2 v)_n - f'(u_n)v_n = \lambda^2 v_n.
 \end{equation}
-Considered as an eigenvalue problem for $ \lambda^2$, the LHS of \cref{eq:KGevp1} is a self-adjoint operator, since it can be represented as a symmetric, infinite dimensional matrix. This implies that $\lambda^2$ is real, which means that $\lambda$ must be either real or pure imaginary. Taking $\omega = \lambda^2$, we rewrite the eigenvalue problem as
-\begin{equation}\label{eq:evp}
-d (\Delta_2 v)_n - f'(u_n)v_n = \omega v_n,
-\end{equation}
-where $\omega$ is real, and the eigenvalues are given by $\lambda = \pm \sqrt{\omega}$.
 
 Using a spatial dynamics approach as in \cite{Parker2020}, let $u_n$ be an equilibrium solution to \cref{eq:KGeq}, and let $U(n) = (u(n), \tilde{u}(n)) = (u_n, u_{n-1})$. Then equation \cref{eq:KGeq} is equivalent to the lattice dynamical system in $\R^2$
 \begin{equation}\label{eq:dynEq}
@@ -136,22 +121,31 @@ Since $f'(\pm u^*) > 0$, this has a pair of eigenvalues $\{ r, 1/r \}$ with $r >
 \begin{equation}\label{eq:r}
 r = \frac{1}{2d}\left( f'(u^*) + 2d + \sqrt{f'(u^*)(f'(u^*) + 4d)} \right).
 \end{equation}
-Thus $S^\pm$ are hyperbolic saddle equilibria of the lattice dynamical system \cref{eq:dynEq}. We take the existence of a stable, symmetric kink (stationary front) as a hypothesis. From the spatial dynamics perspective, this kink solution is a heteroclinic orbit connecting the saddle at $S^-$ to the saddle at $S^+$.
+Thus $S^\pm$ are hyperbolic saddle equilibria of the lattice dynamical system \cref{eq:dynEq}. The origin is a nonhyperbolic equilibrium which has a pair of eigenvalues on the unit circle in the complex plane. We take the existence of a stable, symmetric kink (stationary front) as a hypothesis. From the spatial dynamics perspective, this kink solution is a heteroclinic orbit connecting the saddle at $S^-$ to the saddle at $S^+$.
 
 \begin{hypothesis}\label{hyp:kinkexists}
-There exists a kink solution $K(n) = (k(n),\tilde{k}(n))$ to \cref{eq:dynEq} which connects the unstable manifold $W^u(-u^*, -u^*)$ and the stable manifold $W^s(u^*, u^*)$. These manifolds intersect transversely in $\R^2$. The kink solution has one of the following odd symmetries:
-\begin{itemize}
-	\item $k(-n) = -k(n-1)$ (intersite symmetry)
-	\item $k(-n) = -k(n)$ (on-site symmetry)
-\end{itemize}
-Finally, $K(n)$ a ground state kink, i.e. $k(n)$ is a minimizer of the $t$-independent energy functional
+There exists a kink solution $K(n) = (k(n),\tilde{k}(n))$ to \cref{eq:dynEq} which connects the unstable manifold $W^u(-u^*, -u^*)$ and the stable manifold $W^s(u^*, u^*)$. These manifolds intersect transversely in $\R^2$. 
+% The kink solution has one of the following odd symmetries:
+% \begin{itemize}
+% 	\item $k(-n) = -k(n-1)$ (intersite symmetry)
+% 	\item $k(-n) = -k(n)$ (on-site symmetry)
+% \end{itemize}
+The kink has the odd symmetry $k(-n) = -k(n-1)$. Finally, $K(n)$ a ground state kink, i.e. $k(n)$ is a minimizer of the $t$-independent energy functional
 \begin{equation}
 h[u] = \sum_{n=-\infty}^\infty 
 \left( \frac{d}{2} (u_{n+1} - u_n)^2 + V(u_n) \right).
 \end{equation}
 \end{hypothesis}
 
-Since $K(n)$ is a ground state kink by assumption, it follows that it is spectrally stable \cite{KevrekidisWeinstein2000}. Since the system is Hamiltonian, this implies that the spectrum of the ground state kink lies on the imaginary axis. For specific nonlinearities $f(u)$, including those associated with the discrete sine-Gordon equation and the $\phi^4$ variant, the existence of a symmetric ground state kink is known (see \cite{KevrekidisWeinstein2000} and references therein). For the discrete sine-Gordon equation and the $\phi^4$ variant in particular, the ground state kink has inter-site symmetry. Since $f(u)$ is an odd function, if $u_n$ is a solution to \cref{eq:KGeq}, so is $-u_n$. Thus for every kink solution $K(n)$ to \cref{eq:dynEq} there is a corresponding antikink solution $\tilde{K}(n) = -K(n)$.
+\begin{remark}
+The kink $k(n)$ from \cref{hyp:kinkexists}, which has the odd symmetry $k(-n) = -k(n-1)$, is known as intersite kink, since it does not involve the equlibrium at 0. For the sine-Gordon equation, an intersite kink at the anti-continuum limit would be $(-\dots, -\pi, -\pi, \pi, \pi, \dots)$. By contrast, an on-site kink, which has the odd symmetry $k(-n) = -k(n)$, involves the equilibrium at 0. For the sine-Gordon equation, an on-site kink at the anti-continuum limit would be $(-\dots, -\pi, -\pi, 0, \pi, \pi, \dots)$. 
+\end{remark}
+
+Since $K(n)$ is a ground state kink by assumption, it follows that it is spectrally stable \cite{KevrekidisWeinstein2000}. Since the system is Hamiltonian, this implies that the spectrum of the ground state kink lies on the imaginary axis. For specific nonlinearities $f(u)$, including those associated with the discrete sine-Gordon equation and the $\phi^4$ variant, the existence of a symmetric, intersite ground state kink is known 
+(see \cite{KevrekidisWeinstein2000},\cite{SGchapter}  and references therein). 
+
+
+Since $f(u)$ is an odd function, if $u_n$ is a solution to \cref{eq:KGeq}, so is $-u_n$. Thus for every kink solution $K(n)$ to \cref{eq:dynEq} there is a corresponding antikink solution $\tilde{K}(n) = -K(n)$.
 
 The spectrum of the primary kink solution $K(n) = (k(n),\tilde{k}(n))$ can be decomposed into two disjoint sets: the point spectrum consists of isolated eigenvalues for which the corresponding eigenfunction is in $\ell^2(\Z)$, and continuous spectrum is the remaining elements of the spectrum, which consists of bounded, oscillatory modes. Following \cite{KevrekidisWeinstein2000}, the continuous spectrum depends only on the background state of the system and consists of the two symmetric intervals on the imaginary axis
 \begin{equation}\label{eq:contspec}
@@ -193,7 +187,11 @@ Assume \cref{hyp:kinkexists}. Then there exists a positive integer $N_0$ with th
 For the sine-Gordon equation, equation \cref{eq:dynEq} has saddle equilibria at $n \pi$ for all odd integers $n$. More general multi-kinks can be constructed comprising kinks and anti-kinks which link any adjacent saddle equilibria. A specific example is a double kink, where a kink  connecting $-\pi$ to $pi$ is followed by a kink connecting $\pi$ to $3 \pi$. The existence of these general multi-kinks is a straightforward adaptation of \cref{th:KaKexists}.
 \end{remark}
 
-For spectral stability, we rewrite the eigenvalue problem \cref{eq:evp} as a lattice dynamical system by taking $V(n) = (v(n), \tilde{v}(n)) = (v_n, v_{n-1})$. Then \cref{eq:evp} is equivalent to the lattice dynamical system in $\R^2$
+For spectral stability, take $\omega = \lambda^2$ to obtain the eigenvalue problem for $\omega$
+\begin{equation}\label{eq:evp}
+d (\Delta_2 v)_n - f'(u_n)v_n = \omega v_n.
+\end{equation}
+The eigenvalues are given by $\lambda = \pm \sqrt{\omega}$. Again taking a spatial dynamics approach, we rewrite \cref{eq:evp} as a lattice dynamical system by taking $V(n) = (v(n), \tilde{v}(n)) = (v_n, v_{n-1})$. Then \cref{eq:evp} is equivalent to the lattice dynamical system in $\R^2$
 \begin{equation}\label{eq:EVPdyneq}
 V(n+1) = D F( U(n) )V(n) + \omega B V(n),
 \end{equation}
