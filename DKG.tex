@@ -99,6 +99,11 @@ Linearization about an equilibrium solution $u_n$ yields the eigenvalue problem
 \begin{equation}\label{eq:KGevp1}
 d (\Delta_2 v)_n - f'(u_n)v_n = \lambda^2 v_n.
 \end{equation}
+Letting $\omega = \lambda^2$, we obtain the eigenvalue problem for $\omega$
+\begin{equation}\label{eq:evp}
+d (\Delta_2 v)_n - f'(u_n)v_n = \omega v_n.
+\end{equation}
+The eigenvalues are given by $\lambda = \pm \sqrt{\omega}$. Equation \cref{eq:evp} has the form of an infinite dimensional matrix problem \cite{Balmforth2000}. Since that matrix is real and symmetric, the linear operator defined by the LHS of \cref{eq:evp} is self-adjoint, thus $\omega$ must be real. This implies that the eigenvalues $\lambda$ must be either real or purely imaginary pairs. In particular, spectral instabilities can only develop when a pair of eigenvalues passes through the origin \cite{Balmforth2000}.
 
 Using a spatial dynamics approach as in \cite{Parker2020}, let $u_n$ be an equilibrium solution to \cref{eq:KGeq}, and let $U(n) = (u(n), \tilde{u}(n)) = (u_n, u_{n-1})$. Then equation \cref{eq:KGeq} is equivalent to the lattice dynamical system in $\R^2$
 \begin{equation}\label{eq:dynEq}
@@ -141,11 +146,7 @@ h[u] = \sum_{n=-\infty}^\infty
 The kink $k(n)$ from \cref{hyp:kinkexists}, which has the odd symmetry $k(-n) = -k(n-1)$, is known as intersite kink, since it does not involve the equlibrium at 0. For the sine-Gordon equation, an intersite kink at the anti-continuum limit would be $(-\dots, -\pi, -\pi, \pi, \pi, \dots)$. By contrast, an on-site kink, which has the odd symmetry $k(-n) = -k(n)$, involves the equilibrium at 0. For the sine-Gordon equation, an on-site kink at the anti-continuum limit would be $(-\dots, -\pi, -\pi, 0, \pi, \pi, \dots)$. 
 \end{remark}
 
-Since $K(n)$ is a ground state kink by assumption, it follows that it is spectrally stable \cite{KevrekidisWeinstein2000}. Since the system is Hamiltonian, this implies that the spectrum of the ground state kink lies on the imaginary axis. For specific nonlinearities $f(u)$, including those associated with the discrete sine-Gordon equation and the $\phi^4$ variant, the existence of a symmetric, intersite ground state kink is known 
-(see \cite{KevrekidisWeinstein2000},\cite{SGchapter}  and references therein). 
-
-
-Since $f(u)$ is an odd function, if $u_n$ is a solution to \cref{eq:KGeq}, so is $-u_n$. Thus for every kink solution $K(n)$ to \cref{eq:dynEq} there is a corresponding antikink solution $\tilde{K}(n) = -K(n)$.
+Since $K(n)$ is a ground state kink by assumption, it follows that it is spectrally stable \cite{KevrekidisWeinstein2000}. Since the system is Hamiltonian, this implies that the spectrum of the ground state kink lies on the imaginary axis. For specific nonlinearities $f(u)$, including those associated with the discrete sine-Gordon equation and the $\phi^4$ variant, the existence of a symmetric, intersite ground state kink is known (see \cites{KevrekidisWeinstein2000,SGchapter} and references therein). We will not consider the on-site kink here. For the sine-Gordon equation, the on-site kink has a pair of real eigenvalues $\pm \lambda$ and is thus unstable \cite{Kapitula2001}*{Theorem 4.4}. In addition, the onsite kink can be shown to be unstable for in the sine-Gordon equation when $d < 1/4$ and $\phi^4$ variant when $d < 1/2$ using Gerschgorin’s theorem \cite{SGchapter}. Since $f(u)$ is an odd function, if $u_n$ is a solution to \cref{eq:KGeq}, so is $-u_n$. Thus for every kink solution $K(n)$ to \cref{eq:dynEq} there is a corresponding antikink solution $\tilde{K}(n) = -K(n)$.
 
 The spectrum of the primary kink solution $K(n) = (k(n),\tilde{k}(n))$ can be decomposed into two disjoint sets: the point spectrum consists of isolated eigenvalues for which the corresponding eigenfunction is in $\ell^2(\Z)$, and continuous spectrum is the remaining elements of the spectrum, which consists of bounded, oscillatory modes. Following \cite{KevrekidisWeinstein2000}, the continuous spectrum depends only on the background state of the system and consists of the two symmetric intervals on the imaginary axis
 \begin{equation}\label{eq:contspec}
@@ -153,7 +154,7 @@ The spectrum of the primary kink solution $K(n) = (k(n),\tilde{k}(n))$ can be de
 \end{equation}
 In particular, there is a gap in the continuous spectrum $i\left(-\sqrt{V''(S^+)},\sqrt{V''(S^+)}\right)$ which contains the origin. The continuous spectrum will be the same for the linearization about any equilibrium solution. 
 
-Since the discrete Klein-Gordon equation does not possess any continuous symmetries (by contrast with the continnuum equation, which is translation invariant), there will be no eigenvalues at the origin. Instead, there will be a symmetric pair of eigenvalues, often termed Goldstone modes, which is either real or purely imaginary. For the ground state kink, this pair will be imaginary. For specific nonlinearities $f(u)$, there may be additional eigenvalues, known as internal modes, which lie between the bands of the continuous spectrum. For the ground state kink, these will also be purely imaginary. (See \cite{KevrekidisWeinstein2000}, in particular Figures 2 and 4, for a graphical illustration of the spectrum of the kink solution, including the internal modes, for the discrete sine-Gordon equation and the $\phi^4$ variant). For now, we make the additional assumption that all point spectrum for the primary kink $K(n)$ lies in the continuous spectrum gap, i.e. all eigenvalues satisfy the inequality $|\lambda| < \sqrt{V''(S^+)}$. This assumption is proved in the next section.
+The continuum Klein-Gordon equation $u_{tt} = u_{xx} - f(u)$ has an eigenvalue at 0 due to translation invariance which is referred to as the Goldstone mode. Since the discrete Klein-Gordon equation does not possess any continuous symmetries, there will be no eigenvalues at the origin. Instead, there will be a symmetric pair of eigenvalues, which is either real or purely imaginary. For the ground state, inter-site kink, this pair will be imaginary, and for the the on-site kink, this pair will be real. This pair of eigenvalues is often termed Goldstone modes in reference to the Goldstone mode of the continuum equation,since these eigenvalues approach the origin as the discrete equation approaches the continuum equation, i.e. $d \rightarrow \infty$. For specific nonlinearities $f(u)$, there may be additional eigenvalues, known as internal modes, which lie between the bands of the continuous spectrum. For the ground state kink, these will also be purely imaginary. (See \cite{KevrekidisWeinstein2000}, in particular Figures 2 and 4, for a graphical illustration of the spectrum of the kink solution, including the internal modes, for the discrete sine-Gordon equation and the $\phi^4$ variant). For now, we make the additional assumption that all point spectrum for the primary kink $K(n)$ lies in the continuous spectrum gap, i.e. all eigenvalues satisfy the inequality $|\lambda| < \sqrt{V''(S^+)}$. This assumption is proved in the next section.
 
 \section{Multi-kinks}
 
@@ -187,11 +188,7 @@ Assume \cref{hyp:kinkexists}. Then there exists a positive integer $N_0$ with th
 For the sine-Gordon equation, equation \cref{eq:dynEq} has saddle equilibria at $n \pi$ for all odd integers $n$. More general multi-kinks can be constructed comprising kinks and anti-kinks which link any adjacent saddle equilibria. A specific example is a double kink, where a kink  connecting $-\pi$ to $pi$ is followed by a kink connecting $\pi$ to $3 \pi$. The existence of these general multi-kinks is a straightforward adaptation of \cref{th:KaKexists}.
 \end{remark}
 
-For spectral stability, take $\omega = \lambda^2$ to obtain the eigenvalue problem for $\omega$
-\begin{equation}\label{eq:evp}
-d (\Delta_2 v)_n - f'(u_n)v_n = \omega v_n.
-\end{equation}
-The eigenvalues are given by $\lambda = \pm \sqrt{\omega}$. Again taking a spatial dynamics approach, we rewrite \cref{eq:evp} as a lattice dynamical system by taking $V(n) = (v(n), \tilde{v}(n)) = (v_n, v_{n-1})$. Then \cref{eq:evp} is equivalent to the lattice dynamical system in $\R^2$
+For spectral stability, we again take a spatial dynamics approach. We rewrite \cref{eq:evp} as a lattice dynamical system by taking $V(n) = (v(n), \tilde{v}(n)) = (v_n, v_{n-1})$. Then \cref{eq:evp} is equivalent to the lattice dynamical system in $\R^2$
 \begin{equation}\label{eq:EVPdyneq}
 V(n+1) = D F( U(n) )V(n) + \omega B V(n),
 \end{equation}
@@ -255,6 +252,9 @@ and $M$ is the Melnikov sum
 	M = \sum_{n = -\infty}^{\infty} v_0(n)^2 = \| v_0 \|_{\ell^2}.
 	\end{equation}
 \end{theorem}
+
+\begin{remark}The estimates in \cref{th:stability}, and in particular the matrix \cref{eq:matrixA}, require knowledge of both the eigenvalue $\lambda_0$ of the primary kink and its corresponding eigenfunction $v_0(n)$. This will be different for each eigenvalue $\lambda_0$ of the primary kink. In particular, note that the decay rate of the remainder term in \cref{eq:lambdaj} depends on $\lambda_0$ via $r_0$.
+\end{remark}
 
 \noindent For $m = 2$ and $m = 3$, we can compute the eigenvalues of $A$ exactly.
 
