@@ -1,7 +1,7 @@
 \documentclass[12pt,reqno]{amsart}
 \usepackage[pdfborder={0 0 0.5 [3 2]}, plainpages=false]{hyperref}%
 \usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}%
-\usepackage[shortalphabetic]{amsrefs}%
+\usepackage{amsrefs}%
 \usepackage{amsmath}
 \usepackage{enumerate}
 \usepackage{amssymb}                
@@ -73,13 +73,31 @@
 
 \maketitle
 
+\section{Introduction}
+
+The discrete Klein-Gordon equation (DKG)
+\begin{equation}\label{eq:KG}
+\ddot{u}_n = d (\Delta_2 u)_n - f(u_n)
+\end{equation}
+describes the dynamics of an infinitely long, one-dimensional lattice of particles which are harmonically coupled to their neighbors through the discrete second difference operator $\Delta_2$, where $(\Delta_2 u)_n = u_{n+1} - 2 u_n + u_{n-1}$, and are subject to an external, nonlinear, on-site potential $f(u) = V'(u)$ \cite{Karachalios}. The quantity $u_n$ represents the displacement of the particle at site $n$ in the lattice, and the dot represents the derivative with respect to $t$. 
+
+One example of interest is the discrete sine-Gordon equation
+\begin{equation}\label{eq:dSG}
+	\ddot{u}_n = d (\Delta_2 u)_n - \sin(u_n),
+\end{equation}
+in which the external potential is periodic. This equation is also known as the Frenkel-Kontorova model, and was introduced in 1938 to describe the dynamics of a crystal lattice near a dislocation core \cite{braun1998}. This equation has since been used in numerous applications, including a mechanical model for a chain of pendulums coupled with elastic springs \cite{Scott1969}, arrays of Josephson junctions \cites{Ustinov1992,Floria1998}, and DNA dynamics \cites{Yomosa1983,Yakushevich1998}. (See \cite{braun2004}*{Chapter 2} for more physical applications of this model.) Another example of interest is the discrete $\phi^4$ variant
+\begin{equation}\label{eq:dphi4}
+	\ddot{u}_n = d (\Delta_2 u)_n + 2 u_n(1 - u_n^2),
+\end{equation}
+which has a double well external potential, and has applications to conducting polymers \cite{heeger1988}.
+
 \section{Mathematical background}
 
 The discrete Klein-Gordon equation (DKG) is given by
 \begin{equation}\label{eq:KG}
 \ddot{u}_n = d (\Delta_2 u)_n - f(u_n),
 \end{equation}
-where the dot represents the derivative with respect to $t, \Delta_2$ is the discrete second difference operator, and $f(u) = V'(u)$ for a smooth potential function $V(u)$. Important versions include the discrete sine-Gordon equation, where $f(u) = -\sin(u)$, and $\phi^4$ variant, where $f(u) = -u(1-u^2)$. The nonlinearity $f(u)$ satisfies the following three properties:
+where the dot represents the derivative with respect to $t$, $\Delta_2$ is the discrete second difference operator, and $f(u) = V'(u)$ for a smooth potential function $V(u)$. Important versions include the discrete sine-Gordon equation, where $f(u) = -\sin(u)$, and $\phi^4$ variant, where $f(u) = -u(1-u^2)$. The nonlinearity $f(u)$ satisfies the following three properties:
 \begin{enumerate}[(i)]
 	\item $f(u)$ is an odd function (so $f(0) = 0$) and $f'(0) < 0$
 	\item There is a pair of nonzero equilibria $\pm u^*$ with $f(\pm u^*) = 0$ and $f'(u^*) = f'(-u^*) > 0$.
