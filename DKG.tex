@@ -424,7 +424,7 @@ We can obtain similar results for higher order multi-kinks. An example of a 3-co
 	\label{fig:kk50}
 \end{figure}
 
-Finally, we perform timestepping simulations on perturbations of the primary kink. Since the eigenvalues are imaginary, we expect to see oscillatory behavior whose form is determined by the shape of the corresponding eigenfunction. For a kink or multi-kink, we will refer to the two nodes which are closest to (and symmetric about) 0 as the central nodes (these are nodes -1 and 0 in \cref{fig:kink}). The left and central panels of \cref{fig:kinktimestep} shows the oscillatory behavior that results when the central nodes of the kink are perturbed in the same direction by 0.1. This perturbation follows the shape of the Goldstone eigenfunction, and the frequency of oscillations is given by the Goldstone eigenvalue, with a relative error of less than $10^{-2}$. Since the two central nodes perturb in the same direction, we will call these in-phase vibrations. The right panel of \cref{fig:kinktimestep} shows the oscillatory behavior that results when the central nodes of the kink are perturbed in the opposite direction by 0.1. This perturbation follows the shape of the edge mode eigenfunction, and the frequency of oscillations is given by the edge mode eigenvalue, with a relative error of less than $10^{-2}$. Since the two central nodes perturb in opposite directions, we will call these out-of-phase vibrations.
+Finally, we perform timestepping simulations on perturbations of the primary kink. Since the eigenvalues are imaginary, we expect to see oscillatory behavior whose form is determined by the shape of the corresponding eigenfunction. For a kink or multi-kink, we will refer to the two nodes which are closest to (and symmetric about) 0 as the central nodes (these are nodes -1 and 0 in \cref{fig:SGkinks}). The left and central panels of \cref{fig:kinktimestep} shows the oscillatory behavior that results when the central nodes of the kink are perturbed in the same direction by 0.1. This perturbation follows the shape of the Goldstone eigenfunction, and the frequency of oscillations is given by the Goldstone eigenvalue, with a relative error of less than $10^{-2}$. Since the two central nodes perturb in the same direction, we will call these in-phase vibrations. The right panel of \cref{fig:kinktimestep} shows the oscillatory behavior that results when the central nodes of the kink are perturbed in the opposite direction by 0.1. This perturbation follows the shape of the edge mode eigenfunction, and the frequency of oscillations is given by the edge mode eigenvalue, with a relative error of less than $10^{-2}$. Since the two central nodes perturb in opposite directions, we will call these out-of-phase vibrations.
 
 \begin{figure}[H]
 	\begin{center}
@@ -434,12 +434,12 @@ Finally, we perform timestepping simulations on perturbations of the primary kin
 	\includegraphics[width=5cm]{kinkoscedge.eps}
 	\end{tabular}
 	\end{center}
-	\caption{Left panel shows timestepping of perturbation of primary kink solution, where two central nodes of kink are perturbed by 0.1 in same direction. Center and right panels shows difference between perturbed solution and kink for the two central nodes for perturbation of central nodes in same direction (center) and opposite direction (right) by 0.1. Two central nodes are shown in blue solid and red dotted lines. $N=200$ grid points for kink, $d = 0.70$, timestepping using 4th order Runge-Kutta method with step size 0.04. Goldstone mode eigenvalue is $0.40703i$, edge mode eigenvalue is $0.99618i$.
+	\caption{Left panel shows timestepping of perturbation of primary inter-site kink solution, where two central nodes of kink are perturbed by 0.1 in same direction. Center and right panels shows difference between perturbed solution and kink for the two central nodes for perturbation of central nodes in same direction (center) and opposite direction (right) by 0.1. Two central nodes are shown in blue solid and red dotted lines. $N=200$ grid points for kink, $d = 0.70$, timestepping using 4th order Runge-Kutta method with step size 0.04. Goldstone mode eigenvalue is $0.40703i$, edge mode eigenvalue is $0.99618i$.
 	} 
 	\label{fig:kinktimestep}
 \end{figure}
 
-For certain values of the coupling parameter $d$, there will be resonance between the Goldstone mode and the continuous spectrum, which will cause the oscillations to decay (\cref{fig:kinktimestepresonance}, contrast with center panel of \cref{fig:kinktimestep}). This occurs when $2 \lambda$ is contained in the continuous spectrum band, where $\lambda$ is the Goldstone eigenvalue.
+For certain values of the coupling parameter $d$, there will be resonance between the Goldstone mode and the continuous spectrum, which will cause the oscillations to decay (\cref{fig:kinktimestepresonance}, contrast with center panel of \cref{fig:kinktimestep}). This occurs when $2 \lambda$ is contained in the continuous spectrum band, where $\lambda$ is the Goldstone eigenvalue. We can perform similar timestepping experiments for perturbations the on-site kink. If we perturb the central node $n = 0$ of the on-site kink at 0 by a small amount, the solution develops oscillatory behavior about the neutrally stable inter-site kink (\cref{fig:onsitekinktimestep}).
 
 \begin{figure}[H]
 	\begin{center}
@@ -450,6 +450,16 @@ For certain values of the coupling parameter $d$, there will be resonance betwee
 	\end{center}
 	\caption{Left panel shows difference between perturbed solution and kink for the two central nodes for perturbation of central nodes in same direction by 0.1. Two central nodes are shown in blue solid and red dotted lines. Right panel is log-log plot of amplitude of oscillations vs. $t$ $N=200$ grid points for kink, $d = 0.5$, timestepping using 4th order Runge-Kutta method with step size 0.05. Goldstone mode eigenvalue is $0.57184i$.} 
 	\label{fig:kinktimestepresonance}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+	\begin{tabular}{c}
+	\includegraphics[width=7cm]{onsitekinktimestep.eps} 
+	\end{tabular}
+	\end{center}
+	\caption{Plot of nodes $n=0$ and $n=-1$ (blue solid and red dotted lines, respectively) for perturbation of on-site kink vs. $t$ showing oscillations about central nodes of inter-site kink, which are horizontal black solid lines. $N=60$ grid points for kink, $d = 0.5$, timestepping using 4th order Runge-Kutta method with step size 0.05.} 
+	\label{fig:onsitekinktimestep}
 \end{figure}
 
 For a kink-antikink, the pair of Goldstone mode eigenfunctions suggests that there will be two corresponding normal modes of oscillations for the central nodes of the two kinks: an in-phase mode and an out-of-phase mode. These can be seen in \cref{fig:kaktimestep}. There will similarly be two normal modes corresponding to the pair of edge mode eigenfunctions.
