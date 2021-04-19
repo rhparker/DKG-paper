@@ -527,19 +527,7 @@ Further avenues of research include exploring multi-kinks in other models. One s
 \begin{equation}
 	\ddot{u}_n = \frac{1}{h^2}(\Delta_2 u)_n + 2 u_n - u_n^2 (u_{n+1}+u_{n-1}),
 \end{equation}
-which has an exact static kink solution $u_n = \tanh(a n + \xi)$ (\cref{fig:ALphi4}, left panel), where $a = \frac{1}{2} \cosh^{-1}[(1+h^2)/(1-h^2) ]$ and $\xi$ is arbitrary. Preliminary numerical results from MATLAB suggest that kink-antikink solutions can be constructed if the kink and antikink are sufficiently well separated (\cref{fig:ALphi4}, right panel); more separation is needed for smaller values of $h$.
-\begin{figure}[H]
-	\begin{center}
-	\begin{tabular}{cc}
-	\includegraphics[width=5cm]{alphi4kink.eps} &
-	\includegraphics[width=5cm]{alphi4kak.eps}
-	\end{tabular}
-	\end{center}
-	\caption{Kink solution (left panel) and kink-antikink (right panel) to AL-$\phi^4$ model with $h = 0.75$.
-	} 
-	\label{fig:ALphi4}
-\end{figure}
-Unlike the discrete Klein-Gordon equation, there will be eigenvalue at 0 for the primary kink solution from translation invariance. This will persist in the kink-antikink solution, and we expect that there will be an additional pair of eigenvalues near 0 which will determine its stability. The analysis will be more involved than in DKG due to this symmetry and the fact that the nonlinear term no longer a simple on-site potential. Other potential variants include the sine lattice (SL) form studied in \cite{Takeno1986}. Finally, we could apply similar techniques to study multi-site breathers in discrete Klein-Gordon lattices.
+which has an exact static kink solution $u_n = \tanh(a n + \xi)$, where $a = \frac{1}{2} \cosh^{-1}[(1+h^2)/(1-h^2) ]$ and $\xi$ is arbitrary. Although we do not expect this equation to have kink-antikink equilibrium solutions, since the stable and unstable manifolds of the two equilibria do not intersect transversely, we expect that a kink-antikink will be an approximate equilibrium solution. We may then be able to explain the time evolution of the kink-antikink dynamics in terms of interactions between their exponentially decaying tails. Other potential variants we could examine include the sine lattice (SL) form studied in \cite{Takeno1986}. Finally, we could apply similar techniques to study multi-site breathers in discrete Klein-Gordon lattices.
 
 \section{Proof of \cref{th:KaKexists}}\label{sec:proof1}
 
