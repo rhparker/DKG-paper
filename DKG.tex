@@ -123,26 +123,28 @@ describes the dynamics of an infinitely long, one-dimensional lattice of particl
 
 A specific example is the discrete sine-Gordon equation
 \begin{equation}\label{eq:dSG}
-	\ddot{u}_n = d (\Delta_2 u)_n - \sin(u_n),
+	\ddot{u}_n = d (\Delta_2 u)_n \pm \sin(u_n),
 \end{equation}
-in which the external potential is periodic. This equation is also known as the Frenkel-Kontorova model, and was introduced in 1938 to describe the dynamics of a crystal lattice near a dislocation core \cites{braun1998,braun2004}. This equation has since been used in numerous applications, including a mechanical model for a chain of pendula coupled with elastic springs \cite{Scott1969,english}, arrays of Josephson junctions \cites{Ustinov1992,Floria1998}, and DNA dynamics \cites{Yomosa1983,Yakushevich1998,DeLeo2011}. (See \cite{braun2004}*{Chapter 2} for more physical applications of this model). Another example of  substantial interest is the discrete $\phi^4$ model
+in which the external potential is periodic. This equation is also known as the Frenkel-Kontorova model, and was introduced in 1938 to describe the dynamics of a crystal lattice near a dislocation core \cites{braun1998,braun2004}. This equation has since been used in numerous applications, including a mechanical model for a chain of pendula coupled with elastic springs \cites{Scott1969,english}, arrays of Josephson junctions \cites{Ustinov1992,Floria1998}, and DNA dynamics \cites{Yomosa1983,Yakushevich1998,DeLeo2011}. (See \cite{braun2004}*{Chapter 2} for more physical applications of this model). Another example of  substantial interest is the discrete $\phi^4$ model
 \begin{equation}\label{eq:dphi4}
 	\ddot{u}_n = d (\Delta_2 u)_n + 2 u_n(1 - u_n^2),
 \end{equation}
 which has a double well external potential, and has applications to conducting polymers \cite{heeger1988}. In addition, the
 latter model has been a central point of focus
 as concerns the dynamics of discrete 
-breathers, i.e., time-periodic and exponentially localized solutions in space~\cite{tsironis,FLACH20081}.
+breathers, i.e., time-periodic and exponentially localized solutions in space~\cites{tsironis,FLACH20081}.
 
 Equation \cref{eq:dSG} is the discrete analogue of the 
 continuum sine-Gordon PDE
-\begin{equation}\label{eq:dKG}
-	u_{tt} = u_{xx} - \sin(u),
+\begin{equation}\label{eq:SG}
+	u_{tt} = u_{xx} \pm \sin(u),
 \end{equation}
 which has many physical (including, e.g.,
 fluxons in Josephson junctions, charge density
 waves in quasi-1d conducting materials, among many others)
-and biological applications \cites{SGbook,Ivancevic2013} and has been extensively studied both in the mathematical and physics literature due to the fact that it is integrable via the inverse scattering transform \cite{SolitonBook1}. Of particular interest are coherent structures such as kinks (\cref{fig:SGkinks}, left panel), exponentially localized stationary solutions which 
+and biological applications \cites{SGbook,Ivancevic2013} and has been extensively studied both in the mathematical and physics literature due to the fact that it is integrable via the inverse scattering transform \cite{SolitonBook1}. 
+\revised{We note that if $u(x)$ is a solution to \cref{eq:SG} with the ``minus'' nonlinearity, $u(x) - \pi$ is a solution with the ``plus'' nonlinearity. The same holds for \cref{eq:dSG}. For symmetry reasons which will be explained in \cref{sec:bg}, we will consider only the ``minus'' nonlinearity here.}
+Of particular interest are coherent structures such as kinks (\cref{fig:SGkinks}, left panel), exponentially localized stationary solutions which 
 are heteroclinic orbits that connect two adjacent minima of the potential $V(u)$, and also continuum variants of the breather
 solutions. Analytical waveforms are available via the 
 integrable theory for both kinks and breathers in the sine-Gordon equation (see, for example, \cite{SGchapter}). Kink  solutions exist for the continuum $\phi^4$ model as well, although that equation is not integrable \cites{SGbook,KevrekidisWeinstein2000}
@@ -155,7 +157,6 @@ Klein-Gordon settings aside from the integrable
 sine-Gordon case) as is known from the work of~\cite{segur}. 
 
 When we move from the continuum realm to the discrete, there are two distinct kink solutions: inter-site kinks (\cref{fig:SGkinks}, which connect two adjacent minima of the potential $V(u)$ directly, and on-site kinks (\cref{fig:SGkinks}, right panel), which connect these states via a local maximum of $V(u)$ which lies between the two minima~\cite{peyrard}. 
-\revised{ (We note that in \cref{fig:SGkinks}, the kink for the continuum sine-Gordon equation connects 0 to $2 \pi$, whereas the kink for the discrete sine-Gordon equation connects $-\pi$ to $\pi$. This is explained in \cref{sec:bg} below).}
 This is similar to the discrete nonlinear Schr{\"o}dinger equation (DNLS), where there is both a site-centered and an intersite-centered (pulse) soliton solution~\cite{Kevrekidis2009}. Corresponding to each kink solution is an antikink solution which connects the two equilbria in the opposite order. By reversibility, if $k(n)$ is a kink solution, then $k(-n)$ is an antikink. We will be concerned only with static kink solutions here, although we note that there has been much interest in both moving kinks \cites{Aigner2003,Iooss2006,Cisneros2008} and breather solutions (see, for example, \cites{SGbook} as well as \cites{Pelinovsky2012,Cuevas2011} for results on multi-site breathers) in discrete Klein-Gordon lattices.
 
 \begin{figure}[H]
@@ -188,7 +189,7 @@ systematic understanding of such multiwave patterns, based
 on the existence and stability properties of the corresponding
 building block, namely the single kink (or antikink).
 
-This paper is organized as follows. In \cref{sec:bg}, we present the mathematical background for the discrete Klein-Gordon equation together with a reformulation of the existence and eigenvalue problem using a spatial dynamics approach. The main results concerning the existence and spectrum of multi-kinks are then given in \cref{sec:multikink}; the proofs of these results are deferred to the end of the paper. In \cref{sec:numerics}, we present numerical results which corroborate the main theorems as well as results of timestepping simulations. The proofs of \cref{th:stability} and \cref{th:stability} are given following a brief concluding section.
+This paper is organized as follows. In \cref{sec:bg}, we present the mathematical background for the discrete Klein-Gordon equation together with a reformulation of the existence and eigenvalue problem using a spatial dynamics approach. The main results concerning the existence and spectrum of multi-kinks are then given in \cref{sec:multikink}; the proofs of these results are deferred to the end of the paper. In \cref{sec:numerics}, we present numerical results which corroborate the main theorems as well as results of timestepping simulations. The proofs of \cref{th:stability} and \cref{th:stability} are given as appendices following a brief concluding section.
 
 \section{Mathematical background}\label{sec:bg}
 
@@ -209,7 +210,7 @@ where $(\Delta_2 u)_n = u_{n+1} - 2 u_n + u_{n-1}$ is the discrete second differ
 	$0$ plays the role of the unstable equilibrium between
 	the other two(??). RP: Hopefully this is clearer now. I explicitly state in (i) that 0 is an equlibrium.}
 \end{enumerate}
-Important versions include the discrete sine-Gordon equation, where $f(u) = -\sin(u)$, and the $\phi^4$ model, where $f(u) = -u(1-u^2)$.
+Important versions include the discrete sine-Gordon equation, where $f(u) = -\sin(u)$ and $P(u) = 1 + \cos(u)$, and the $\phi^4$ model, where $f(u) = -u(1-u^2)$ and $P(u) = \frac{1}{4}(1-u^2)^2$.
 \revised{We note that the discrete sine-Gordon equation is typically written with the nonlinearity $f(u) = \sin u$, in which case the pair of equilibria in (ii) are at 0 and $2 \pi$. This is identical except for a translation of $u_n$ by $\pi$. Choosing $f$ to have odd symmetry greatly simplifies the analysis, and allows the result to apply to both the discrete sine-Gordon equation and the $\phi^4$ model}.
 Equation \cref{eq:KG} is Hamiltonian, with energy given by \cite{KevrekidisWeinstein2000}
 \begin{equation}\label{eq:H}
@@ -266,8 +267,9 @@ The kink has the odd symmetry $k(-n) = -k(n-1)$. Finally,
 the kink $K(n)$ is a minimizer of the $t$-independent energy functional
 \begin{equation}\label{eq:energyfunctional}
 h[u] = \sum_{n=-\infty}^\infty 
-\left( \frac{d}{2} (u_{n+1} - u_n)^2 + V(u_n) \right).
+\left( \frac{d}{2} (u_{n+1} - u_n)^2 + P(u_n) \right)
 \end{equation}
+\revised{among the class of heteroclinic connections between $S^-$ and $S^+$.}
 \end{hypothesis}
 
 \begin{remark}
@@ -282,7 +284,7 @@ The kink $k(n)$ from \cref{hyp:kinkexists} has the odd symmetry $k(-n) = -k(n-1)
 state is the flat state. The kink is the lowest energy
 among the heteroclinic states. Should we make this clear
 somehow? (i.e., that it's minimal energy among the
-class of solutions)? RP: I changed this to refer to minimizing the energy functional \cref{eq:energyfunctional}, and supplied a reference that shows that this implies the spectrum is imaginary.}
+class of solutions)? RP: I changed this to refer to minimizing the energy functional \cref{eq:energyfunctional}, and supplied a reference that shows that this implies the spectrum is imaginary. I also mention that it is a minimizer among class of heteroclinic solutions.}
 % we assume  that it is spectrally stable; see, e.g.,~\cite{KevrekidisWeinstein2000} for a discussion of the relevant spectrum. Since the system is Hamiltonian, this implies that the spectrum of the ground state kink lies on the imaginary axis. 
 For specific nonlinearities $f(u)$, including those associated with the discrete sine-Gordon equation and the $\phi^4$ model, the existence of a symmetric, intersite kink which is a minimizer of \cref{eq:energyfunctional} is known (see \cites{KevrekidisWeinstein2000,SGchapter} and references therein). We will not consider the on-site kink here, since it will in general be unstable. For the sine-Gordon equation, for example, the on-site kink has a pair of real eigenvalues $\pm \lambda$ and is thus unstable \cite{Kapitula2001}*{Theorem 4.4}. In addition, the onsite kink can be shown to be unstable for the sine-Gordon equation when $d < 1/4$ and the  $\phi^4$ model when $d < 1/2$ using Gerschgorin’s theorem \cite{SGchapter}. Since $f(u)$ is an odd function, if $u_n$ is a solution to \cref{eq:KGeq}, so is $-u_n$. Thus for every kink solution $K(n)$ to \cref{eq:dynEq} there is a corresponding antikink solution $\tilde{K}(n) = -K(n)$.
 
@@ -292,7 +294,7 @@ The spectrum of the primary kink solution $K(n) = (k(n),\tilde{k}(n))$ can be de
 \end{equation}
 In particular, there is a gap in the continuous spectrum $i\left(-\sqrt{f'(S^+)},\sqrt{f'(S^+)}\right)$ which contains the origin. The continuous spectrum will be the same for the linearization about any equilibrium solution. 
 
-The continuum Klein-Gordon equation $u_{tt} = u_{xx} - f(u)$ has an eigenvalue at 0 due to translation invariance which is referred to as the Goldstone mode. Since the discrete Klein-Gordon equation does not possess any continuous symmetries, there will be no eigenvalues at the origin. Instead, there will be a symmetric pair of eigenvalues, which is either real or purely imaginary. For the inter-site kink we are considering, this pair will be imaginary since the entire spectrum is imaginary (it will be real for the on-site kink). This pair of eigenvalues is often termed Goldstone modes by extension of the Goldstone mode of the continuum equation, since these eigenvalues approach the origin as the discrete equation approaches the continuum equation, i.e. $d \rightarrow \infty$. For specific nonlinearities $f(u)$ and certain values of the coupling parameter $d$, there may be additional eigenvalues, known as internal modes, which lie between the bands of the continuous spectrum. For the kinks which are minimizers of \cref{eq:energyfunctional}, these will also be purely imaginary. (See \cite{cretegny,KevrekidisWeinstein2000}
+The continuum Klein-Gordon equation $u_{tt} = u_{xx} - f(u)$ has an eigenvalue at 0 due to translation invariance which is referred to as the Goldstone mode. Since the discrete Klein-Gordon equation does not possess any continuous symmetries, there will be no eigenvalues at the origin. Instead, there will be a symmetric pair of eigenvalues, which is either real or purely imaginary. For the inter-site kink we are considering, this pair will be imaginary since the entire spectrum is imaginary (it will be real for the on-site kink). This pair of eigenvalues is often termed Goldstone modes by extension of the Goldstone mode of the continuum equation, since these eigenvalues approach the origin as the discrete equation approaches the continuum equation, i.e. $d \rightarrow \infty$. For specific nonlinearities $f(u)$ and certain values of the coupling parameter $d$, there may be additional eigenvalues, known as internal modes, which lie between the bands of the continuous spectrum. For the kinks which are minimizers of \cref{eq:energyfunctional}, these will also be purely imaginary. (See \cites{cretegny,KevrekidisWeinstein2000}
 %, in particular Figures 2 and 4, for a graphical illustration 
 for a discussion of the spectrum of the kink solution, including the internal modes, for the discrete sine-Gordon equation and the $\phi^4$ model). For now, we will make the additional assumption that all point spectrum for the primary kink $K(n)$ lies in the continuous spectrum gap, i.e. all eigenvalues satisfy the inequality $|\lambda| < \sqrt{f'(S^+)}$. This assumption is proved in the next section.
 
@@ -532,10 +534,7 @@ The spectrum of the kink-antikink is similarly computed (\cref{fig:kakspec}, lef
 	\label{fig:kakspec}
 \end{figure}
 
-We can compare the eigenvalues obtained from numerical computation with those predicted by the \cref{corr:m23}. The left panel of \cref{fig:kakeigerror} plots the log of the relative error 
-\[
-\frac{ | \lambda_{\text{true}} - \lambda_{\text{predicted}} | }{ | \lambda_{\text{true}} | }
-\]
+We can compare the eigenvalues obtained from numerical computation with those predicted by the \cref{corr:m23}. The left panel of \cref{fig:kakeigerror} plots the log of the relative error $| \lambda_{\text{true}} - \lambda_{\text{predicted}} |/| \lambda_{\text{true}} |$
 of the two Goldstone eigenvalues vs. the separation distance $N$; the value for $\lambda$ computed with MATLAB is used as the true value of $\lambda$.
 {\bf PGK: Ross, can you define more precisely the relative
 error that you are computing? I think this would be beneficial
@@ -675,8 +674,7 @@ we would perhaps like, I was thinking that it might be
 a better idea to do so. RP: good idea.}
 
 We can similarly construct a kink-antikink from two on-site kink structures (\cref{fig:unstablekak}, top left). The spectrum corresponding to this solution is shown in the top right panel of \cref{fig:unstablekak}, in which we see the split Goldstone modes on the real axis, confirming the instability of
-this bound state. The corresponding Goldstone eigenfunctions are shown in the bottom left panel of \cref{fig:unstablekak}. Finally, we perform timestepping experiments for perturbations of this kink-antikink. If we perturb the two central nodes (both of which have values $u_n$ = 0) by a small amount, the solution develops oscillatory behavior about the neutrally stable inter-site kink-antikink for the same value of the separation distance $N_1$ (\cref{fig:onsitekinktimestep}). I.e., as it is natural
-the solution departs from the corresponding energy
+this bound state. The corresponding Goldstone eigenfunctions are shown in the bottom left panel of \cref{fig:unstablekak}. Finally, we perform timestepping experiments for perturbations of this kink-antikink. If we perturb the two central nodes (both of which have values $u_n$ = 0) by a small amount, the solution develops oscillatory behavior about the neutrally stable inter-site kink-antikink. The solution departs from the corresponding energy
 maximum and performs oscillations around the nearby
 energy minimum, namely the stable inter-site kink-antikink
 state.
@@ -706,7 +704,7 @@ eigenvalue equation. This matrix equation is different for each eigenvalue of th
 explicit calculation to be imaginary as well. These eigenvalues can be computed numerically, and the result is in good agreement with the theory and this approach explicitly illustrates the 
 spectral stability of these multi-soliton solutions.
 
-Further avenues of research include exploring multi-kinks in other models. One such model is the Ablowitz-Ladik type discretization of the $\phi^4$ model(AL-$\phi^4$) \cite{kevrekidis2003}
+Further avenues of research include exploring multi-kinks in other models. One such model is the Ablowitz-Ladik type discretization of the $\phi^4$ model (AL-$\phi^4$) \cite{kevrekidis2003}
 \begin{equation}
 	\ddot{u}_n = \frac{1}{h^2}(\Delta_2 u)_n + 2 u_n - u_n^2 (u_{n+1}+u_{n-1}),
 \end{equation}
@@ -724,9 +722,12 @@ of~\cite{Takeno1986}.
 Generalizing such ideas to the context of higher-dimensional
 Klein-Gordon models where the kinks are typically also 
 dynamically robust would be another direction of interest.
+\revised{We could also explore time evolution using initial conditions which have the same asymptotics at $\pm \infty$ as a kink or a kink-antikink.}
 Finally, it remains open to explore whether similar techniques 
 can be used to study multi-site breathers in discrete 
 Klein-Gordon lattices.
+
+\appendix
 
 \section{Proof of \cref{th:KaKexists}}\label{sec:proof1}
 
