@@ -282,16 +282,19 @@ hand, the on-site kink will in general be unstable. For the sine-Gordon equation
 
 The spectrum of the primary kink solution $K(n) = (k(n),\tilde{k}(n))$ can be decomposed into two disjoint sets: the point spectrum consists of isolated eigenvalues for which the corresponding eigenfunction is in $\ell^2(\Z)$, and the continuous spectrum which consists of bounded, oscillatory modes. Following \cite{KevrekidisWeinstein2000}, the continuous spectrum depends only on the background state of the system and consists of the two symmetric intervals on the imaginary axis
 \begin{equation}\label{eq:contspec}
-	\sigma_{\text{cont}} = \pm i \left[\sqrt{f'(S^+)}, \sqrt{f'(S^+) + 4d}\right].
+	\sigma_{\text{cont}} = \pm i \left[\sqrt{f'(u^*)}, \sqrt{f'(u^*) + 4d}\right].
 \end{equation}
-In particular, there is a gap in the continuous spectrum $i\left(-\sqrt{f'(S^+)},\sqrt{f'(S^+)}\right)$ which contains the origin. The continuous spectrum will be the same for the linearization about any equilibrium solution involving the asymptotics of $u \rightarrow \pm u^*$.
+In particular, there is a gap in the continuous spectrum $i\left(-\sqrt{f'(u^*)},\sqrt{f'(u^*)}\right)$ which contains the origin. The continuous spectrum will be the same for the linearization about any equilibrium solution involving the asymptotics of $u \rightarrow \pm u^*$.
 
 The continuum Klein-Gordon equation $u_{tt} = u_{xx} - f(u)$ has an eigenvalue at 0 due to translation invariance which is referred to as the Goldstone mode. Since the discrete Klein-Gordon equation does not possess any continuous symmetries, there will be no eigenvalues at the origin. Instead, there will be a symmetric pair of eigenvalues, which is either real or purely imaginary. For the inter-site kink we are considering, this pair will be imaginary since the entire spectrum is imaginary (it will be real for the on-site kink). This pair of eigenvalues is often termed Goldstone modes by extension of the Goldstone mode of the continuum equation, since these eigenvalues approach the origin as the discrete equation approaches the continuum limit, i.e. $d \rightarrow \infty$. For specific nonlinearities $f(u)$ and certain values of the coupling parameter $d$, there may be additional eigenvalues, known as internal modes, which lie between the bands of the continuous spectrum. For the kinks which are minimizers of \cref{eq:energyfunctional}, these will also be purely imaginary. (See \cites{cretegny,KevrekidisWeinstein2000}
 %, in particular Figures 2 and 4, for a graphical illustration 
-for a discussion of the spectrum of the kink solution, including the internal modes, for the discrete sine-Gordon equation and the $\phi^4$ model). We make the additional {hypothesis} that all point spectrum for the primary kink $K(n)$ lies in the continuous spectrum gap, i.e. all eigenvalues satisfy the inequality $|\lambda| < \sqrt{f'(S^+)}$. 
-%\revised{We will show below that this hypothesis is satisfied for exponentially localized eigenfunctions.}
-% Since we don't prove anything above the band a priori, perhaps it's best
-% to remove this. 
+for a discussion of the spectrum of the kink solution, including the internal modes, for the discrete sine-Gordon equation and the $\phi^4$ model). We make the additional hypothesis that all point spectrum for the primary kink $K(n)$ lies in the continuous spectrum gap.
+
+\revised{
+\begin{hypothesis}\label{hyp:pointspecgap}
+$|\lambda| < \sqrt{f'(u^*)}$ for all eigenvalues (point spectrum) $\lambda$ of the primary kink $K(n)$.
+\end{hypothesis}
+}
 
 \section{Multi-kinks}\label{sec:multikink}
 
@@ -362,18 +365,15 @@ $A_0$ has eigenvalues $\{ r_0, 1/r_0 \}$, where
 \begin{equation}\label{eq:r0}
 r_0 = \frac{1}{2d}\left( f'(u^*) + \omega_0 + 2d + \sqrt{(f'(u^*)+ \omega_0)(f'(u^*) + \omega_0 + 4d)} \right).
 \end{equation}
-Since $\lambda_0$ is on the imaginary axis by \cref{hyp:kinkexists}, $\omega_0 < 0$. For $\omega_0 < 0$, $A_0$ is hyperbolic if and only if $|\omega_0| < f'(S^+)$, thus we can only have a localized eigenfunction if this condition holds. 
-{This justifies our earlier hypothesis that $\lambda_0$ lies in the continuous spectrum gap.} 
-\revised{Ross: as far as I can tell it can be the case that 
-$|\omega_0|>f'(u^*)+4 d$ which is also outside the continuous spectrum
-and ABOVE the band. We are not a priori proving that that is not the case
-at least that I see. So the IF AND ONLY IF above, it seems to me, is not
-quite right. If so, please revise.}
-We also note that when this holds, $1 < r_0 < r$, thus the eigenfunctions decay to 0 slower than the kink solution decays to the equilibria at $\pm S$.
+\revised{
+Since $\lambda_0$ is on the imaginary axis by \cref{hyp:kinkexists}, $\omega_0 < 0$, thus it follows from \cref{hyp:pointspecgap} that $A_0$ is hyperbolic.
+}
+It also follows from \cref{hyp:pointspecgap} that $1 < r_0 < r$, thus the eigenfunctions decay to 0 slower than the kink solution decays to the equilibria at $\pm S$.
 
 For a multi-kink composed of $m$ components, each eigenvalue of the primary kink $K(n)$ will split into $m$ eigenvalues. The following theorem locates these eigenvalues for the multi-kink $U(n)$. The proof is deferred until \cref{sec:proof2}.
 
 \begin{theorem}\label{th:stability}
+Assume \cref{hyp:kinkexists} and \cref{hyp:pointspecgap}.
 Let $U(n)$ be an $m-$component multi-kink constructed as in \cref{th:KaKexists} with distances $N_i$, and let $N = \frac{1}{2} \min\{ N_1, \dots, N_{m-1}\}$. Let $\pm \lambda_0$ be a pair of purely imaginary eigenvalues for the primary kink with corresponding eigenfunction $V_0(n)$, and let $\omega_0 = \lambda_0^2$. Then for $N$ sufficiently large, the multi-kink $U(n)$ has $m$ pairs of imaginary eigenvalues $\{\pm \lambda_0^1, \dots, \pm \lambda_0^m \}$ which are close to $\pm \lambda_0$ and are given by
 \begin{align}\label{eq:lambdaj}
 	\lambda_0^j = \sqrt{\omega_j}, \qquad
@@ -463,7 +463,7 @@ The continuous spectrum lies within the interval given by \cref{eq:contspec}, an
 	\label{fig:kinkeig}
 \end{figure}
 
-We construct a kink-antikink (\cref{fig:kak}, middle panel) by parameter continuation in the coupling parameter $d$ from the AC limit with AUTO. As an initial condition, we use a kink-antikink composed of two intersite kinks, which at the AC limit has the form $(\cdots, -\pi, -\pi, \pi, \pi, \dots, \pi, -\pi, -\pi, \dots )$, where there are $N_1$ sites in the middle of the solution which take the value $\pi$. The bifurcation diagram for the parameter continuation is shown in \cref{fig:SGbifdiag}. Notably, there is a turning point at a critical value $d_0$ (label 4 in the inset), where the kink-antikink does not exist for $d > d_0$. 
+We construct a kink-antikink (\cref{fig:kak}, middle panel) by parameter continuation in the coupling parameter $d$ from the AC limit using the software package AUTO. As an initial condition, we use a kink-antikink composed of two intersite kinks, which at the AC limit has the form $(\cdots, -\pi, -\pi, \pi, \pi, \dots, \pi, -\pi, -\pi, \dots )$, where there are $N_1$ sites in the middle of the solution which take the value $\pi$. The bifurcation diagram for the parameter continuation is shown in \cref{fig:SGbifdiag}. Notably, there is a turning point at a critical value $d_0$ (label 4 in the inset), where the kink-antikink does not exist for $d > d_0$. 
 Indeed, this is natural to expect as in the continuum
 limit of the model, the attractive interaction between the
 kink and antikink~\cite{MANTON1979397} 
