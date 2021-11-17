@@ -593,7 +593,7 @@ of the central nodes of the kinks (e.g. nodes
 $-1$ and $0$ for a kink located at the origin) for the
 realm of multi-wave, kink-antikink structures.
 \revised{
-For a timestepping scheme, since the spatial component is already discretized, we use a symplectic and symmetric implicit Runge-Kutta method \cite{HairerBook}, as suggested in \cite[Section 2.5]{Duncan1997}, to preserve the symplectic structure of the Hamiltonian equation \cref{eq:dSG}. Specifically, we use the Matlab implementation of the \texttt{irk} scheme of order 12 from \cite{Hairer2003}. 
+For a timestepping scheme, since the spatial component is already discretized, we use a symplectic and symmetric implicit Runge-Kutta method \cite{HairerBook}, as suggested in \cite[Section 2.5]{Duncan1997}, to preserve the symplectic structure of the Hamiltonian equation \cref{eq:dSG}. Specifically, we use the Matlab implementation of the \texttt{irk2} scheme of order 12 from \cite{Hairer2003}. 
 }
 For a kink-antikink constructed from two inter-site kinks, the pair of Goldstone mode eigenfunctions suggests that there will be two corresponding normal modes of oscillations for the central nodes of the two kinks: an in-phase mode and an out-of-phase mode. These can be seen in the left and right columns of \cref{fig:kaktimestep}. \revised{In addition, we plot the energy of the solution $H(u(n, t))$ as $t$ evolves (\cref{fig:kaktimestep}, bottom two rows). Although the energy is not exactly constant, as we would expect for a Hamiltonian system, the relative deviation of the energy from its initial value is less than $5\times10^{-4}$ over the time interval of the simulation.}
 There will similarly be two normal modes corresponding to the pair of edge mode eigenfunctions.
