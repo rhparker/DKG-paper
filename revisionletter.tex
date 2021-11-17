@@ -1,0 +1,45 @@
+\documentclass[11pt]{letter}
+
+\usepackage[hmargin={1.0in,1.0in},%
+            vmargin={1.0in,1.0in},%
+            nohead,%
+            nofoot,%
+            ]{geometry}                                 % the page layout without fancyhdr
+\pagestyle{empty}
+\usepackage[shortlabels]{enumitem}
+
+\begin{document}
+\address{Ross Parker \\
+Department of Mathematics \\
+Southern Methodist University \\
+Dallas, TX 75275 \\
+\texttt{rhparker@smu.edu}}%
+\signature{Ross Parker}
+\begin{letter}{Editor, Nonlinearity}
+
+\opening{Dear Editor,}
+
+On behalf of my co-authors Alejandro Aceves and Panos Kevrekidis, I would like to submit our revision of the article ``Stationary multi-kinks in the discrete sine-Gordon equation'' for consideration of publication in Nonlinearity. 
+
+We are grateful to the referees for their careful reading of the original manuscript, and their comments and suggestions regarding how we could improve it. All the suggestions for improvement from the two reviewers have been systematically taken into careful consideration and incorporated into the revision, as noted below. The portions of the manuscript which have been revised or added are indicated using red text. 
+
+Given the improvements made in accordance with the requests of the referees, we hope that you will now find the manuscript to be suitable for publication in Nonlinearity. We will be sincerely looking forward to your editorial decision.
+
+Reviewer 1: \emph{In general this is a novel and interesting contribution to the field, using appropriate and up-to-date techniques. My only disappointment is the final discussions dealing with numerical time-stepping simulations to check the results.  The RK4 method, first developed around 1900, is know to suffer from energy drift.  It would be useful to see a plot of energy as a function of time for the numerical results discussed in Figs 10 and 11, and/or a discussion of how well energy is conserved by the scheme.  A more complete discussion could be had by including a simulation using a symplectic method such as the one discussed by Duncan in SIAM J. Numer. Anal, 34, 1742–1760, 1997.} 6).
+
+Reviewer 2:
+\begin{enumerate}[(a)]
+\item \emph{On page 5, I read ``For the sine-Gordon equation, for example, the on-site kink has a pair of real eigenvalues $\pm \lambda$ and is thus unstable [39, Theorem 4.4].'' The next sentence adds ``In addition, the onsite kink can be shown to be unstable for the sine-Gordon equation when $d < 1/4$ and the $\phi_4$ model when $d < 1/2$ using Gerschgorin’s theorem [7].'' It is not clear how the two instability results are related or complement each other. Is the former result (instability due to real eigenvalues) more general than the latter one, that is, applies to any $d > 0$?}.
+
+\item \emph{Page 6. It should be indicated how $U_i^+(n)$ and $U_i^-(n)$ make up $U(n)$ in equations (13). The quantity $N$ does not seem to appear in (13)}.
+
+\item \emph{In ``Future Challenges'', the authors suggest extending their approach to an Ablowitz-Ladik type discrete $\phi^4$ equation, where the kink solution is expressible in elementary functions. It is worth noting that models with exact explicit solutions are available among the discrete sine-Gordon equations as well.}
+
+\item \emph{Ref [15] has a spelling mistake in the author’s name}. Fixed.
+
+\end{enumerate}
+
+\closing{Sincerely,}
+
+\end{letter}
+\end{document}

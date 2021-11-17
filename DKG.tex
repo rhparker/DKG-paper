@@ -72,7 +72,7 @@
 
 \begin{document}
 
-\title{Stationary Multi-kinks in the discrete sine-Gordon Equation}
+\title{Stationary multi-kinks in the discrete sine-Gordon equation}
 
 \author{Ross Parker}
 \address{Department of Mathematics, Southern Methodist University, 
@@ -172,7 +172,6 @@ This is similar to the discrete nonlinear Schr{\"o}dinger equation (DNLS), where
 
 
 In this paper, we look at multi-kinks, which are coherent structures resembling a sequence of alternating kinks and antikinks spliced together end-to-end. 
-%(We note that for the discrete sine-Gordon equation, since the potential has an infinite sequence of minima, we can also create a multi-kink from any sequence of kinks and antikinks). 
 The study of complex coherent structures formed by joining multiple copies of a simpler coherent structure has a rich mathematical history (see \cite{Sandstede1998}, and the references therein). In \cite{Sandstede1998}, for example, the existence and stability of multi-pulse solutions to semilinear parabolic equations, such as reaction diffusion equations, is determined using Lin's method \cites{Lin1990,Lin2008}, an implementation of the Lyapunov-Schmidt reduction. This method constructs multi-pulses by splicing together multiple, well-separated copies of a single pulse using small remainder functions, and it is also used to reduce the PDE eigenvalue problem to a matrix eigenvalue problem. These techniques have been recently extended to Hamiltonian lattice systems, including DNLS \cite{Parker2020}. In the case of DNLS, multi-pulse solutions exist on the lattice which do not exist in the continuum equation (although multi-pulses do exist in higher order NLS models \cite{Parker2021}). 
 
 For the discrete Klein-Gordon equation, we follow a similar approach to \cite{Parker2020} and use a discrete adaptation of Lin's method \cite{Knobloch2000} to construct multi-kinks from a sequence of well-separated kinks and antikinks. As with multi-pulses in DNLS, these multi-kinks do not exist in the continuum equation. 
@@ -250,14 +249,8 @@ Thus $S^\pm$ are hyperbolic saddle equilibria of the lattice dynamical system \c
 
 \begin{hypothesis}\label{hyp:kinkexists}
 There exists a kink solution $K(n) = (k(n),\tilde{k}(n))$ to \cref{eq:dynEq} which connects the unstable manifold $W^u(-u^*, -u^*)$ and the stable manifold $W^s(u^*, u^*)$. These manifolds intersect transversely in $\R^2$. 
-% The kink solution has one of the following odd symmetries:
-% \begin{itemize}
-% 	\item $k(-n) = -k(n-1)$ (intersite symmetry)
-% 	\item $k(-n) = -k(n)$ (on-site symmetry)
-% \end{itemize}
 The kink has the odd symmetry $k(-n) = -k(n-1)$. Finally, 
-%$K(n)$ a ground state kink, i.e. $k(n)$ 
-the kink $K(n)$ is a minimizer of the $t$-independent energy functional
+=the kink $K(n)$ is a minimizer of the $t$-independent energy functional
 \begin{equation}\label{eq:energyfunctional}
 h[u] = \sum_{n=-\infty}^\infty 
 \left( \frac{d}{2} (u_{n+1} - u_n)^2 + P(u_n) \right)
@@ -270,11 +263,7 @@ The kink $k(n)$ from \cref{hyp:kinkexists} has the odd symmetry $k(-n) = -k(n-1)
 {$d = 0$} is given by $(\dots, -\pi, -\pi, \pi, \pi, \dots)$. By contrast, an on-site kink, which has the odd symmetry $k(-n) = -k(n)$, involves the equilibrium at 0. For the sine-Gordon equation, an on-site kink at the AC limit is $(\dots, -\pi, -\pi, 0, \pi, \pi, \dots)$. 
 \end{remark}
 
-{Since $K(n)$ is a minimizer of the energy functional \cref{eq:energyfunctional}, the spectrum of $K(n)$ lies on the imaginary axis~\cite{KevrekidisWeinstein2000}*{Section 2.1.6}.}
-
-% is a ground state kink within the class of heteroclinic orbits,
-%by assumption, 
-% we assume  that it is spectrally stable; see, e.g.,~\cite{KevrekidisWeinstein2000} for a discussion of the relevant spectrum. Since the system is Hamiltonian, this implies that the spectrum of the ground state kink lies on the imaginary axis. 
+Since $K(n)$ is a minimizer of the energy functional \cref{eq:energyfunctional}, the spectrum of $K(n)$ lies on the imaginary axis~\cite{KevrekidisWeinstein2000}*{Section 2.1.6}.
 For specific nonlinearities $f(u)$, including those associated with the discrete sine-Gordon equation and the $\phi^4$ model, the existence of a symmetric, intersite kink which is a minimizer of \cref{eq:energyfunctional} is known (see \cites{KevrekidisWeinstein2000,SGchapter} and references therein). On the other
 hand, the on-site kink will in general be unstable. For the sine-Gordon equation, for example, the on-site kink has a pair of real eigenvalues $\pm \lambda$ and is thus unstable \cite{Kapitula2001}*{Theorem 4.4}. In addition, the onsite kink can be shown to be unstable for the sine-Gordon equation when $d < 1/4$ and the  $\phi^4$ model when $d < 1/2$ using Gerschgorin’s theorem \cite{SGchapter}. Since $f(u)$ is an odd function, if $u_n$ is a solution to \cref{eq:KGeq}, so is $-u_n$. Thus for every kink solution $K(n)$ to \cref{eq:dynEq} there is a corresponding antikink solution $\tilde{K}(n) = -K(n)$.
 
@@ -284,9 +273,7 @@ The spectrum of the primary kink solution $K(n) = (k(n),\tilde{k}(n))$ can be de
 \end{equation}
 In particular, there is a gap in the continuous spectrum $i\left(-\sqrt{f'(u^*)},\sqrt{f'(u^*)}\right)$ which contains the origin. The continuous spectrum will be the same for the linearization about any equilibrium solution involving the asymptotics of $u \rightarrow \pm u^*$.
 
-The continuum Klein-Gordon equation $u_{tt} = u_{xx} - f(u)$ has an eigenvalue at 0 due to translation invariance which is referred to as the Goldstone mode. Since the discrete Klein-Gordon equation does not possess any continuous symmetries, there will be no eigenvalues at the origin. Instead, there will be a symmetric pair of eigenvalues, which is either real or purely imaginary. For the inter-site kink we are considering, this pair will be imaginary since the entire spectrum is imaginary (it will be real for the on-site kink). This pair of eigenvalues is often termed Goldstone modes by extension of the Goldstone mode of the continuum equation, since these eigenvalues approach the origin as the discrete equation approaches the continuum limit, i.e. $d \rightarrow \infty$. For specific nonlinearities $f(u)$ and certain values of the coupling parameter $d$, there may be additional eigenvalues, known as internal modes, which lie between the bands of the continuous spectrum. For the kinks which are minimizers of \cref{eq:energyfunctional}, these will also be purely imaginary. (See \cites{cretegny,KevrekidisWeinstein2000}
-%, in particular Figures 2 and 4, for a graphical illustration 
-for a discussion of the spectrum of the kink solution, including the internal modes, for the discrete sine-Gordon equation and the $\phi^4$ model). We make the additional hypothesis that all point spectrum for the primary kink $K(n)$ lies in the continuous spectrum gap.
+The continuum Klein-Gordon equation $u_{tt} = u_{xx} - f(u)$ has an eigenvalue at 0 due to translation invariance which is referred to as the Goldstone mode. Since the discrete Klein-Gordon equation does not possess any continuous symmetries, there will be no eigenvalues at the origin. Instead, there will be a symmetric pair of eigenvalues, which is either real or purely imaginary. For the inter-site kink we are considering, this pair will be imaginary since the entire spectrum is imaginary (it will be real for the on-site kink). This pair of eigenvalues is often termed Goldstone modes by extension of the Goldstone mode of the continuum equation, since these eigenvalues approach the origin as the discrete equation approaches the continuum limit, i.e. $d \rightarrow \infty$. For specific nonlinearities $f(u)$ and certain values of the coupling parameter $d$, there may be additional eigenvalues, known as internal modes, which lie between the bands of the continuous spectrum. For the kinks which are minimizers of \cref{eq:energyfunctional}, these will also be purely imaginary. (See \cites{cretegny,KevrekidisWeinstein2000} for a discussion of the spectrum of the kink solution, including the internal modes, for the discrete sine-Gordon equation and the $\phi^4$ model). We make the additional hypothesis that all point spectrum for the primary kink $K(n)$ lies in the continuous spectrum gap.
 
 {
 \begin{hypothesis}\label{hyp:pointspecgap}
@@ -484,12 +471,7 @@ First, the collision of the asymmetric intersite-onsite
 branch with the onsite-onsite one takes place: as a result
 of this pitchfork bifurcation the asymmetric branch disappears
 and the symmetric waveform emerging thereafter has only
-a single pair of unstable eigenvalues. Then, at the turning point,
-it, in turn, collides with the intersite-intersite branch 
-%(both
-%of which possess a single real eigenvalue in their linearization
-%spectrum) 
-and the branches disappear past this critical
+a single pair of unstable eigenvalues. Then, at the turning point, it, in turn, collides with the intersite-intersite branch and the branches disappear past this critical
 point $d_0$ of the collision.
 The parameter continuation suggests a linear relationship between the critical value of the coupling parameter $d_0$ and the separation distance $N$, which is shown in the right panel of  \cref{fig:kak}.
 
@@ -535,7 +517,6 @@ The slope of the least square linear regression line suggests that this error is
 The right panel of \cref{fig:kakeigerror} plots the log of the relative error of the two Goldstone eigenvalues vs. the coupling parameter $d$. For intermediate values of d, the relative error is less than $10^{-3}$. The error is a minimum for approximately $d = 0.2$, and increases with increasing $d$ and as the
 continuum limit is approached. (See \cite{Parker2020}*{Figure 4} for a similar phenomenon which occurs in the error plot for eigenvalues associated with double pulses in DNLS). Since the results of the \cref{th:stability} are not uniform in $d$, i.e. they hold for sufficiently large $N$ once $d$ has been chosen, we 
 indeed expect a growth of the relative error for large $d$.
-%do not expect to have a nice relationship between the relative error and $d$.
 
 \begin{figure}
 	\begin{center}
@@ -594,72 +575,25 @@ where $\lambda$ is the Goldstone
 or edge eigenvalue) with the continuous spectrum
 led to nonlinearity-induced power law decay of
 relevant mode amplitudes. Here, we instead focus on the evolution
-of the central nodes of the kinks (such as, e.g., nodes
+of the central nodes of the kinks (e.g. nodes
 $-1$ and $0$ for a kink located at the origin) for the
 realm of multi-wave, kink-antikink structures.
 For a kink-antikink constructed from two inter-site kinks, the pair of Goldstone mode eigenfunctions suggests that there will be two corresponding normal modes of oscillations for the central nodes of the two kinks: an in-phase mode and an out-of-phase mode. These can be seen in \cref{fig:kaktimestep}. There will similarly be two normal modes corresponding to the pair of edge mode eigenfunctions.
-These panels are representative towards showcasing
-the possible in- and out-of-phase motion of the multiple 
+These panels are representative of the possible in- and out-of-phase motion of the multiple 
 coherent structures.
-
-%we start from that
-%here as well for completeness.
-%Since the eigenvalues of the primary kink 
-%are imaginary, we expect to see oscillatory behavior with a
-%frequency determined by the eigenvalues and whose form is determined by the shape of the corresponding eigenfunction. For a kink or multi-kink, we will refer to the two nodes whose values are closest to (and symmetric about) 0 as the central nodes (these are nodes -1 and 0 in \cref{fig:SGkinks}). The left and center panels of \cref{fig:kinktimestep} show the oscillatory behavior that results when the central nodes of the kink are perturbed in the same direction by 0.1. This perturbation follows the (symmetric)
-%shape of the Goldstone eigenfunction, and the frequency of oscillations is given by the Goldstone eigenvalue, with a relative error of less than $10^{-2}$. Since the two central nodes perturb in the same direction, we will call these in-phase vibrations. The right panel of \cref{fig:kinktimestep} shows the oscillatory behavior that results when the central nodes of the kink are perturbed in the opposite direction by 0.1. This perturbation follows the shape of the edge mode eigenfunction, and the frequency of oscillations is given by the edge mode eigenvalue, with a relative error of less than $10^{-2}$. Since the two central nodes perturb in opposite directions, we will call these out-of-phase vibrations.
-
-%\begin{figure}[H]
-%	\begin{center}
-%	\begin{tabular}{ccc}
-%	\includegraphics[width=5cm]{1kinktimestepnorm.eps} &
-	%\includegraphics[width=5cm]{kinkoscgoldstone.eps} &
-	%\includegraphics[width=5cm]{kinkoscedge.eps}
-	%\end{tabular}
-	%\end{center}
-	%\caption{Left panel shows $\ell^2$ norm of the difference %between the evolution of the perturbed inter-site kink $u(n,t)$ %and the primary, inter-site kink $u_1(n)$. For the perturbation, %the two central nodes of the primary kink are perturbed by 0.1 %in same direction. Center and right panels show difference %between perturbed solution and kink for the two central nodes %for perturbation of central nodes in same direction (center) and %opposite direction (right) by 0.1. Two central nodes are shown %in blue solid and red dotted lines. $N=200$ grid points for %kink, $d = 0.70$, timestepping using 4th order Runge-Kutta %method with step size 0.04. Goldstone mode eigenvalue is %$0.40703i$, edge mode eigenvalue is $0.99618i$.
-%	} 
-%	\label{fig:kinktimestep}
-%\end{figure}
-
-%For certain values of the coupling parameter $d$, there will be resonance between the Goldstone mode and the continuous spectrum, which will cause the oscillations to decay (\cref{fig:kinktimestepresonance}, contrast with center panel of \cref{fig:kinktimestep}). This occurs when $2 \lambda$ is contained in the continuous spectrum band, where $\lambda$ is the Goldstone eigenvalue. 
-
-%\begin{figure}[H]
-%	\begin{center}
-%	\begin{tabular}{cc}
-%	\includegraphics[width=6cm]{kinkoscgoldstonek50N200.eps} &
-%	\includegraphics[width=6cm]{kinkoscgoldstonek50N200decay.eps}
-%	\end{tabular}
-%	\end{center}
-%	\caption{Left panel shows difference between perturbed solution %and kink for the two central nodes for perturbation of central %nodes in same direction by 0.1. Two central nodes are shown in blue %solid and red dotted lines. Right panel is log-log plot of %amplitude of oscillations vs. $t$. $N=200$ grid points for kink, $d %= 0.5$, timestepping using 4th order Runge-Kutta method with step %size 0.05. Goldstone mode eigenvalue is $0.57184i$.} 
-%	\label{fig:kinktimestepresonance}
-%\end{figure}
 
 \begin{figure}
 	\begin{center}
 	\begin{tabular}{cc}
 	\includegraphics[width=6cm]{kakoscG1.eps} &
-	\includegraphics[width=6cm]{kakoscG2.eps} 
+	\includegraphics[width=6cm]{kakoscG2.eps} \\
+	\includegraphics[width=6cm]{kakoscG1energy.eps} &
+	\includegraphics[width=6cm]{kakoscG2energy.eps} 
 	\end{tabular}
 	\end{center}
-	\caption{Timestepping of perturbations for a kink-antikink solution. In the left panel, the central nodes of both kinks are perturbed by 0.1 in the same direction. In the right panel, the central nodes of the left kink are perturbed by 0.1, and the central nodes of the right kink are perturbed by -0.1. $d = 0.5$, timestepping using the 4th order Runge-Kutta method
-	is performed with step size 0.04.} 
+	\caption{\revised{Timestepping of perturbations for a kink-antikink solution. Left column is in-phase perturbation, where the central nodes of both kinks are perturbed by 0.1 in the same direction. Right column is out-of phase pertubation, where the central nodes of the left kink are perturbed by 0.1, and the central nodes of the right kink are perturbed by -0.1. First and second rows plot deviations from the stationary kink solution of the two central nodes for the left and right kinks (respectively). Third row plots evolution of energy of solution \cref{eq:H} vs. $t$. Fourth row plots log of change of energy from starting energy vs. $t$. $d = 0.5$, $N = 30$ grid points, timestepping using symplectic and symmetric implicit Runge-Kutta method \texttt{irk2} with step size 0.01.}} 
 	\label{fig:kaktimestep}
 \end{figure}
-
-%We can perform similar timestepping experiments for perturbations involving the on-site kink. If we perturb the central node $n = 0$ of the primary on-site kink (which has a value $u_0 = 0$) by a small amount, the solution develops oscillatory behavior about the neutrally stable inter-site kink (\cref{fig:onsitekinktimestep}).
-
-%\begin{figure}[H]
-%	\begin{center}
-%	\begin{tabular}{cc}
-%	\includegraphics[width=6cm]{onsitekinktimestepnorms.eps} &
-%	\includegraphics[width=7cm]{onsitekinktimestep.eps} 
-%	\end{tabular}
-%	\end{center}
-%	\caption{Left panel shows $\ell^2$ norm of the difference %between the evolution of the perturbed on-site kink $u(n,t)$ and %the primary, inter-site kink $u_1(n)$. On-site kink is perturbed by %adding 0.1 to central node. Right panel shows plot of nodes $n=0$ %and $n=-1$ (blue solid and red dotted lines, respectively) for %perturbation of on-site kink vs. $t$ showing oscillations about %central nodes of inter-site kink, which are horizontal black solid %lines. $N=60$ grid points for kink, $d = 0.5$, timestepping using %4th order Runge-Kutta method with step size 0.05.} 
-%	\label{fig:onsitekinktimestep}
-%\end{figure}
-
 
 We can similarly construct a kink-antikink from two on-site kink structures (\cref{fig:unstablekak}, top left). The spectrum corresponding to this solution is shown in the top right panel of \cref{fig:unstablekak}, in which we see the split Goldstone modes on the real axis, confirming the instability of
 this bound state. The corresponding Goldstone eigenfunctions are shown in the bottom left panel of \cref{fig:unstablekak}. Finally, we perform timestepping experiments for perturbations of this kink-antikink. If we perturb the two central nodes (both of which have values $u_n$ = 0) by a small amount, the solution develops oscillatory behavior about the neutrally stable inter-site kink-antikink. The solution departs from the corresponding energy
@@ -673,12 +607,12 @@ state.
 	\includegraphics[width=6cm]{unstablekak.eps} &
 	\includegraphics[width=6cm]{unstablekakspec.eps} \\
 	\includegraphics[width=6cm]{unstablekakgoldstone.eps} &
-	\includegraphics[width=6cm]{kakenergydiff.eps}
+	\includegraphics[width=6cm]{kakenergydiff.eps} \\
+	\includegraphics[width=6cm]{kakunstableenergy} &
+	\includegraphics[width=6cm]{kakunstableenergylog.eps}
 	\end{tabular}
 	\end{center}
-	\caption{Kink-antikink solution constructed from on-site kinks (top left), with $N_1 = 8$. Spectrum of on-site kink-antikink bearing two unstable near-identical Goldstone modes (top right);
-	see also the inset discerning between the two. The eigenfunctions corresponding to the split Goldstone modes are shown in the bottom left panel. Energy difference between the evolution of the perturbed on-site kink-antikink $u(n,t)$ and the inter-site kink-antikink $u_2(n)$; energy is given by \cref{eq:H}.
-	The on-site kink-antikink is perturbed by adding 0.1 to the two central nodes with $u_n = 0$. $N=60$ grid points, $d = 0.5$, timestepping using 4th order Runge-Kutta method with step size 0.05, leading to the destabilization of the structure.} 
+	\caption{Kink-antikink solution constructed from on-site kinks (top left), with $N_1 = 8$. Spectrum of on-site kink-antikink bearing two unstable near-identical Goldstone modes (top right); see also the inset discerning between the two. Eigenfunctions corresponding to the split Goldstone modes (middle left). Middle right shows energy difference between the evolution of the perturbed on-site kink-antikink $u(n,t)$ and the inter-site kink-antikink $u_2(n)$; energy is given by \cref{eq:H}.	The on-site kink-antikink is perturbed by adding 0.1 to the two central nodes with $u_n = 0$, leading to the destabilization of the structure. Bottom left shows evolution of energy of solution vs. $t$. \revised{Bottom right plots log of change of energy from starting energy vs. $t$. $N=60$ grid points, $d = 0.5$, timestepping using symplectic and symmetric implicit Runge-Kutta method \texttt{irk2} with step size 0.01.}} 
 	\label{fig:unstablekak}
 \end{figure}
 
@@ -714,7 +648,7 @@ Klein-Gordon lattices.
 
 \appendix
 
-\section{Proof of \cref{th:KaKexists}}\label{sec:proof1}
+\section{Proof of \texorpdfstring{\cref{th:KaKexists}}{Theorem 1}}\label{sec:proof1}
 
 The proof is an adaptation of the proofs of Theorems 1 and 3 in \cite{Parker2020}. First, we rewrite the system as a fixed point problem. Expanding $F(u)$ in a Taylor series about $c_i K(n)$, we get
 \begin{align}\label{eq:Feq0}
@@ -738,7 +672,7 @@ V(n+1) = D F(K(n)) V(n).
 \]
 By the stable manifold theorem, $|K(n) - S^+| \leq C r^{-|n|}$ for $n \geq 0$ and $|K(n) - S^-| \leq C r^{-|n|}$ for $n \leq 0$, thus $| DF(K(n)) - DF(S^\pm)| \leq C r^{-|n|}$. Since $S^\pm$ are hyperbolic fixed points, we can decompose the evolution operator $\Phi(m, n)$ in exponential dichotomies on $\Z^\pm$ by \cite{Parker2020}*{Lemma 2}. The proof then follows that of \cite{Parker2020}*{Theorems 1 and 3}. Briefly, we write equation \cref{eq:Wsystem1} in fixed-point form using the discrete variation of constants formula together with projections on the stable and unstable subspaces of the exponential dichotomy. As long as $N$ is sufficiently large, we use the implicit function theorem to solve for the remainder functions $\tilde{U}_i^\pm$ as well as the matching conditions \cref{eq:Wsystem2} and \cref{eq:Wsystem3}. Since $W^u(S^-)$ and $W^s(S^+)$ intersect transversely, we have the decomposition $\R^2 = T_{K(0)}W^u(S^-)\oplus T_{K(0)}W^s(S^+)$, thus as in the proof of \cite{Parker2020}*{Theorem 3}, solving \cref{eq:Wsystem3} does not involve jump conditions. The estimates \cref{eq:Uestimates} follow from the proof \cite{Parker2020}*{Theorem 3} (see in particular \cite{Parker2020}*{Lemma 4}).
 
-\section{Proof of \cref{th:stability}}\label{sec:proof2}
+\section{Proof of \texorpdfstring{\cref{th:stability}}{Theorem 2}}\label{sec:proof2}
 
 For the multi-kink solution $U(n)$, we will take an ansatz which is a piecewise perturbation of $V_0(n)$. (This ansatz is suggested in \cite{Sandstede1998}*{Section 7}). Let
 \begin{equation}\label{eq:Viansatz}
