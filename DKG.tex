@@ -599,9 +599,10 @@ of the central nodes of the kinks (e.g. nodes
 $-1$ and $0$ for a kink located at the origin) for the
 realm of multi-wave, kink-antikink structures.
 \revised{
-For a timestepping scheme, since the spatial component is already discretized, we use a symplectic and symmetric implicit Runge-Kutta method \cite{HairerBook}, as suggested in \cite[Section 2.5]{Duncan1997}, to preserve the symplectic structure of the Hamiltonian equation \cref{eq:dSG}. Specifically, we use the Matlab implementation of the \texttt{irk2} scheme of order 12 from \cite{Hairer2003}. 
+For a timestepping scheme, since the spatial component is already discretized, we use a symplectic and symmetric implicit Runge-Kutta method \cite{HairerBook}, as suggested in \cite[Section 2.5]{Duncan1997}, to preserve the symplectic structure of the Hamiltonian equation \cref{eq:dSG}. Specifically, we use the Matlab implementation of the \texttt{irk2} scheme of order 12 from \cite{Hairer2003}. For boundary conditions, we use the discrete analogue of Neumann boundary conditions.
 }
-For a kink-antikink constructed from two inter-site kinks, the pair of Goldstone mode eigenfunctions suggests that there will be two corresponding normal modes of oscillations for the central nodes of the two kinks: an in-phase mode and an out-of-phase mode. These can be seen in the left and right columns of \cref{fig:kaktimestep}. \revised{In addition, we plot the energy of the solution $H(u(n, t))$ as $t$ evolves (\cref{fig:kaktimestep}, bottom row). The relative deviation of the energy from its initial value is less than $10^{-15}$ over the time interval of the simulation.}
+For a kink-antikink constructed from two inter-site kinks, the pair of Goldstone mode eigenfunctions suggests that there will be two corresponding normal modes of oscillations for the central nodes of the two kinks: an in-phase mode and an out-of-phase mode. These can be seen in the left and right columns of \cref{fig:kaktimestep}. \revised{In addition, we plot the energy of the solution $H(u(n, t))$ as $t$ evolves (\cref{fig:kaktimestep}, bottom row). The relative deviation of the energy from its initial value is less than $10^{-15}$ over the time interval of the simulation.
+}
 There will similarly be two normal modes corresponding to the pair of edge mode eigenfunctions.
 These panels are representative of the possible in- and out-of-phase motion of the multiple 
 coherent structures.
@@ -623,7 +624,7 @@ We can similarly construct a kink-antikink from two onsite kink structures (\cre
 this bound state. The corresponding Goldstone eigenfunctions are shown in the bottom left panel of \cref{fig:unstablekak}. Finally, we perform timestepping experiments for perturbations of this kink-antikink. If we perturb the two central nodes (both of which have values $u_n$ = 0) by a small amount, the solution develops oscillatory behavior about the neutrally stable inter-site kink-antikink (\cref{fig:unstablekak}, bottom). The solution departs from the corresponding energy
 maximum and performs oscillations around the nearby
 energy minimum, namely the stable inter-site kink-antikink
-state. \revised{The energy $H(u(n, t))$ is very well conserved as $t$ evolves (\cref{fig:unstablekak}, middle right) up until approximately $t = 450$, with a relative deviation from its initial value of less than $10^{-15}$; for the rest of the time interval, the relative deviation of the energy from its initial value remains less than $10^{-5}$.}
+state. \revised{The energy $H(u(n, t))$ is again very well conserved as $t$ evolves (\cref{fig:unstablekak}), with a relative deviation from its initial value of less than $10^{-15}$. We note that for timestepping simulations on long time intervals, energy is very well conserved until boundary effects come into play. For $N=200$ and $N=400$ grid points, these boundary effects occur at approximately $t=200$ and $t=450$, respectively; enlarging the spatial grid delays these boundary effects.}
 
 \begin{figure}
 	\begin{center}
