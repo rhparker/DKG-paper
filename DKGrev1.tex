@@ -1,3 +1,5 @@
+% first revision, with changes highlighted
+
 \documentclass[12pt,reqno]{amsart}
 \usepackage[pdfborder={0 0 0.5 [3 2]}, plainpages=false]{hyperref}%
 \usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}%
@@ -266,11 +268,11 @@ The kink $k(n)$ from \cref{hyp:kinkexists} has the odd symmetry $k(-n) = -k(n-1)
 Since $K(n)$ is a minimizer of the energy functional \cref{eq:energyfunctional}, the spectrum of $K(n)$ lies on the imaginary axis~\cite{KevrekidisWeinstein2000}*{Section 2.1.6}.
 For specific nonlinearities $f(u)$, including those associated with the discrete sine-Gordon equation and the $\phi^4$ model, the existence of a symmetric, intersite kink which is a minimizer of \cref{eq:energyfunctional} is known (see \cites{KevrekidisWeinstein2000,SGchapter} and references therein). On the other
 hand, the onsite kink will in general be unstable. For the sine-Gordon equation, for example, the onsite kink has a pair of real eigenvalues $\pm \lambda$ and is thus unstable \cite{Kapitula2001}*{Theorem 4.4}. In addition, the onsite kink can be shown to be unstable for the sine-Gordon equation when $d < 1/4$ and the  $\phi^4$ model when $d < 1/2$ using Gerschgorin’s theorem \cite{SGchapter}. 
-While the former result is an asymptotic one, valid
+\revised{While the former result is an asymptotic one, valid
 in the vicinity of the continuum limit, the latter is a
 rigorous one, but {\it only} valid for the above-mentioned
 interval of $d$ in the vicinity of the AC limit
-of $d=0$. Hence, the two results are complementary to each other.
+of $d=0$. Hence, the two results are complementary to each other.}
 Since $f(u)$ is an odd function, if $u_n$ is a solution to \cref{eq:KGeq}, so is $-u_n$. Thus for every kink solution $K(n)$ to \cref{eq:dynEq} there is a corresponding antikink solution $\tilde{K}(n) = -K(n)$.
 
 The spectrum of the primary kink solution $K(n) = (k(n),\tilde{k}(n))$ can be decomposed into two disjoint sets: the point spectrum consists of isolated eigenvalues for which the corresponding eigenfunction is in $\ell^2(\Z)$, and the continuous spectrum which consists of bounded, oscillatory modes. Following \cite{KevrekidisWeinstein2000}, the continuous spectrum depends only on the background state of the system and consists of the two symmetric intervals on the imaginary axis
@@ -295,11 +297,11 @@ we use the position of the corresponding zero-crossing).
 We seek a solution which can be written piecewise in the form 
 \begin{equation}\label{eq:Upiecewise}
 \begin{aligned}
-U_i^-(n) &= c_i K(n) + \tilde{U}_i^-(n) && n \in [-N_{i-1}^-, 0] && \quad i = 1, \dots, m\\
-U_i^+(n) &= c_i K(n) + \tilde{U}_i^+(n) && n \in [0, N_i^+] && \quad i = 1, \dots, m,
+U_i^-(n) &= c_i K(n) + \tilde{U}_i^-(n) && n \in [-N_{i-1}^-, 0] && \revised{\quad i = 1, \dots, m}\\
+U_i^+(n) &= c_i K(n) + \tilde{U}_i^+(n) && n \in [0, N_i^+] && \revised{\quad i = 1, \dots, m},
 \end{aligned}
 \end{equation}
-where $c_i = (-1)^{i+1}$, $N_i^+ = \lfloor \frac{N_i}{2} \rfloor$, $N_i^- = N_i - N_i^+$, and $N_0^- = N_m^+ = \infty$. 
+where $c_i = (-1)^{i+1}$, $N_i^+ = \lfloor \frac{N_i}{2} \rfloor$, $N_i^- = N_i - N_i^+$, and $N_0^- = N_m^+ = \infty$. \revised{
 We also define
 \begin{equation}\label{defN}
 N = \frac{1}{2} \min\{ N_i \}.
@@ -316,6 +318,7 @@ U_i^+\left( n - \sum_{j=1}^{i-1}N_j \right) & \sum_{j=1}^{i-1}N_j + 1 \leq n \le
 \end{aligned}
 \end{equation}
 where we define $\sum_{j=1}^0 N_j = 0$. Since we are taking $N_0^- = N_m^+ = \infty$, this formula makes sense for the two end pieces $U_1^-(n)$ and $U_m^+(n)$.
+}
 The functions $\tilde{K}_i^\pm(n)$ in \cref{eq:Upiecewise} are remainder terms, which will be small. We then have the following existence theorem. The proof is deferred until \cref{sec:proof1}.
 
 \begin{theorem}\label{th:KaKexists}
@@ -597,9 +600,11 @@ relevant mode amplitudes. Here, we instead focus on the evolution
 of the central nodes of the kinks (e.g. nodes
 $-1$ and $0$ for a kink located at the origin) for the
 realm of multi-wave, kink-antikink structures.
+\revised{
 For a timestepping scheme, since the spatial component is already discretized, we use a symplectic and symmetric implicit Runge-Kutta method \cite{HairerBook}, as suggested in \cite[Section 2.5]{Duncan1997}, to preserve the symplectic structure of the Hamiltonian equation \cref{eq:dSG}. Specifically, we use the Matlab implementation of the \texttt{irk2} scheme of order 12 from \cite{Hairer2003}. For boundary conditions, we use the discrete analogue of Neumann boundary conditions.
-
-For a kink-antikink constructed from two inter-site kinks, the pair of Goldstone mode eigenfunctions suggests that there will be two corresponding normal modes of oscillations for the central nodes of the two kinks: an in-phase mode and an out-of-phase mode. These can be seen in the left and right columns of \cref{fig:kaktimestep}. In addition, we plot the energy of the solution $H(u(n, t))$ as $t$ evolves (\cref{fig:kaktimestep}, bottom row). The relative deviation of the energy from its initial value is less than $10^{-15}$ over the time interval of the simulation.
+}
+For a kink-antikink constructed from two inter-site kinks, the pair of Goldstone mode eigenfunctions suggests that there will be two corresponding normal modes of oscillations for the central nodes of the two kinks: an in-phase mode and an out-of-phase mode. These can be seen in the left and right columns of \cref{fig:kaktimestep}. \revised{In addition, we plot the energy of the solution $H(u(n, t))$ as $t$ evolves (\cref{fig:kaktimestep}, bottom row). The relative deviation of the energy from its initial value is less than $10^{-15}$ over the time interval of the simulation.
+}
 There will similarly be two normal modes corresponding to the pair of edge mode eigenfunctions.
 These panels are representative of the possible in- and out-of-phase motion of the multiple 
 coherent structures.
@@ -613,7 +618,7 @@ coherent structures.
 	\includegraphics[width=6cm]{kakoscG2energy.eps} 
 	\end{tabular}
 	\end{center}
-	\caption{Timestepping of perturbations for a kink-antikink solution. The left column shows an in-phase perturbation, where the central nodes of both kinks are perturbed by 0.1 in the same direction. The right column shows an out-of-phase perturbation, where the central nodes of the left kink are perturbed by 0.1, and the central nodes of the right kink are perturbed by -0.1. First and second rows plot deviations from the stationary kink solution of the two central nodes for the left and right kinks (respectively). The third row is a semilog plot of the relative difference of the energy $H(u(n, t))$ from the starting energy $H(u(n, 0))$. $d = 0.5$, $N = 400$ grid points, timestepping using symplectic and symmetric implicit Runge-Kutta method \texttt{irk2} with step size 0.01.} 
+	\caption{\revised{Timestepping of perturbations for a kink-antikink solution. The left column shows an in-phase perturbation, where the central nodes of both kinks are perturbed by 0.1 in the same direction. The right column shows an out-of-phase perturbation, where the central nodes of the left kink are perturbed by 0.1, and the central nodes of the right kink are perturbed by -0.1. First and second rows plot deviations from the stationary kink solution of the two central nodes for the left and right kinks (respectively). The third row is a semilog plot of the relative difference of the energy $H(u(n, t))$ from the starting energy $H(u(n, 0))$. $d = 0.5$, $N = 400$ grid points, timestepping using symplectic and symmetric implicit Runge-Kutta method \texttt{irk2} with step size 0.01.}} 
 	\label{fig:kaktimestep}
 \end{figure}
 
@@ -621,7 +626,7 @@ We can similarly construct a kink-antikink from two onsite kink structures (\cre
 this bound state. The corresponding Goldstone eigenfunctions are shown in the bottom left panel of \cref{fig:unstablekak}. Finally, we perform timestepping experiments for perturbations of this kink-antikink. If we perturb the two central nodes (both of which have values $u_n$ = 0) by a small amount, the solution develops oscillatory behavior about the neutrally stable inter-site kink-antikink (\cref{fig:unstablekak}, bottom). The solution departs from the corresponding energy
 maximum and performs oscillations around the nearby
 energy minimum, namely the stable inter-site kink-antikink
-state. The energy $H(u(n, t))$ is again very well conserved as $t$ evolves (\cref{fig:unstablekak}), with a relative deviation from its initial value of less than $10^{-15}$. We note that for timestepping simulations on long time intervals, energy is very well conserved until boundary effects come into play. For $N=200$ and $N=400$ grid points, these boundary effects occur at approximately $t=200$ and $t=450$, respectively; enlarging the spatial grid delays these boundary effects.
+state. \revised{The energy $H(u(n, t))$ is again very well conserved as $t$ evolves (\cref{fig:unstablekak}), with a relative deviation from its initial value of less than $10^{-15}$. We note that for timestepping simulations on long time intervals, energy is very well conserved until boundary effects come into play. For $N=200$ and $N=400$ grid points, these boundary effects occur at approximately $t=200$ and $t=450$, respectively; enlarging the spatial grid delays these boundary effects.}
 
 \begin{figure}
 	\begin{center}
@@ -634,7 +639,7 @@ state. The energy $H(u(n, t))$ is again very well conserved as $t$ evolves (\cre
 	\includegraphics[width=6cm]{kakuleft.eps}
 	\end{tabular}
 	\end{center}
-	\caption{Kink-antikink solution constructed from two onsite kinks with $N_1 = 8$ (top left). Spectrum of onsite kink-antikink bearing two unstable near-identical Goldstone modes (top right); see also the inset discerning between the two modes. Eigenfunctions corresponding to the split Goldstone modes (middle left). Remaining plots show time evolution of perturbation $u(n,t)$ of onsite kink-antikink; initial condition obtained by adding 0.1 to the two central nodes with $u_n = 0$, leading to the destabilization of the structure. Middle right is semilog plot of the relative difference of the energy $H(u(n, t))$ from the starting energy $H(u(n, 0))$. Bottom left is energy difference between the perturbed onsite kink-antikink $u(n,t)$ and the neutrally stable static inter-site kink-antikink $u_2(n)$. Bottom right shows left central node of perturbed onsite kink-antikink $u(n,t)$ (blue solid line) oscillating about left central node of static inter-site kink-antikink $u_2(n)$ (horizontal, dotted orange line). $N=400$ grid points, $d = 0.5$, timestepping using symplectic and symmetric implicit Runge-Kutta method \texttt{irk2} with step size 0.01.} 
+	\caption{ \revised{Kink-antikink solution constructed from two onsite kinks with $N_1 = 8$ (top left). Spectrum of onsite kink-antikink bearing two unstable near-identical Goldstone modes (top right); see also the inset discerning between the two modes. Eigenfunctions corresponding to the split Goldstone modes (middle left). Remaining plots show time evolution of perturbation $u(n,t)$ of onsite kink-antikink; initial condition obtained by adding 0.1 to the two central nodes with $u_n = 0$, leading to the destabilization of the structure. Middle right is semilog plot of the relative difference of the energy $H(u(n, t))$ from the starting energy $H(u(n, 0))$. Bottom left is energy difference between the perturbed onsite kink-antikink $u(n,t)$ and the neutrally stable static inter-site kink-antikink $u_2(n)$. Bottom right shows left central node of perturbed onsite kink-antikink $u(n,t)$ (blue solid line) oscillating about left central node of static inter-site kink-antikink $u_2(n)$ (horizontal, dotted orange line). $N=400$ grid points, $d = 0.5$, timestepping using symplectic and symmetric implicit Runge-Kutta method \texttt{irk2} with step size 0.01. }} 
 	\label{fig:unstablekak}
 \end{figure}
 
@@ -649,7 +654,7 @@ Further avenues of research include exploring multi-kinks in other models. One s
 \begin{equation}
 	\ddot{u}_n = \frac{1}{h^2}(\Delta_2 u)_n + 2 u_n - u_n^2 (u_{n+1}+u_{n-1}),
 \end{equation}
-which has an exact static kink solution $u_n = \tanh(a n + \xi)$, where $a = \frac{1}{2} \cosh^{-1}[(1+h^2)/(1-h^2) ]$ and $\xi$ is arbitrary. Another is an alternative discretization of the sine-Gordon equation \cite{Barashenkov2008}
+which has an exact static kink solution $u_n = \tanh(a n + \xi)$, where $a = \frac{1}{2} \cosh^{-1}[(1+h^2)/(1-h^2) ]$ and $\xi$ is arbitrary. \revised{Another is an alternative discretization of the sine-Gordon equation \cite{Barashenkov2008}
 \begin{equation}
 	\ddot{u}_n \cos \left( \frac{u_{n+1} - u_{n-1}}{4} \right) 
 	= \frac{4}{h^2} \sin \left( \frac{u_{n+1} - 2 u_n + u_{n-1}}{4} \right)
@@ -664,7 +669,7 @@ where $k$ is defined implicitly by
 \sinh \left(\frac{k}{2}\right) &= \frac{1}{\sqrt{1 - v^2}}\frac{h}{\sqrt{4 - h^2}} && -1 < v < 1.
 \end{align}
 Here, $h$ is the lattice spacing, which is connected to our parameter
-$d$ via $h=1/\sqrt{d}$, while $v$ denotes the kink's speed.
+$d$ via $h=1/\sqrt{d}$, while $v$ denotes the kink's speed. }
 Although we do not expect these equations to have kink-antikink equilibrium solutions, since the stable and unstable manifolds of the two equilibria do not intersect transversely, we expect that a kink-antikink state will be an {\it approximate} equilibrium solution. We may then be able to explain the time evolution of the kink-antikink dynamics in terms of interactions between their exponentially decaying tails. 
 In this context, it would be interesting to explore the
 potential mathematical relevance of the corresponding
